@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Baggage.cpp" />
+    <ClCompile Include="SmallBag.cpp" />
     <ClCompile Include="Testing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Baggage.h" />
+    <ClInclude Include="SmallBag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
