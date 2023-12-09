@@ -128,11 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Baggage.cpp" />
+    <ClCompile Include="CheckedLuggage.cpp" />
+    <ClCompile Include="HandLuggage.cpp" />
+    <ClCompile Include="Passenger.cpp" />
     <ClCompile Include="SmallBag.cpp" />
     <ClCompile Include="Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baggage.h" />
+    <ClInclude Include="CheckedLuggage.h" />
+    <ClInclude Include="HandLuggage.h" />
+    <ClInclude Include="Passenger.h" />
     <ClInclude Include="SmallBag.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,19 +1,20 @@
 #pragma once
 #include "Baggage.h"
-
-class SmallBag : public Baggage
+class CheckedLuggage : public Baggage
 {
-	bool backpack;
+	int price;
+	double dist;
 public:
-	SmallBag(double weight, const std::vector<int>& size, bool backpack);
-	SmallBag();
+	CheckedLuggage(double weight, const std::vector<int>& size, double dist);
+	CheckedLuggage();
 	std::string display() const override;
 	std::string getType() const override;
 	int getPrice() override;
-	~SmallBag();
+	~CheckedLuggage();
 
 private:
 	void validCheck() override;
 	void setTag() override;
+	int calculatePrice();
 };
 

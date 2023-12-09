@@ -17,9 +17,11 @@ public:
 
 	virtual void setWeight(double newWeight);
 	virtual void setSize(const std::vector<int>& newSize);
-
+	virtual std::string getType() const = 0;
 	virtual void validCheck() = 0;
-	virtual void display() const = 0;
+	virtual int getPrice()  = 0;
+	virtual std::string display() const = 0;
+
 
 	virtual ~Baggage();
 	
