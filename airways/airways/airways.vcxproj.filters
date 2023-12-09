@@ -35,6 +35,12 @@
     <ClInclude Include="SmallBag.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HandLuggage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckedLuggage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -53,6 +59,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SmallBag.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HandLuggage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckedLuggage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
