@@ -64,7 +64,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(259, 148);
+			this->button1->Cursor = System::Windows::Forms::Cursors::Default;
+			this->button1->Location = System::Drawing::Point(93, 79);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 0;
