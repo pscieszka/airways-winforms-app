@@ -35,7 +35,4 @@ std::string Baggage::display() const
 	return std::string();
 }
 
-double Baggage::getWeight() const
-{
-	return weight;
-}
+
