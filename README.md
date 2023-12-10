@@ -2,15 +2,15 @@
 
 #To do
 
-- [ ] wskaźniki i alokacja pamięci
-- [ ] klasy (minimum 3)
+- [X] wskaźniki i alokacja pamięci
+- [X] klasy (minimum 3)
 - [ ] dziedziczenie (wszystkie klasy stworzone przez studenta)
-- [ ] polimorfizm dynamiczny
+- [X] polimorfizm dynamiczny
 - [ ] szablony
 - [ ] przeciążenie metod
 - [ ] przeciążenie operatorów
-- [ ] konstruktory, destruktory (jeżeli potrzebne)
-- [ ] kontenery
+- [X] konstruktory, destruktory (jeżeli potrzebne)
+- [X] kontenery
 - [ ] binarna "baza danych" - zapis i odczyt z pliku
 - [ ] obsługa błędów — wyjątki
 - [ ] parametry wywołania programu
