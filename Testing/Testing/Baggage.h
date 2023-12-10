@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include<string>
+#include <string>
 #include <vector>
 class Baggage
 {
@@ -19,8 +19,11 @@ public:
 	virtual void setSize(const std::vector<int>& newSize);
 	virtual std::string getType() const = 0;
 	virtual void validCheck() = 0;
-	virtual int getPrice()  = 0;
+	virtual int getPrice() const = 0;
+	virtual double getWeight() const;
 	virtual std::string display() const = 0;
+
+
 
 
 	virtual ~Baggage();
