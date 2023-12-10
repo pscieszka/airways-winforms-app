@@ -41,10 +41,13 @@ std::string CheckedLuggage::getType() const
 	}
 }
 
-int CheckedLuggage::getPrice()
+
+int CheckedLuggage::getPrice() const
 {
 	return price;
 }
+
+
 
 CheckedLuggage::~CheckedLuggage()
 {

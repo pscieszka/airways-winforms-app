@@ -35,10 +35,11 @@ std::string SmallBag::getType() const
 	}
 }
 
-int SmallBag::getPrice()
+int SmallBag::getPrice() const
 {
 	return 0;
 }
+
 
 SmallBag::~SmallBag()
 

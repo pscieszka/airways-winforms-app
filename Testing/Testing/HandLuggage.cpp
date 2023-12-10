@@ -40,10 +40,12 @@ std::string HandLuggage::getType() const
 	
 }
 
-int HandLuggage::getPrice()
+int HandLuggage::getPrice() const
 {
 	return 75;
 }
+
+
 
 HandLuggage::~HandLuggage()
 {

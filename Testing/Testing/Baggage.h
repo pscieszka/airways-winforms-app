@@ -8,10 +8,10 @@ protected:
 	static int objsNumber;
 	double weight;
 	std::vector<int> size;
-	std::string tag;
 	bool isValid;
 
 public:
+	std::string tag;
 	Baggage(double weight, const std::vector<int>& size);
 	Baggage();
 
@@ -20,12 +20,8 @@ public:
 	virtual std::string getType() const = 0;
 	virtual void validCheck() = 0;
 	virtual int getPrice() const = 0;
-	virtual double getWeight() const;
 	virtual std::string display() const = 0;
-
-
-
-
+	
 	virtual ~Baggage();
 	
 protected:

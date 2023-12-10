@@ -9,7 +9,7 @@ public:
 	SmallBag();
 	std::string display() const override;
 	std::string getType() const override;
-	int getPrice() override;
+	int getPrice() const override;
 	~SmallBag();
 
 private:
