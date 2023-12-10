@@ -19,6 +19,7 @@ namespace CppCLRWinFormsProject {
 		{
 			InitializeComponent();
 			//
+			
 			//TODO: Add the constructor code here
 			//
 		}
@@ -43,6 +44,9 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::ListBox^ listBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
+
 	protected:
 
 	protected:
@@ -56,6 +60,8 @@ namespace CppCLRWinFormsProject {
 	protected:
 
 	private:
+		
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -77,6 +83,8 @@ namespace CppCLRWinFormsProject {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -155,14 +163,23 @@ namespace CppCLRWinFormsProject {
 			this->listBox1->FormattingEnabled = true;
 			this->listBox1->Location = System::Drawing::Point(214, 12);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(562, 654);
+			this->listBox1->Size = System::Drawing::Size(557, 134);
 			this->listBox1->TabIndex = 9;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(766, 384);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(100, 50);
+			this->pictureBox1->TabIndex = 10;
+			this->pictureBox1->TabStop = false;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(800, 800);
+			this->ClientSize = System::Drawing::Size(1070, 930);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label4);
@@ -174,6 +191,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->label1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

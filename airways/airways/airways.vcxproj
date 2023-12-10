@@ -85,6 +85,7 @@
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -124,6 +125,7 @@
       <AdditionalDependencies />
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <TurnOffAssemblyGeneration>false</TurnOffAssemblyGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
