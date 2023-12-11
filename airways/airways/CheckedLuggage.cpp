@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "CheckedLuggage.h"
 
 CheckedLuggage::CheckedLuggage(double weight, const std::vector<int>& size, double dist) : Baggage(weight, size), dist(dist)
@@ -33,12 +32,12 @@ std::string CheckedLuggage::display() const
 
 CheckedLuggage::~CheckedLuggage()
 {
-	
+
 }
 
 void CheckedLuggage::validCheck()
 {
-	if (weight >20.0) {
+	if (weight > 20.0) {
 		isValid = false;
 	}
 	else {

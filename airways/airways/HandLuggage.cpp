@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "HandLuggage.h"
 
 HandLuggage::HandLuggage(double weight, const std::vector<int>& size) : Baggage(weight, size)
@@ -35,7 +34,7 @@ HandLuggage::~HandLuggage()
 
 void HandLuggage::validCheck()
 {
-	if ((size[0] > 55.0 || size[1] > 40.0 || size[2] > 20.0) || weight>10.0) {
+	if ((size[0] > 55.0 || size[1] > 40.0 || size[2] > 20.0) || weight > 10.0) {
 		isValid = false;
 	}
 	else {

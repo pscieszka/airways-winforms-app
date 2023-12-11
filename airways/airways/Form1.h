@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CppCLRWinFormsProject {
+namespace airways {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -19,7 +19,7 @@ namespace CppCLRWinFormsProject {
 		{
 			InitializeComponent();
 			//
-			
+
 			//TODO: Add the constructor code here
 			//
 		}
@@ -47,6 +47,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
+
 	protected:
 
 	protected:
@@ -60,7 +61,7 @@ namespace CppCLRWinFormsProject {
 	protected:
 
 	private:
-		
+
 
 		/// <summary>
 		/// Required designer variable.
@@ -74,6 +75,7 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -168,9 +170,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(766, 384);
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(53, 173);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(100, 50);
+			this->pictureBox1->Size = System::Drawing::Size(823, 298);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 10;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -197,16 +201,16 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
-	 
 
 
-	
-	
-	
-	
+
+
+
+
+
 	private:
-		
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 
-};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+
+	};
 }

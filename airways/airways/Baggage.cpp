@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "Baggage.h"
 
 int Baggage::objsNumber = 0;
