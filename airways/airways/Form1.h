@@ -38,7 +38,9 @@ namespace airways {
 		}
 	private: System::Windows::Forms::Panel^ panelMenu;
 	private: System::Windows::Forms::Panel^ panelProjName;
-	private: System::Windows::Forms::Label^ labelProjName;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
+
 	protected:
 
 
@@ -92,11 +94,13 @@ namespace airways {
 		
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
 			this->panelProjName = (gcnew System::Windows::Forms::Panel());
-			this->labelProjName = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->panelMenu->SuspendLayout();
 			this->panelProjName->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panelMenu
@@ -114,25 +118,22 @@ namespace airways {
 			// 
 			this->panelProjName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(75)), static_cast<System::Int32>(static_cast<System::Byte>(75)),
 				static_cast<System::Int32>(static_cast<System::Byte>(75)));
-			this->panelProjName->Controls->Add(this->labelProjName);
+			this->panelProjName->Controls->Add(this->pictureBox1);
 			this->panelProjName->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panelProjName->Location = System::Drawing::Point(0, 0);
 			this->panelProjName->Name = L"panelProjName";
 			this->panelProjName->Size = System::Drawing::Size(230, 103);
 			this->panelProjName->TabIndex = 0;
 			// 
-			// labelProjName
+			// pictureBox1
 			// 
-			this->labelProjName->Font = (gcnew System::Drawing::Font(L"Corbel", 27.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->labelProjName->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(214)), static_cast<System::Int32>(static_cast<System::Byte>(214)),
-				static_cast<System::Int32>(static_cast<System::Byte>(214)));
-			this->labelProjName->Location = System::Drawing::Point(0, 0);
-			this->labelProjName->Name = L"labelProjName";
-			this->labelProjName->Size = System::Drawing::Size(230, 103);
-			this->labelProjName->TabIndex = 0;
-			this->labelProjName->Text = L"airways";
-			this->labelProjName->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(230, 103);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
 			// 
 			// Form1
 			// 
@@ -146,6 +147,7 @@ namespace airways {
 			this->Text = L"Form1";
 			this->panelMenu->ResumeLayout(false);
 			this->panelProjName->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -158,6 +160,7 @@ namespace airways {
 
 
 	private:
+
 
 
 
