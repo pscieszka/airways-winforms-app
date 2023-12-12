@@ -43,8 +43,9 @@ namespace airways {
 	private: System::Windows::Forms::Button^ buttonTbd;
 	private: System::Windows::Forms::Button^ buttonShowFlights;
 
-	private: System::Windows::Forms::Button^ buttonHome;
+
 	private: System::Windows::Forms::PictureBox^ pictureBoxBackground;
+	private: System::Windows::Forms::Button^ buttonHome;
 
 
 
@@ -107,8 +108,8 @@ namespace airways {
 			this->buttonShowFlights = (gcnew System::Windows::Forms::Button());
 			this->buttonNewFlight = (gcnew System::Windows::Forms::Button());
 			this->panelProjName = (gcnew System::Windows::Forms::Panel());
-			this->buttonHome = (gcnew System::Windows::Forms::Button());
 			this->pictureBoxBackground = (gcnew System::Windows::Forms::PictureBox());
+			this->buttonHome = (gcnew System::Windows::Forms::Button());
 			this->panelMenu->SuspendLayout();
 			this->panelProjName->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBackground))->BeginInit();
@@ -151,7 +152,7 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->buttonShowFlights->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->buttonShowFlights->Location = System::Drawing::Point(0, 185);
+			this->buttonShowFlights->Location = System::Drawing::Point(0, 179);
 			this->buttonShowFlights->Name = L"buttonShowFlights";
 			this->buttonShowFlights->Size = System::Drawing::Size(230, 79);
 			this->buttonShowFlights->TabIndex = 2;
@@ -184,17 +185,6 @@ namespace airways {
 			this->panelProjName->Size = System::Drawing::Size(230, 100);
 			this->panelProjName->TabIndex = 0;
 			// 
-			// buttonHome
-			// 
-			this->buttonHome->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonHome.BackgroundImage")));
-			this->buttonHome->FlatAppearance->BorderSize = 0;
-			this->buttonHome->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buttonHome->Location = System::Drawing::Point(0, 0);
-			this->buttonHome->Name = L"buttonHome";
-			this->buttonHome->Size = System::Drawing::Size(230, 100);
-			this->buttonHome->TabIndex = 0;
-			this->buttonHome->UseVisualStyleBackColor = true;
-			// 
 			// pictureBoxBackground
 			// 
 			this->pictureBoxBackground->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxBackground.Image")));
@@ -204,6 +194,18 @@ namespace airways {
 			this->pictureBoxBackground->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBoxBackground->TabIndex = 1;
 			this->pictureBoxBackground->TabStop = false;
+			// 
+			// buttonHome
+			// 
+			this->buttonHome->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonHome.BackgroundImage")));
+			this->buttonHome->FlatAppearance->BorderSize = 0;
+			this->buttonHome->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonHome->Location = System::Drawing::Point(0, 0);
+			this->buttonHome->Name = L"buttonHome";
+			this->buttonHome->Size = System::Drawing::Size(230, 100);
+			this->buttonHome->TabIndex = 0;
+			this->buttonHome->UseMnemonic = false;
+			this->buttonHome->UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
