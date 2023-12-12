@@ -19,6 +19,7 @@ namespace airways {
 		{
 			InitializeComponent();
 			//
+			
 
 			//TODO: Add the constructor code here
 			//
@@ -45,6 +46,13 @@ namespace airways {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::ListBox^ listBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::CheckBox^ checkBox2;
+
+
+
+
+
 
 
 
@@ -73,6 +81,8 @@ namespace airways {
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
+		/// 
+		
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
@@ -86,6 +96,8 @@ namespace airways {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -163,7 +175,7 @@ namespace airways {
 			// listBox1
 			// 
 			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(214, 12);
+			this->listBox1->Location = System::Drawing::Point(224, 12);
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(557, 134);
 			this->listBox1->TabIndex = 9;
@@ -171,18 +183,47 @@ namespace airways {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(53, 173);
+			this->pictureBox1->Location = System::Drawing::Point(144, 167);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(823, 298);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pictureBox1->Size = System::Drawing::Size(676, 517);
 			this->pictureBox1->TabIndex = 10;
 			this->pictureBox1->TabStop = false;
+			// 
+			// checkBox1
+			// 
+			this->checkBox1->AutoSize = true;
+			this->checkBox1->BackColor = System::Drawing::Color::Transparent;
+			this->checkBox1->FlatAppearance->BorderSize = 0;
+			this->checkBox1->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
+			this->checkBox1->ForeColor = System::Drawing::Color::Transparent;
+			this->checkBox1->Location = System::Drawing::Point(476, 455);
+			this->checkBox1->Margin = System::Windows::Forms::Padding(0);
+			this->checkBox1->Name = L"checkBox1";
+			this->checkBox1->Size = System::Drawing::Size(15, 14);
+			this->checkBox1->TabIndex = 11;
+			this->checkBox1->UseVisualStyleBackColor = false;
+			// 
+			// checkBox2
+			// 
+			this->checkBox2->AutoSize = true;
+			this->checkBox2->BackColor = System::Drawing::Color::Transparent;
+			this->checkBox2->FlatAppearance->BorderSize = 0;
+			this->checkBox2->FlatAppearance->CheckedBackColor = System::Drawing::Color::Black;
+			this->checkBox2->ForeColor = System::Drawing::Color::Transparent;
+			this->checkBox2->Location = System::Drawing::Point(390, 455);
+			this->checkBox2->Margin = System::Windows::Forms::Padding(0);
+			this->checkBox2->Name = L"checkBox2";
+			this->checkBox2->Size = System::Drawing::Size(15, 14);
+			this->checkBox2->TabIndex = 12;
+			this->checkBox2->UseVisualStyleBackColor = false;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1070, 930);
+			this->ClientSize = System::Drawing::Size(1280, 720);
+			this->Controls->Add(this->checkBox2);
+			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->button1);
@@ -195,6 +236,7 @@ namespace airways {
 			this->Controls->Add(this->label1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::Form1_Paint);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -212,5 +254,19 @@ namespace airways {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 
-	};
+private: System::Void Form1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
+{
+	// Uzyskaj obiekt Graphics do rysowania na formularzu
+	System::Drawing::Graphics^ g = e->Graphics;
+
+	// Pobierz wspó³rzêdne punktów CheckBox1 i CheckBox2
+	System::Drawing::Point point1 = checkBox1->Location;
+	System::Drawing::Point point2 = checkBox2->Location;
+
+	// Rysuj krzyw¹ liniê ³¹cz¹c¹ te dwa punkty
+	array<System::Drawing::Point>^ points = { point1, System::Drawing::Point((point1.X + point2.X) / 2, point1.Y - 50), point2 };
+	g->DrawCurve(System::Drawing::Pens::Green, points);
+}
+
+};
 }
