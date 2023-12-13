@@ -1,5 +1,4 @@
 #pragma once
-
 namespace airways {
 
 	using namespace System;
@@ -14,7 +13,7 @@ namespace airways {
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
-		Form activeForm;
+		Form^ activeForm;
 	public:
 		Form1(void)
 		{
@@ -176,6 +175,7 @@ namespace airways {
 			this->buttonNewFlight->TabIndex = 1;
 			this->buttonNewFlight->Text = L"Create new flight";
 			this->buttonNewFlight->UseVisualStyleBackColor = true;
+			this->buttonNewFlight->Click += gcnew System::EventHandler(this, &Form1::buttonNewFlight_Click);
 			// 
 			// panelProjName
 			// 
@@ -229,21 +229,9 @@ namespace airways {
 
 
 
-
-
-	private:
-
-
-
-
-
-
-
-private: 
-
-
 private: void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 
+private: System::Void buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

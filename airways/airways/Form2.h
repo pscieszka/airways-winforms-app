@@ -1,6 +1,6 @@
 #pragma once
 
-namespace CppCLRWinFormsProject {
+namespace airways {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -12,10 +12,10 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form
+	public ref class Form2 : public System::Windows::Forms::Form
 	{
 	public:
-		Form1(void)
+		Form2(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~Form1()
+		~Form2()
 		{
 			if (components)
 			{
@@ -50,7 +50,7 @@ namespace CppCLRWinFormsProject {
 		{
 			this->components = gcnew System::ComponentModel::Container();
 			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Form1";
+			this->Text = L"Form2";
 			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		}
