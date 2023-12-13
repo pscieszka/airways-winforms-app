@@ -14,6 +14,7 @@ namespace airways {
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
+		Form activeForm;
 	public:
 		Form1(void)
 		{
@@ -44,8 +45,11 @@ namespace airways {
 	private: System::Windows::Forms::Button^ buttonShowFlights;
 
 
-	private: System::Windows::Forms::PictureBox^ pictureBoxBackground;
+
 	private: System::Windows::Forms::Button^ buttonHome;
+	private: System::Windows::Forms::Panel^ panelMain;
+
+
 
 
 
@@ -108,11 +112,10 @@ namespace airways {
 			this->buttonShowFlights = (gcnew System::Windows::Forms::Button());
 			this->buttonNewFlight = (gcnew System::Windows::Forms::Button());
 			this->panelProjName = (gcnew System::Windows::Forms::Panel());
-			this->pictureBoxBackground = (gcnew System::Windows::Forms::PictureBox());
 			this->buttonHome = (gcnew System::Windows::Forms::Button());
+			this->panelMain = (gcnew System::Windows::Forms::Panel());
 			this->panelMenu->SuspendLayout();
 			this->panelProjName->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBackground))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panelMenu
@@ -185,16 +188,6 @@ namespace airways {
 			this->panelProjName->Size = System::Drawing::Size(230, 100);
 			this->panelProjName->TabIndex = 0;
 			// 
-			// pictureBoxBackground
-			// 
-			this->pictureBoxBackground->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxBackground.Image")));
-			this->pictureBoxBackground->Location = System::Drawing::Point(236, 100);
-			this->pictureBoxBackground->Name = L"pictureBoxBackground";
-			this->pictureBoxBackground->Size = System::Drawing::Size(1025, 581);
-			this->pictureBoxBackground->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pictureBoxBackground->TabIndex = 1;
-			this->pictureBoxBackground->TabStop = false;
-			// 
 			// buttonHome
 			// 
 			this->buttonHome->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"buttonHome.BackgroundImage")));
@@ -207,6 +200,13 @@ namespace airways {
 			this->buttonHome->UseMnemonic = false;
 			this->buttonHome->UseVisualStyleBackColor = true;
 			// 
+			// panelMain
+			// 
+			this->panelMain->Location = System::Drawing::Point(225, 2);
+			this->panelMain->Name = L"panelMain";
+			this->panelMain->Size = System::Drawing::Size(1038, 678);
+			this->panelMain->TabIndex = 1;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -214,13 +214,12 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1264, 681);
-			this->Controls->Add(this->pictureBoxBackground);
+			this->Controls->Add(this->panelMain);
 			this->Controls->Add(this->panelMenu);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->panelMenu->ResumeLayout(false);
 			this->panelProjName->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBackground))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -238,6 +237,12 @@ namespace airways {
 
 
 
+
+
+private: 
+
+
+private: void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 
 };
