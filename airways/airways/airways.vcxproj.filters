@@ -50,13 +50,8 @@
     <ClInclude Include="CheckedLuggage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Form2.h">
+    <ClInclude Include="Map1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Form2.resx">
-      <Filter>Header Files</Filter>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>

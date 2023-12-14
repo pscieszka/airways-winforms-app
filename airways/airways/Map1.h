@@ -12,10 +12,10 @@ namespace airways {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
-	public ref class Form2 : public System::Windows::Forms::Form
+	public ref class Map1 : public System::Windows::Forms::Form
 	{
 	public:
-		Form2(void)
+		Map1(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +27,7 @@ namespace airways {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~Form2()
+		~Map1()
 		{
 			if (components)
 			{
@@ -49,8 +49,8 @@ namespace airways {
 		void InitializeComponent(void)
 		{
 			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Form2";
+			this->Size = System::Drawing::Size(1035, 680);
+			this->Text = L"Map1";
 			this->Padding = System::Windows::Forms::Padding(0);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		}

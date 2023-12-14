@@ -3,7 +3,7 @@
 #include "SmallBag.h"
 #include "HandLuggage.h"
 #include "Form1.h"
-#include "Form2.h"
+#include "Map1.h"
 
 
 
@@ -26,6 +26,6 @@ void airways::Form1::OpenChildForm(Form^ childForm, Object^ btnSender)
 
 System::Void airways::Form1::buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    Form2^ form2 = gcnew Form2(); 
-    OpenChildForm(form2, sender);
+    Map1^ map1 = gcnew Map1();
+    OpenChildForm(map1, sender);
 }

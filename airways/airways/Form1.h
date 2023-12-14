@@ -202,9 +202,9 @@ namespace airways {
 			// 
 			// panelMain
 			// 
-			this->panelMain->Location = System::Drawing::Point(225, 2);
+			this->panelMain->Location = System::Drawing::Point(230, 0);
 			this->panelMain->Name = L"panelMain";
-			this->panelMain->Size = System::Drawing::Size(1038, 678);
+			this->panelMain->Size = System::Drawing::Size(1035, 680);
 			this->panelMain->TabIndex = 1;
 			// 
 			// Form1
