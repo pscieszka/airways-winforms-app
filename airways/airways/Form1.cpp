@@ -17,7 +17,7 @@ void airways::Form1::OpenChildForm(Form^ childForm, Object^ btnSender)
     childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
     childForm->Dock = System::Windows::Forms::DockStyle::Fill;
 
-    this->panelMain->Controls->Clear(); // Clear existing controls in the panel
+    this->panelMain->Controls->Clear(); 
     this->panelMain->Controls->Add(childForm);
     this->panelMain->Tag = childForm;
     childForm->BringToFront();
