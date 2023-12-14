@@ -131,6 +131,7 @@
     <ClCompile Include="HandLuggage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Form1.cpp" />
+    <ClCompile Include="Map1.cpp" />
     <ClCompile Include="SmallBag.cpp" />
   </ItemGroup>
   <ItemGroup>

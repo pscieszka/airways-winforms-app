@@ -35,6 +35,9 @@ namespace airways {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ Warsaw;
+
+
 	protected:
 
 	protected:
@@ -44,6 +47,7 @@ namespace airways {
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+	
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -54,6 +58,7 @@ namespace airways {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Map1::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->Warsaw = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -66,11 +71,25 @@ namespace airways {
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
+			// Warsaw
+			// 
+			this->Warsaw->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
+				static_cast<System::Int32>(static_cast<System::Byte>(172)));
+			this->Warsaw->FlatAppearance->BorderSize = 0;
+			this->Warsaw->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Warsaw->Location = System::Drawing::Point(638, 262);
+			this->Warsaw->Name = L"Warsaw";
+			this->Warsaw->Size = System::Drawing::Size(25, 25);
+			this->Warsaw->TabIndex = 1;
+			this->Warsaw->UseVisualStyleBackColor = false;
+			this->Warsaw->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::button1_Paint);
+			// 
 			// Map1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->Warsaw);
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"Map1";
 			this->Text = L"Map1";
@@ -79,5 +98,11 @@ namespace airways {
 
 		}
 #pragma endregion
+	private: System::Void circleButton(System::Windows::Forms::Control^ control);
+	private: System::Void button1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+	
+		
+	
+	
 	};
 }

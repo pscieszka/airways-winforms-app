@@ -33,6 +33,9 @@
     <ClCompile Include="CheckedLuggage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Map1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h">
