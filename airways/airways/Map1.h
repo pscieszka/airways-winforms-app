@@ -40,6 +40,15 @@ namespace airways {
 	private: System::Windows::Forms::Button^ Paris;
 	private: System::Windows::Forms::Button^ Madrid;
 	private: System::Windows::Forms::Button^ London;
+	private: System::Windows::Forms::Label^ labelWarsaw;
+	private: System::Windows::Forms::Label^ labelBerlin;
+	private: System::Windows::Forms::Label^ labelParis;
+	private: System::Windows::Forms::Label^ labelMadrid;
+
+
+
+	private: System::Windows::Forms::Label^ label5;
+
 
 
 
@@ -73,6 +82,11 @@ namespace airways {
 			this->Paris = (gcnew System::Windows::Forms::Button());
 			this->Madrid = (gcnew System::Windows::Forms::Button());
 			this->London = (gcnew System::Windows::Forms::Button());
+			this->labelWarsaw = (gcnew System::Windows::Forms::Label());
+			this->labelBerlin = (gcnew System::Windows::Forms::Label());
+			this->labelParis = (gcnew System::Windows::Forms::Label());
+			this->labelMadrid = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -144,18 +158,103 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(172)));
 			this->London->FlatAppearance->BorderSize = 0;
 			this->London->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->London->Location = System::Drawing::Point(263, 284);
+			this->London->Location = System::Drawing::Point(260, 272);
 			this->London->Name = L"London";
 			this->London->Size = System::Drawing::Size(25, 25);
 			this->London->TabIndex = 5;
 			this->London->UseVisualStyleBackColor = false;
 			this->London->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::London_Paint);
 			// 
+			// labelWarsaw
+			// 
+			this->labelWarsaw->AutoSize = true;
+			this->labelWarsaw->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelWarsaw->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->labelWarsaw->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelWarsaw->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
+				static_cast<System::Int32>(static_cast<System::Byte>(172)));
+			this->labelWarsaw->Location = System::Drawing::Point(617, 296);
+			this->labelWarsaw->Name = L"labelWarsaw";
+			this->labelWarsaw->Size = System::Drawing::Size(62, 16);
+			this->labelWarsaw->TabIndex = 6;
+			this->labelWarsaw->Text = L"Warsaw";
+			// 
+			// labelBerlin
+			// 
+			this->labelBerlin->AutoSize = true;
+			this->labelBerlin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelBerlin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->labelBerlin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelBerlin->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
+				static_cast<System::Int32>(static_cast<System::Byte>(172)));
+			this->labelBerlin->Location = System::Drawing::Point(488, 312);
+			this->labelBerlin->Name = L"labelBerlin";
+			this->labelBerlin->Size = System::Drawing::Size(47, 16);
+			this->labelBerlin->TabIndex = 7;
+			this->labelBerlin->Text = L"Berlin";
+			// 
+			// labelParis
+			// 
+			this->labelParis->AutoSize = true;
+			this->labelParis->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelParis->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->labelParis->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelParis->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
+				static_cast<System::Int32>(static_cast<System::Byte>(172)));
+			this->labelParis->Location = System::Drawing::Point(317, 431);
+			this->labelParis->Name = L"labelParis";
+			this->labelParis->Size = System::Drawing::Size(43, 16);
+			this->labelParis->TabIndex = 8;
+			this->labelParis->Text = L"Paris";
+			// 
+			// labelMadrid
+			// 
+			this->labelMadrid->AutoSize = true;
+			this->labelMadrid->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelMadrid->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->labelMadrid->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelMadrid->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
+				static_cast<System::Int32>(static_cast<System::Byte>(172)));
+			this->labelMadrid->Location = System::Drawing::Point(159, 609);
+			this->labelMadrid->Name = L"labelMadrid";
+			this->labelMadrid->Size = System::Drawing::Size(55, 16);
+			this->labelMadrid->TabIndex = 9;
+			this->labelMadrid->Text = L"Madrid";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->label5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
+				static_cast<System::Int32>(static_cast<System::Byte>(172)));
+			this->label5->Location = System::Drawing::Point(240, 300);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(58, 16);
+			this->label5->TabIndex = 10;
+			this->label5->Text = L"London";
+			// 
 			// Map1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->labelMadrid);
+			this->Controls->Add(this->labelParis);
+			this->Controls->Add(this->labelBerlin);
+			this->Controls->Add(this->labelWarsaw);
 			this->Controls->Add(this->London);
 			this->Controls->Add(this->Madrid);
 			this->Controls->Add(this->Paris);
@@ -166,6 +265,7 @@ namespace airways {
 			this->Text = L"Map1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -180,5 +280,6 @@ namespace airways {
 		
 	
 	
-	};
+	
+};
 }
