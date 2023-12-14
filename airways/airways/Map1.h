@@ -111,6 +111,7 @@ namespace airways {
 			this->Warsaw->TabIndex = 1;
 			this->Warsaw->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->Warsaw->UseVisualStyleBackColor = false;
+			this->Warsaw->Click += gcnew System::EventHandler(this, &Map1::Warsaw_Click);
 			this->Warsaw->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Warsaw_Paint);
 			// 
 			// Berlin
@@ -281,5 +282,7 @@ namespace airways {
 	
 	
 	
+private: System::Void Warsaw_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }
