@@ -42,14 +42,14 @@ System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventAr
 		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
 		
 		this->Warsaw->BackColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(0)), 
-			static_cast<System::Int32>(static_cast<System::Byte>(17)),
-			static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			static_cast<System::Int32>(static_cast<System::Byte>(255)), 
+			static_cast<System::Int32>(static_cast<System::Byte>(143)),
+			static_cast<System::Int32>(static_cast<System::Byte>(17)));
 
 		this->labelWarsaw->ForeColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(0)),
-			static_cast<System::Int32>(static_cast<System::Byte>(17)),
-			static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			static_cast<System::Int32>(static_cast<System::Byte>(143)),
+			static_cast<System::Int32>(static_cast<System::Byte>(17)));
 	}
 	else {
 		this->Warsaw->BackColor = System::Drawing::Color::FromArgb(
@@ -64,5 +64,4 @@ System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventAr
 	}
 	
 }
-
 

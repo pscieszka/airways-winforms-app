@@ -181,6 +181,7 @@ namespace airways {
 			this->labelWarsaw->Size = System::Drawing::Size(62, 16);
 			this->labelWarsaw->TabIndex = 6;
 			this->labelWarsaw->Text = L"Warsaw";
+			
 			// 
 			// labelBerlin
 			// 
@@ -265,7 +266,11 @@ namespace airways {
 			this->Name = L"Map1";
 			this->Text = L"Map1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->Warsaw->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Warsaw_Paint);
+			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Map1_Paint);
+
 			this->ResumeLayout(false);
+		
 			this->PerformLayout();
 
 		}
@@ -277,7 +282,14 @@ namespace airways {
 	System::Void Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 	System::Void Madrid_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 	System::Void London_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	
+	private: System::Void Map1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+		// Rysowanie szarej linii miêdzy przyciskami
+		System::Console::WriteLine("Map1_Paint");
+
+		System::Drawing::Graphics^ g = e->Graphics;
+		System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::Gray, 2);
+		g->DrawLine(pen, Warsaw->Right, Warsaw->Top + Warsaw->Height / 2, Berlin->Left, Berlin->Top + Berlin->Height / 2);
+	}
 		
 	
 	
