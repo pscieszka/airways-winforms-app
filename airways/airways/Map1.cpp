@@ -114,6 +114,7 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
 		ChangeCityColor(button, label);
 		buttonsClicked--;
+		buttonArray[buttonsClicked] = nullptr;
 	}
 	else if (buttonsClicked < 2) {
 		
@@ -122,17 +123,31 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 			static_cast<System::Int32>(static_cast<System::Byte>(172)),
 			static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
 			buttonsClicked++;
+			buttonArray[buttonsClicked-1] = button;
 			ChangeCityColor(button, label);
 		}
 		else {
 			buttonsClicked--;
+			buttonArray[buttonsClicked] = nullptr;
+
 			ChangeCityColor(button, label);
 		}
 	}
+	if (buttonsClicked == 2) {
+		if (buttonArray[0] != nullptr && buttonArray[1] != nullptr) {
+
+			pictureBox1_Paint(this->pictureBox1, gcnew System::Windows::Forms::PaintEventArgs(
+				this->pictureBox1->CreateGraphics(), this->pictureBox1->ClientRectangle), buttonArray[0], buttonArray[1]);
+			//tworzy nowy obiekt PaintEventArgs, CreateGraphics dostaje dostep do obiektu Graphics,ktory sluzy do tworzenia grafik,
+			//ClientRectangle to obszar do rysowania
+		}
+		
+	}
+	if (buttonsClicked == 1) {
+		this->pictureBox1->Invalidate();
+		//zawartosc kontrolki jest nieaktualna i czeka na kolejne wywolanie paint
+	}
 	
-
-
-
 }
 
 System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventArgs^ e)
