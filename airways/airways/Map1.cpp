@@ -8,6 +8,19 @@ System::Void airways::Map1::circleButton(System::Windows::Forms::Control^ contro
 	control->Region = gcnew System::Drawing::Region(path);
 }
 
+System::Void airways::Map1::DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth)
+{
+	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(lineColor, lineWidth);
+	pen->StartCap = Drawing2D::LineCap::Round;
+	pen->EndCap = Drawing2D::LineCap::Round;
+
+	// Narysowanie zaokr¹glonej linii ³¹cz¹cej punkty
+	g->DrawBezier(pen, startPoint, controlPoint1, controlPoint2, endPoint);
+
+	// Zwolnienie zasobów
+	delete pen;
+}
+
 System::Void airways::Map1::Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 {
 	circleButton(this->Warsaw);

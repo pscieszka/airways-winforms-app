@@ -1,5 +1,4 @@
 #pragma once
-
 namespace airways {
 
 	using namespace System;
@@ -89,6 +88,7 @@ namespace airways {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
+
 			// 
 			// pictureBox1
 			// 
@@ -98,6 +98,8 @@ namespace airways {
 			this->pictureBox1->Size = System::Drawing::Size(1035, 680);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::pictureBox1_Paint);
+
 			// 
 			// Warsaw
 			// 
@@ -249,6 +251,8 @@ namespace airways {
 			// 
 			// Map1
 			// 
+			
+
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1039, 681);
@@ -267,7 +271,6 @@ namespace airways {
 			this->Text = L"Map1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->Warsaw->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Warsaw_Paint);
-			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Map1_Paint);
 
 			this->ResumeLayout(false);
 		
@@ -277,19 +280,36 @@ namespace airways {
 #pragma endregion
 	private: 
 	System::Void circleButton(System::Windows::Forms::Control^ control);
+	System::Void DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth);
 	System::Void Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
     System::Void Berlin_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 	System::Void Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 	System::Void Madrid_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 	System::Void London_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	private: System::Void Map1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-		// Rysowanie szarej linii miêdzy przyciskami
-		System::Console::WriteLine("Map1_Paint");
+private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	// Rysowanie zakrzywionej i zaokr¹glonej linii miêdzy przyciskami
+	System::Drawing::Graphics^ g = e->Graphics;
+	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::Gray,3);
+	pen->StartCap = Drawing2D::LineCap::Round;
+	pen->EndCap = Drawing2D::LineCap::Round;
 
-		System::Drawing::Graphics^ g = e->Graphics;
-		System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::Gray, 2);
-		g->DrawLine(pen, Warsaw->Right, Warsaw->Top + Warsaw->Height / 2, Berlin->Left, Berlin->Top + Berlin->Height / 2);
-	}
+	// Pobranie œrodków przycisków
+	Point center1 = Point(Warsaw->Left + Warsaw->Width / 2, Warsaw->Top + Warsaw->Height / 2);
+	Point center2 = Point(Berlin->Left + Berlin->Width / 2, Berlin->Top + Berlin->Height / 2);
+
+	// Modyfikacja punktów kontrolnych, aby krzywa by³a zakrzywiona w górê
+	int midX = (center1.X + center2.X) / 2;
+	Point controlPoint1 = Point(midX, center1.Y - 10);  // Adjust the value (-50) to control the upward curvature
+	Point controlPoint2 = Point(midX, center2.Y - 10);
+
+	// Narysowanie zaokr¹glonej linii ³¹cz¹cej œrodki przycisków
+	g->DrawBezier(pen, center1, controlPoint1, controlPoint2, center2);
+
+	// Zwolnienie zasobów
+	delete pen;
+}
+
+
 		
 	
 	
