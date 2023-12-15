@@ -1,4 +1,5 @@
 #include "Map1.h"
+
 System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
 	if (cityButton->BackColor == System::Drawing::Color::FromArgb(
 		static_cast<System::Int32>(static_cast<System::Byte>(172)),
@@ -50,12 +51,15 @@ System::Void airways::Map1::DrawCurvedLine(Graphics^ g, Point startPoint, Point 
 
 System::Void airways::Map1::Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 {
+	
 	circleButton(this->Warsaw);
+
 }
 
 System::Void airways::Map1::Berlin_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 {
 	circleButton(this->Berlin);
+	
 }
 
 System::Void airways::Map1::Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
@@ -87,6 +91,7 @@ System::Void airways::Map1::Milan_Paint(System::Object^ sender, System::Windows:
 
 System::Void airways::Map1::Budapest_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
 {
+
 	circleButton(this->Budapest);
 }
 
@@ -100,15 +105,83 @@ System::Void airways::Map1::Tallinn_Paint(System::Object^ sender, System::Window
 	circleButton(this->Tallinn);
 }
 
+System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
+{
+	
+	if (buttonsClicked == 2 && button->BackColor != System::Drawing::Color::FromArgb(
+		static_cast<System::Int32>(static_cast<System::Byte>(172)),
+		static_cast<System::Int32>(static_cast<System::Byte>(172)),
+		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
+		ChangeCityColor(button, label);
+		buttonsClicked--;
+	}
+	else if (buttonsClicked < 2) {
+		
+		if (button->BackColor == System::Drawing::Color::FromArgb(
+			static_cast<System::Int32>(static_cast<System::Byte>(172)),
+			static_cast<System::Int32>(static_cast<System::Byte>(172)),
+			static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
+			buttonsClicked++;
+			ChangeCityColor(button, label);
+		}
+		else {
+			buttonsClicked--;
+			ChangeCityColor(button, label);
+		}
+	}
+	
+
+
+
+}
+
 System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	ChangeCityColor(Warsaw, labelWarsaw);
-
-	
+	HandleButtonClick(Warsaw, labelWarsaw);
 }
 
 System::Void airways::Map1::Berlin_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	ChangeCityColor(Berlin, labelBerlin);
+	HandleButtonClick(Berlin, labelBerlin);
+}
+
+System::Void airways::Map1::Prague_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Prague, labelPrague);
+}
+
+System::Void airways::Map1::Budapest_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Budapest, labelBudapest);
+}
+
+System::Void airways::Map1::Tallinn_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Tallinn, labelTallinn);
+}
+
+System::Void airways::Map1::London_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(London, labelLondon);
+}
+
+System::Void airways::Map1::Paris_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Paris, labelParis);
+}
+
+System::Void airways::Map1::Madrid_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Madrid, labelMadrid);
+}
+
+System::Void airways::Map1::Milan_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Milan, labelMilan);
+}
+
+System::Void airways::Map1::Ankara_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	HandleButtonClick(Ankara, labelAnkara);
 }
 

@@ -13,13 +13,11 @@ namespace airways {
 	/// </summary>
 	public ref class Map1 : public System::Windows::Forms::Form
 	{
+	private:
 	public:
 		Map1(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
@@ -60,6 +58,11 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelBudapest;
 	private: System::Windows::Forms::Label^ labelAnkara;
 	private: System::Windows::Forms::Label^ labelTallinn;
+	private: System::Int32 buttonsClicked = 0;
+
+
+
+	private:
 
 
 
@@ -79,8 +82,8 @@ namespace airways {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
-	
+		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -302,6 +305,7 @@ namespace airways {
 			this->Ankara->TabIndex = 12;
 			this->Ankara->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->Ankara->UseVisualStyleBackColor = false;
+			this->Ankara->Click += gcnew System::EventHandler(this, &Map1::Ankara_Click);
 			this->Ankara->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Ankara_Paint);
 			// 
 			// Milan
@@ -316,6 +320,7 @@ namespace airways {
 			this->Milan->TabIndex = 13;
 			this->Milan->TextImageRelation = System::Windows::Forms::TextImageRelation::ImageBeforeText;
 			this->Milan->UseVisualStyleBackColor = false;
+			this->Milan->Click += gcnew System::EventHandler(this, &Map1::Milan_Click);
 			this->Milan->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Milan_Paint);
 			// 
 			// Budapest
@@ -462,64 +467,61 @@ namespace airways {
 
 		}
 #pragma endregion
-	private: 
-	System::Void circleButton(System::Windows::Forms::Control^ control);
-	System::Void DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth);
-	System::Void Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-    System::Void Berlin_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Madrid_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void London_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Prague_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Milan_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Budapest_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Ankara_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
-	System::Void Tallinn_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+	private:
+		System::Void circleButton(System::Windows::Forms::Control^ control);
+		System::Void DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth);
+		System::Void Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Berlin_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Madrid_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void London_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Prague_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Milan_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Budapest_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Ankara_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Tallinn_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+		System::Void Map1::HandleButtonClick(Button^ button, Label^ label);
 
-private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-	// Rysowanie zakrzywionej i zaokr¹glonej linii miêdzy przyciskami
-	System::Drawing::Graphics^ g = e->Graphics;
-	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::Gray,3);
-	pen->StartCap = Drawing2D::LineCap::Round;
-	pen->EndCap = Drawing2D::LineCap::Round;
 
-	// Pobranie œrodków przycisków
-	Point center1 = Point(Warsaw->Left + Warsaw->Width / 2, Warsaw->Top + Warsaw->Height / 2);
-	Point center2 = Point(Berlin->Left + Berlin->Width / 2, Berlin->Top + Berlin->Height / 2);
+	private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+		// Rysowanie zakrzywionej i zaokr¹glonej linii miêdzy przyciskami
+		System::Drawing::Graphics^ g = e->Graphics;
+		System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::Gray, 3);
+		pen->StartCap = Drawing2D::LineCap::Round;
+		pen->EndCap = Drawing2D::LineCap::Round;
 
-	// Modyfikacja punktów kontrolnych, aby krzywa by³a zakrzywiona w górê
-	int midX = (center1.X + center2.X) / 2;
-	Point controlPoint1 = Point(midX, center1.Y - 10);  // Adjust the value (-50) to control the upward curvature
-	Point controlPoint2 = Point(midX, center2.Y - 10);
+		// Pobranie œrodków przycisków
+		Point center1 = Point(Warsaw->Left + Warsaw->Width / 2, Warsaw->Top + Warsaw->Height / 2);
+		Point center2 = Point(Berlin->Left + Berlin->Width / 2, Berlin->Top + Berlin->Height / 2);
 
-	// Narysowanie zaokr¹glonej linii ³¹cz¹cej œrodki przycisków
-	g->DrawBezier(pen, center1, controlPoint1, controlPoint2, center2);
+		// Modyfikacja punktów kontrolnych, aby krzywa by³a zakrzywiona w górê
+		int midX = (center1.X + center2.X) / 2;
+		Point controlPoint1 = Point(midX, center1.Y - 10);  // Adjust the value (-50) to control the upward curvature
+		Point controlPoint2 = Point(midX, center2.Y - 10);
 
-	// Zwolnienie zasobów
-	delete pen;
+		// Narysowanie zaokr¹glonej linii ³¹cz¹cej œrodki przycisków
+		g->DrawBezier(pen, center1, controlPoint1, controlPoint2, center2);
+
+		// Zwolnienie zasobów
+		delete pen;
+	}
+
+
+
+	private:
+		System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel);
+		System::Void Warsaw_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Berlin_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Prague_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Budapest_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Tallinn_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void London_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Paris_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Madrid_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Milan_Click(System::Object^ sender, System::EventArgs^ e);
+		System::Void Ankara_Click(System::Object^ sender, System::EventArgs^ e);
+
+
+	};
 }
 
-
-		
-private: System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel);
-
-private: System::Void Warsaw_Click(System::Object^ sender, System::EventArgs^ e);
-
-private: System::Void Berlin_Click(System::Object^ sender, System::EventArgs^ e);
-
-
-
-private: System::Void Prague_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Budapest_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Tallinn_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void London_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Paris_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void Madrid_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-};
-}
