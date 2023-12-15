@@ -74,6 +74,32 @@ System::Void airways::Map1::London_Paint(System::Object^ sender, System::Windows
 
 }
 
+System::Void airways::Map1::Prague_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
+{
+	circleButton(this->Prague);
+
+}
+
+System::Void airways::Map1::Milan_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
+{
+	circleButton(this->Milan);
+}
+
+System::Void airways::Map1::Budapest_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
+{
+	circleButton(this->Budapest);
+}
+
+System::Void airways::Map1::Ankara_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
+{
+	circleButton(this->Ankara);
+}
+
+System::Void airways::Map1::Tallinn_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e)
+{
+	circleButton(this->Tallinn);
+}
+
 System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	ChangeCityColor(Warsaw, labelWarsaw);

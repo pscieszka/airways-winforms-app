@@ -1,0 +1,2 @@
+zmienna globalna clicked = 0,1,2
+jak 2 to tworzy polaczenie jak wiecej niz 2 to nic sie nie dzieje
