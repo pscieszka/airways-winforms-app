@@ -88,7 +88,6 @@ namespace airways {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
-
 			// 
 			// pictureBox1
 			// 
@@ -99,7 +98,6 @@ namespace airways {
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::pictureBox1_Paint);
-
 			// 
 			// Warsaw
 			// 
@@ -127,6 +125,7 @@ namespace airways {
 			this->Berlin->Size = System::Drawing::Size(25, 25);
 			this->Berlin->TabIndex = 2;
 			this->Berlin->UseVisualStyleBackColor = false;
+			this->Berlin->Click += gcnew System::EventHandler(this, &Map1::Berlin_Click);
 			this->Berlin->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Berlin_Paint);
 			// 
 			// Paris
@@ -183,7 +182,6 @@ namespace airways {
 			this->labelWarsaw->Size = System::Drawing::Size(62, 16);
 			this->labelWarsaw->TabIndex = 6;
 			this->labelWarsaw->Text = L"Warsaw";
-			
 			// 
 			// labelBerlin
 			// 
@@ -251,8 +249,6 @@ namespace airways {
 			// 
 			// Map1
 			// 
-			
-
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1039, 681);
@@ -270,10 +266,7 @@ namespace airways {
 			this->Name = L"Map1";
 			this->Text = L"Map1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->Warsaw->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map1::Warsaw_Paint);
-
 			this->ResumeLayout(false);
-		
 			this->PerformLayout();
 
 		}
@@ -311,10 +304,11 @@ private: System::Void pictureBox1_Paint(System::Object^ sender, System::Windows:
 
 
 		
-	
-	
-	
+private: System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel);
+
 private: System::Void Warsaw_Click(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void Berlin_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

@@ -1,5 +1,32 @@
 #include "Map1.h"
+System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
+	if (cityButton->BackColor == System::Drawing::Color::FromArgb(
+		static_cast<System::Int32>(static_cast<System::Byte>(172)),
+		static_cast<System::Int32>(static_cast<System::Byte>(172)),
+		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
 
+		cityButton->BackColor = System::Drawing::Color::FromArgb(
+			static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			static_cast<System::Int32>(static_cast<System::Byte>(143)),
+			static_cast<System::Int32>(static_cast<System::Byte>(17)));
+
+		cityLabel->ForeColor = System::Drawing::Color::FromArgb(
+			static_cast<System::Int32>(static_cast<System::Byte>(255)),
+			static_cast<System::Int32>(static_cast<System::Byte>(143)),
+			static_cast<System::Int32>(static_cast<System::Byte>(17)));
+	}
+	else {
+		cityButton->BackColor = System::Drawing::Color::FromArgb(
+			static_cast<System::Int32>(static_cast<System::Byte>(172)),
+			static_cast<System::Int32>(static_cast<System::Byte>(172)),
+			static_cast<System::Int32>(static_cast<System::Byte>(172)));
+
+		cityLabel->ForeColor = System::Drawing::Color::FromArgb(
+			static_cast<System::Int32>(static_cast<System::Byte>(172)),
+			static_cast<System::Int32>(static_cast<System::Byte>(172)),
+			static_cast<System::Int32>(static_cast<System::Byte>(172)));
+	}
+}
 
 System::Void airways::Map1::circleButton(System::Windows::Forms::Control^ control)
 {
@@ -49,32 +76,13 @@ System::Void airways::Map1::London_Paint(System::Object^ sender, System::Windows
 
 System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	if (this->Warsaw->BackColor == System::Drawing::Color::FromArgb(
-		static_cast<System::Int32>(static_cast<System::Byte>(172)),
-		static_cast<System::Int32>(static_cast<System::Byte>(172)),
-		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
-		
-		this->Warsaw->BackColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(255)), 
-			static_cast<System::Int32>(static_cast<System::Byte>(143)),
-			static_cast<System::Int32>(static_cast<System::Byte>(17)));
+	ChangeCityColor(Warsaw, labelWarsaw);
 
-		this->labelWarsaw->ForeColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(255)),
-			static_cast<System::Int32>(static_cast<System::Byte>(143)),
-			static_cast<System::Int32>(static_cast<System::Byte>(17)));
-	}
-	else {
-		this->Warsaw->BackColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)));
-
-		this->labelWarsaw->ForeColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)));
-	}
 	
+}
+
+System::Void airways::Map1::Berlin_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	ChangeCityColor(Berlin, labelBerlin);
 }
 
