@@ -107,6 +107,7 @@ System::Void airways::Map1::Tallinn_Paint(System::Object^ sender, System::Window
 
 System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 {
+	//te buttony nie dzialaja bo zle usuwam je bo np moge usunac z tablicy na odwrot 0 zamiast
 	
 	if (buttonsClicked == 2 && button->BackColor != System::Drawing::Color::FromArgb(
 		static_cast<System::Int32>(static_cast<System::Byte>(172)),
@@ -148,6 +149,33 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		//zawartosc kontrolki jest nieaktualna i czeka na kolejne wywolanie paint
 	}
 	
+}
+
+System::Void airways::Map1::pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e, System::Windows::Forms::Button^ button1, System::Windows::Forms::Button^ button2)
+{
+	// Rysowanie zakrzywionej i zaokr¹glonej linii miêdzy przyciskami
+	System::Drawing::Graphics^ g = e->Graphics;
+	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::FromArgb(
+		static_cast<System::Int32>(static_cast<System::Byte>(255)),
+		static_cast<System::Int32>(static_cast<System::Byte>(143)),
+		static_cast<System::Int32>(static_cast<System::Byte>(17))), 3);
+	pen->StartCap = Drawing2D::LineCap::Round;
+	pen->EndCap = Drawing2D::LineCap::Round;
+
+	// Pobranie œrodków przycisków
+	Point center1 = Point(button1->Left + button1->Width / 2, button1->Top + button1->Height / 2);
+	Point center2 = Point(button2->Left + button2->Width / 2, button2->Top + button2->Height / 2);
+
+	// Modyfikacja punktów kontrolnych, aby krzywa by³a zakrzywiona w górê
+	int midX = (center1.X + center2.X) / 2;
+	Point controlPoint1 = Point(midX, center1.Y - 10);  // Adjust the value (-10) to control the upward curvature
+	Point controlPoint2 = Point(midX, center2.Y - 10);
+
+	// Narysowanie zaokr¹glonej linii ³¹cz¹cej œrodki przycisków
+	g->DrawBezier(pen, center1, controlPoint1, controlPoint2, center2);
+
+	// Zwolnienie zasobów
+	delete pen;
 }
 
 System::Void airways::Map1::Warsaw_Click(System::Object^ sender, System::EventArgs^ e)
