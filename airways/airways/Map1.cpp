@@ -1,31 +1,17 @@
 #include "Map1.h"
 
 System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
-	if (cityButton->BackColor == System::Drawing::Color::FromArgb(
-		static_cast<System::Int32>(static_cast<System::Byte>(172)),
-		static_cast<System::Int32>(static_cast<System::Byte>(172)),
-		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
+	if (cityButton->BackColor == System::Drawing::Color::FromArgb(172, 172, 172)){
 
-		cityButton->BackColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(255)),
-			static_cast<System::Int32>(static_cast<System::Byte>(143)),
-			static_cast<System::Int32>(static_cast<System::Byte>(17)));
 
-		cityLabel->ForeColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(255)),
-			static_cast<System::Int32>(static_cast<System::Byte>(143)),
-			static_cast<System::Int32>(static_cast<System::Byte>(17)));
+		cityButton->BackColor = System::Drawing::Color::FromArgb(255, 143, 17);
+		cityLabel->ForeColor = System::Drawing::Color::FromArgb(255, 143, 17);
+
 	}
 	else {
-		cityButton->BackColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)));
-
-		cityLabel->ForeColor = System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)));
+		cityButton->BackColor = System::Drawing::Color::FromArgb(172, 172, 172);
+	
+		cityLabel->ForeColor = System::Drawing::Color::FromArgb(172, 172, 172);
 	}
 }
 
@@ -109,10 +95,8 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 {
 	//te buttony nie dzialaja bo zle usuwam je bo np moge usunac z tablicy na odwrot 0 zamiast
 	
-	if (buttonsClicked == 2 && button->BackColor != System::Drawing::Color::FromArgb(
-		static_cast<System::Int32>(static_cast<System::Byte>(172)),
-		static_cast<System::Int32>(static_cast<System::Byte>(172)),
-		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
+	if (buttonsClicked == 2 && button->BackColor != System::Drawing::Color::FromArgb(172,172,172))
+		 {
 		ChangeCityColor(button, label);
 		buttonsClicked--;
 		if (buttonArray[buttonsClicked] != button) {
@@ -125,10 +109,7 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 	}
 	else if (buttonsClicked < 2) {
 		
-		if (button->BackColor == System::Drawing::Color::FromArgb(
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)),
-			static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
+		if (button->BackColor == System::Drawing::Color::FromArgb(172,172,172)){
 			buttonsClicked++;
 			buttonArray[buttonsClicked-1] = button;
 			ChangeCityColor(button, label);
@@ -161,10 +142,7 @@ System::Void airways::Map1::pictureBox1_Paint(System::Object^ sender, System::Wi
 {
 	// Rysowanie zakrzywionej i zaokr¹glonej linii miêdzy przyciskami
 	System::Drawing::Graphics^ g = e->Graphics;
-	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::FromArgb(
-		static_cast<System::Int32>(static_cast<System::Byte>(255)),
-		static_cast<System::Int32>(static_cast<System::Byte>(143)),
-		static_cast<System::Int32>(static_cast<System::Byte>(17))), 3);
+	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(System::Drawing::Color::FromArgb(255, 143, 17), 3);
 	pen->StartCap = Drawing2D::LineCap::Round;
 	pen->EndCap = Drawing2D::LineCap::Round;
 
