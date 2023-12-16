@@ -115,7 +115,13 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		static_cast<System::Int32>(static_cast<System::Byte>(172)))) {
 		ChangeCityColor(button, label);
 		buttonsClicked--;
-		buttonArray[buttonsClicked] = nullptr;
+		if (buttonArray[buttonsClicked] != button) {
+			buttonArray[buttonsClicked - 1] = buttonArray[buttonsClicked];
+			buttonArray[buttonsClicked] = nullptr;
+		}
+		else {
+			buttonArray[buttonsClicked] = nullptr;
+		}
 	}
 	else if (buttonsClicked < 2) {
 		
@@ -168,11 +174,12 @@ System::Void airways::Map1::pictureBox1_Paint(System::Object^ sender, System::Wi
 
 	// Modyfikacja punktów kontrolnych, aby krzywa by³a zakrzywiona w górê
 	int midX = (center1.X + center2.X) / 2;
-	Point controlPoint1 = Point(midX, center1.Y - 10);  // Adjust the value (-10) to control the upward curvature
-	Point controlPoint2 = Point(midX, center2.Y - 10);
+	int midY = (center1.Y + center2.Y) / 2;
+	Point controlPoint = Point(midX, midY - 10);
+	
 
 	// Narysowanie zaokr¹glonej linii ³¹cz¹cej œrodki przycisków
-	g->DrawBezier(pen, center1, controlPoint1, controlPoint2, center2);
+	g->DrawBezier(pen, center1, controlPoint, controlPoint, center2);
 
 	// Zwolnienie zasobów
 	delete pen;
