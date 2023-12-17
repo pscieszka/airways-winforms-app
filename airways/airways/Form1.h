@@ -214,7 +214,7 @@ namespace airways {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
-			this->ClientSize = System::Drawing::Size(1264, 681);
+			this->ClientSize = System::Drawing::Size(1264, 679);
 			this->Controls->Add(this->panelMain);
 			this->Controls->Add(this->panelMenu);
 			this->Name = L"Form1";
