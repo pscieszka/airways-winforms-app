@@ -233,6 +233,8 @@ namespace airways {
 private: void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 
+
 private: System::Void buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

@@ -10,22 +10,41 @@
 void airways::Form1::OpenChildForm(Form^ childForm, Object^ btnSender)
 {
     if (activeForm != nullptr)
+    {
+        //jezeli jest juz aktywny form tego samego typu to nic nie robimy
+        if (activeForm->GetType() == childForm->GetType())
+            return;
+        //jezeli istnieje innego typu to zamykamy go
         activeForm->Close();
-
+    }
+    //ustawiamy nowy form jako aktywny
     activeForm = childForm;
+    //nie jest glownym oknem aplikacji
     childForm->TopLevel = false;
+    //brak obramowania
     childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+    //ma wypelniac caly panel 
     childForm->Dock = System::Windows::Forms::DockStyle::Fill;
-
-    this->panelMain->Controls->Clear(); 
+    //czyscimy panel glowny
+    this->panelMain->Controls->Clear();
+    //dodajemy nowy form do panelu
     this->panelMain->Controls->Add(childForm);
     this->panelMain->Tag = childForm;
+    //ustawiamy form na pierwszy plan i wyswietlamy
     childForm->BringToFront();
     childForm->Show();
 }
 
+
 System::Void airways::Form1::buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    Map1^ map1 = gcnew Map1();
+  
+
+     Map1^ map1 = gcnew Map1();
+   
+
+    // Otwórz formularz
     OpenChildForm(map1, sender);
 }
+
+
