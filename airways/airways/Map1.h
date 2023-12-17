@@ -62,7 +62,18 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelAnkara;
 	private: System::Windows::Forms::Label^ labelTallinn;
 	private: System::Int32 buttonsClicked = 0;
-	
+	private: System::Windows::Forms::Panel^ confirmationPanel;
+	private: System::Windows::Forms::Label^ labelDistance;
+	private: System::Windows::Forms::Label^ labelDestination;
+	private: System::Windows::Forms::Label^ labelDeparture;
+	private: System::Windows::Forms::Label^ Distance;
+	private: System::Windows::Forms::Label^ Destination;
+	private: System::Windows::Forms::Label^ Departure;
+
+
+	private: System::Windows::Forms::Button^ buttonConfirm;
+
+
 
 
 
@@ -120,7 +131,16 @@ namespace airways {
 			this->labelBudapest = (gcnew System::Windows::Forms::Label());
 			this->labelAnkara = (gcnew System::Windows::Forms::Label());
 			this->labelTallinn = (gcnew System::Windows::Forms::Label());
+			this->confirmationPanel = (gcnew System::Windows::Forms::Panel());
+			this->buttonConfirm = (gcnew System::Windows::Forms::Button());
+			this->Distance = (gcnew System::Windows::Forms::Label());
+			this->Destination = (gcnew System::Windows::Forms::Label());
+			this->Departure = (gcnew System::Windows::Forms::Label());
+			this->labelDistance = (gcnew System::Windows::Forms::Label());
+			this->labelDestination = (gcnew System::Windows::Forms::Label());
+			this->labelDeparture = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->confirmationPanel->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -438,11 +458,121 @@ namespace airways {
 			this->labelTallinn->TabIndex = 20;
 			this->labelTallinn->Text = L"Tallinn";
 			// 
+			// confirmationPanel
+			// 
+			this->confirmationPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->confirmationPanel->Controls->Add(this->buttonConfirm);
+			this->confirmationPanel->Controls->Add(this->Distance);
+			this->confirmationPanel->Controls->Add(this->Destination);
+			this->confirmationPanel->Controls->Add(this->Departure);
+			this->confirmationPanel->Controls->Add(this->labelDistance);
+			this->confirmationPanel->Controls->Add(this->labelDestination);
+			this->confirmationPanel->Controls->Add(this->labelDeparture);
+			this->confirmationPanel->Location = System::Drawing::Point(0, 0);
+			this->confirmationPanel->Name = L"confirmationPanel";
+			this->confirmationPanel->Size = System::Drawing::Size(550, 100);
+			this->confirmationPanel->TabIndex = 21;
+			// 
+			// buttonConfirm
+			// 
+			this->buttonConfirm->Location = System::Drawing::Point(443, 65);
+			this->buttonConfirm->Name = L"buttonConfirm";
+			this->buttonConfirm->Size = System::Drawing::Size(93, 21);
+			this->buttonConfirm->TabIndex = 27;
+			this->buttonConfirm->Text = L"Confirm";
+			this->buttonConfirm->UseVisualStyleBackColor = true;
+			// 
+			// Distance
+			// 
+			this->Distance->AutoSize = true;
+			this->Distance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->Distance->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->Distance->Location = System::Drawing::Point(334, 63);
+			this->Distance->Name = L"Distance";
+			this->Distance->Size = System::Drawing::Size(98, 24);
+			this->Distance->TabIndex = 26;
+			this->Distance->Text = L"________";
+			// 
+			// Destination
+			// 
+			this->Destination->AutoSize = true;
+			this->Destination->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->Destination->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->Destination->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->Destination->Location = System::Drawing::Point(183, 63);
+			this->Destination->Name = L"Destination";
+			this->Destination->Size = System::Drawing::Size(98, 24);
+			this->Destination->TabIndex = 25;
+			this->Destination->Text = L"________";
+			// 
+			// Departure
+			// 
+			this->Departure->AutoSize = true;
+			this->Departure->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->Departure->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->Departure->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->Departure->Location = System::Drawing::Point(35, 63);
+			this->Departure->Name = L"Departure";
+			this->Departure->Size = System::Drawing::Size(98, 24);
+			this->Departure->TabIndex = 24;
+			this->Departure->Text = L"________";
+			// 
+			// labelDistance
+			// 
+			this->labelDistance->AutoSize = true;
+			this->labelDistance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDistance->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDistance->Location = System::Drawing::Point(334, 14);
+			this->labelDistance->Name = L"labelDistance";
+			this->labelDistance->Size = System::Drawing::Size(90, 24);
+			this->labelDistance->TabIndex = 23;
+			this->labelDistance->Text = L"Distance";
+			// 
+			// labelDestination
+			// 
+			this->labelDestination->AutoSize = true;
+			this->labelDestination->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDestination->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDestination->Location = System::Drawing::Point(179, 14);
+			this->labelDestination->Name = L"labelDestination";
+			this->labelDestination->Size = System::Drawing::Size(113, 24);
+			this->labelDestination->TabIndex = 22;
+			this->labelDestination->Text = L"Destination";
+			// 
+			// labelDeparture
+			// 
+			this->labelDeparture->AutoSize = true;
+			this->labelDeparture->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->labelDeparture->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDeparture->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDeparture->Location = System::Drawing::Point(35, 14);
+			this->labelDeparture->Name = L"labelDeparture";
+			this->labelDeparture->Size = System::Drawing::Size(102, 24);
+			this->labelDeparture->TabIndex = 0;
+			this->labelDeparture->Text = L"Departure";
+			// 
 			// Map1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->confirmationPanel);
 			this->Controls->Add(this->labelTallinn);
 			this->Controls->Add(this->labelAnkara);
 			this->Controls->Add(this->labelBudapest);
@@ -467,6 +597,8 @@ namespace airways {
 			this->Name = L"Map1";
 			this->Text = L"Map1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->confirmationPanel->ResumeLayout(false);
+			this->confirmationPanel->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -508,6 +640,8 @@ namespace airways {
 		System::Void Ankara_Click(System::Object^ sender, System::EventArgs^ e);
 
 
-	};
+	
+
+};
 }
 

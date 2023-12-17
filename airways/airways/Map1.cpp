@@ -93,7 +93,7 @@ System::Void airways::Map1::Tallinn_Paint(System::Object^ sender, System::Window
 
 System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 {
-	//te buttony nie dzialaja bo zle usuwam je bo np moge usunac z tablicy na odwrot 0 zamiast
+	//te buttony nie dzialaja bo zle usuwam je bo np moge usunac z tablicy na odwrot 0 zamiast , fixed?
 	
 	if (buttonsClicked == 2 && button->BackColor != System::Drawing::Color::FromArgb(172,172,172))
 		 {
@@ -135,6 +135,25 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		this->pictureBox1->Invalidate();
 		//zawartosc kontrolki jest nieaktualna i czeka na kolejne wywolanie paint
 	}
+	// wpisywanie miast w panelConfirmation
+	if (buttonArray[0] != nullptr) {
+		this->Departure->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
+		this->Departure->Text = buttonArray[0]->Name;
+	}
+	else {
+		this->Departure->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+		this->Departure->Text = "________";
+	}
+	if (buttonArray[1] != nullptr) {
+		this->Destination->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
+		this->Destination->Text = buttonArray[1]->Name;
+		
+	}
+	else {
+		this->Destination->ForeColor = System::Drawing::Color::FromArgb(153,153,153);
+		this->Destination->Text = "________";
+	}
+	
 	
 }
 
