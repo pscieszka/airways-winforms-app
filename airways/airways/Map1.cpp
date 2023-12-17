@@ -1,4 +1,5 @@
 #include "Map1.h"
+#include "math.h"
 
 System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
 	if (cityButton->BackColor == System::Drawing::Color::FromArgb(172, 172, 172)){
@@ -13,6 +14,16 @@ System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cit
 	
 		cityLabel->ForeColor = System::Drawing::Color::FromArgb(172, 172, 172);
 	}
+}
+
+System::Void airways::Map1::calculateDistance(Button^ button1, Button^ button2)
+{
+	this->Distance->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
+
+	Point center1 = Point(button1->Left + button1->Width / 2, button1->Top + button1->Height / 2);
+	Point center2 = Point(button2->Left + button2->Width / 2, button2->Top + button2->Height / 2);
+	int distance = sqrt((center1.X - center2.X) * (center1.X - center2.X) + (center1.Y - center2.Y) * (center1.Y - center2.Y))*3.98;
+	this->Distance->Text = System::Convert::ToString(distance) + " km";
 }
 
 System::Void airways::Map1::circleButton(System::Windows::Forms::Control^ control)
@@ -109,6 +120,7 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 	}
 	else if (buttonsClicked < 2) {
 		
+
 		if (button->BackColor == System::Drawing::Color::FromArgb(172,172,172)){
 			buttonsClicked++;
 			buttonArray[buttonsClicked-1] = button;
@@ -123,6 +135,7 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 	}
 	if (buttonsClicked == 2) {
 		if (buttonArray[0] != nullptr && buttonArray[1] != nullptr) {
+			calculateDistance(buttonArray[0], buttonArray[1]);
 
 			pictureBox1_Paint(this->pictureBox1, gcnew System::Windows::Forms::PaintEventArgs(
 				this->pictureBox1->CreateGraphics(), this->pictureBox1->ClientRectangle), buttonArray[0], buttonArray[1]);
@@ -142,7 +155,9 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 	}
 	else {
 		this->Departure->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+		this->Distance->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
 		this->Departure->Text = "________";
+		this->Distance->Text = "________";
 	}
 	if (buttonArray[1] != nullptr) {
 		this->Destination->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
@@ -151,7 +166,9 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 	}
 	else {
 		this->Destination->ForeColor = System::Drawing::Color::FromArgb(153,153,153);
+		this->Distance->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
 		this->Destination->Text = "________";
+		this->Distance->Text = "________";
 	}
 	
 	

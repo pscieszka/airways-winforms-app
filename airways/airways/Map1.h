@@ -187,7 +187,7 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(172)));
 			this->Paris->FlatAppearance->BorderSize = 0;
 			this->Paris->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Paris->Location = System::Drawing::Point(325, 403);
+			this->Paris->Location = System::Drawing::Point(310, 375);
 			this->Paris->Name = L"Paris";
 			this->Paris->Size = System::Drawing::Size(25, 25);
 			this->Paris->TabIndex = 3;
@@ -265,7 +265,7 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->labelParis->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(172)),
 				static_cast<System::Int32>(static_cast<System::Byte>(172)));
-			this->labelParis->Location = System::Drawing::Point(317, 431);
+			this->labelParis->Location = System::Drawing::Point(300, 403);
 			this->labelParis->Name = L"labelParis";
 			this->labelParis->Size = System::Drawing::Size(43, 16);
 			this->labelParis->TabIndex = 8;
@@ -605,6 +605,7 @@ namespace airways {
 		}
 #pragma endregion
 	private:
+		System::Void calculateDistance(Button^ button1, Button^ button2);
 		System::Void circleButton(System::Windows::Forms::Control^ control);
 		System::Void DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth);
 		System::Void Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
