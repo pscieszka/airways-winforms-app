@@ -179,7 +179,7 @@ namespace airways {
 			this->buttonNewFlight->Click += gcnew System::EventHandler(this, &Form1::buttonNewFlight_Click);
 			// 
 			// panelProjName
-			// 
+			// cho
 			this->panelProjName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(75)), static_cast<System::Int32>(static_cast<System::Byte>(75)),
 				static_cast<System::Int32>(static_cast<System::Byte>(75)));
 			this->panelProjName->Controls->Add(this->buttonHome);

@@ -136,6 +136,11 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 	if (buttonsClicked == 2) {
 		if (buttonArray[0] != nullptr && buttonArray[1] != nullptr) {
 			calculateDistance(buttonArray[0], buttonArray[1]);
+			this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
+			this->confirmMask->Visible = false;
+
+			this->buttonConfirm->Enabled = true;
+
 
 			pictureBox1_Paint(this->pictureBox1, gcnew System::Windows::Forms::PaintEventArgs(
 				this->pictureBox1->CreateGraphics(), this->pictureBox1->ClientRectangle), buttonArray[0], buttonArray[1]);
@@ -158,6 +163,11 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		this->Distance->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
 		this->Departure->Text = "________";
 		this->Distance->Text = "________";
+		this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(153, 153,153);
+		this->confirmMask->Visible = true;
+
+		this->buttonConfirm->Enabled = false;
+
 	}
 	if (buttonArray[1] != nullptr) {
 		this->Destination->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
@@ -169,6 +179,10 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		this->Distance->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
 		this->Destination->Text = "________";
 		this->Distance->Text = "________";
+		this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+		this->confirmMask->Visible = true;
+		this->buttonConfirm->Enabled = false;
+
 	}
 	
 	

@@ -70,8 +70,13 @@ namespace airways {
 	private: System::Windows::Forms::Label^ Destination;
 	private: System::Windows::Forms::Label^ Departure;
 
-
 	private: System::Windows::Forms::Button^ buttonConfirm;
+	private: System::Windows::Forms::Label^ confirmMask;
+
+
+
+
+
 
 
 
@@ -139,6 +144,7 @@ namespace airways {
 			this->labelDistance = (gcnew System::Windows::Forms::Label());
 			this->labelDestination = (gcnew System::Windows::Forms::Label());
 			this->labelDeparture = (gcnew System::Windows::Forms::Label());
+			this->confirmMask = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->confirmationPanel->SuspendLayout();
 			this->SuspendLayout();
@@ -462,6 +468,7 @@ namespace airways {
 			// 
 			this->confirmationPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->confirmationPanel->Controls->Add(this->confirmMask);
 			this->confirmationPanel->Controls->Add(this->buttonConfirm);
 			this->confirmationPanel->Controls->Add(this->Distance);
 			this->confirmationPanel->Controls->Add(this->Destination);
@@ -476,12 +483,23 @@ namespace airways {
 			// 
 			// buttonConfirm
 			// 
-			this->buttonConfirm->Location = System::Drawing::Point(443, 65);
+			this->buttonConfirm->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->buttonConfirm->Enabled = false;
+			this->buttonConfirm->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->buttonConfirm->FlatAppearance->BorderSize = 0;
+			this->buttonConfirm->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->buttonConfirm->Location = System::Drawing::Point(444, 63);
 			this->buttonConfirm->Name = L"buttonConfirm";
-			this->buttonConfirm->Size = System::Drawing::Size(93, 21);
-			this->buttonConfirm->TabIndex = 27;
+			this->buttonConfirm->Size = System::Drawing::Size(91, 28);
+			this->buttonConfirm->TabIndex = 28;
 			this->buttonConfirm->Text = L"Confirm";
-			this->buttonConfirm->UseVisualStyleBackColor = true;
+			this->buttonConfirm->UseVisualStyleBackColor = false;
 			// 
 			// Distance
 			// 
@@ -566,6 +584,19 @@ namespace airways {
 			this->labelDeparture->Size = System::Drawing::Size(102, 24);
 			this->labelDeparture->TabIndex = 0;
 			this->labelDeparture->Text = L"Departure";
+			// 
+			// confirmMask
+			// 
+			this->confirmMask->AutoSize = true;
+			this->confirmMask->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->confirmMask->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->confirmMask->Location = System::Drawing::Point(448, 67);
+			this->confirmMask->Name = L"confirmMask";
+			this->confirmMask->Size = System::Drawing::Size(82, 24);
+			this->confirmMask->TabIndex = 29;
+			this->confirmMask->Text = L"Confirm";
 			// 
 			// Map1
 			// 
