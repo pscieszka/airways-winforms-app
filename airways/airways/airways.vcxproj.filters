@@ -56,5 +56,8 @@
     <ClInclude Include="Map1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Home1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

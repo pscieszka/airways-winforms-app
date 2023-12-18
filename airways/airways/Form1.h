@@ -129,7 +129,7 @@ namespace airways {
 			this->panelMenu->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panelMenu->Location = System::Drawing::Point(0, 0);
 			this->panelMenu->Name = L"panelMenu";
-			this->panelMenu->Size = System::Drawing::Size(230, 681);
+			this->panelMenu->Size = System::Drawing::Size(230, 679);
 			this->panelMenu->TabIndex = 0;
 			// 
 			// buttonTbd
@@ -179,7 +179,7 @@ namespace airways {
 			this->buttonNewFlight->Click += gcnew System::EventHandler(this, &Form1::buttonNewFlight_Click);
 			// 
 			// panelProjName
-			// cho
+			// 
 			this->panelProjName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(75)), static_cast<System::Int32>(static_cast<System::Byte>(75)),
 				static_cast<System::Int32>(static_cast<System::Byte>(75)));
 			this->panelProjName->Controls->Add(this->buttonHome);
@@ -200,6 +200,7 @@ namespace airways {
 			this->buttonHome->TabIndex = 0;
 			this->buttonHome->UseMnemonic = false;
 			this->buttonHome->UseVisualStyleBackColor = true;
+			this->buttonHome->Click += gcnew System::EventHandler(this, &Form1::buttonHome_Click);
 			// 
 			// panelMain
 			// 
@@ -235,6 +236,8 @@ private: void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 
 private: System::Void buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void buttonHome_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

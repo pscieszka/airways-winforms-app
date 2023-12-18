@@ -4,6 +4,7 @@
 #include "HandLuggage.h"
 #include "Form1.h"
 #include "Map1.h"
+#include "Home1.h"
 
 
 
@@ -45,6 +46,14 @@ System::Void airways::Form1::buttonNewFlight_Click(System::Object^ sender, Syste
 
     // Otwórz formularz
     OpenChildForm(map1, sender);
+}
+
+System::Void airways::Form1::buttonHome_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    Home1^ home1 = gcnew Home1();
+
+    OpenChildForm(home1, sender);
+
 }
 
 
