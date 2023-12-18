@@ -55,5 +55,10 @@ System::Void airways::Form1::buttonHome_Click(System::Object^ sender, System::Ev
     OpenChildForm(home1, sender);
 
 }
-
+System::Void airways::Form1::Form1_Load(System::Object^ sender, System::EventArgs^ e)
+{
+   
+    Home1^ home1 = gcnew Home1();
+    OpenChildForm(home1, nullptr);
+}
 
