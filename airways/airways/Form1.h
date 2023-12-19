@@ -106,9 +106,6 @@ namespace airways {
 		
 		void InitializeComponent(void)
 		{
-			//home page
-			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
-
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
 			this->buttonTbd = (gcnew System::Windows::Forms::Button());
@@ -164,6 +161,7 @@ namespace airways {
 			this->buttonShowFlights->TabIndex = 2;
 			this->buttonShowFlights->Text = L"Flights list";
 			this->buttonShowFlights->UseVisualStyleBackColor = true;
+			this->buttonShowFlights->Click += gcnew System::EventHandler(this, &Form1::buttonShowFlights_Click);
 			// 
 			// buttonNewFlight
 			// 
@@ -223,10 +221,10 @@ namespace airways {
 			this->Controls->Add(this->panelMenu);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->panelMenu->ResumeLayout(false);
 			this->panelProjName->ResumeLayout(false);
 			this->ResumeLayout(false);
-		
 
 		}
 #pragma endregion
@@ -243,6 +241,8 @@ private: System::Void buttonNewFlight_Click(System::Object^ sender, System::Even
 
 private: System::Void buttonHome_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

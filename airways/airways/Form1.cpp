@@ -5,6 +5,8 @@
 #include "Form1.h"
 #include "Map1.h"
 #include "Home1.h"
+#include "List1.h"
+
 
 
 
@@ -60,5 +62,13 @@ System::Void airways::Form1::Form1_Load(System::Object^ sender, System::EventArg
    
     Home1^ home1 = gcnew Home1();
     OpenChildForm(home1, nullptr);
+}
+
+System::Void airways::Form1::buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e)
+{
+   List1^ list1 = gcnew List1();
+
+    OpenChildForm(list1, sender);
+
 }
 
