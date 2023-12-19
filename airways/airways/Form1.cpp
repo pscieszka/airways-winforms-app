@@ -10,7 +10,7 @@
 
 
 
-void airways::Form1::OpenChildForm(Form^ childForm, Object^ btnSender)
+System::Void airways::Form1::OpenChildForm(Form^ childForm, Object^ btnSender)
 {
     if (activeForm != nullptr)
     {

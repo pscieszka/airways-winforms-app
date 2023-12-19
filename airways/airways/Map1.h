@@ -14,6 +14,8 @@ namespace airways {
 	public ref class Map1 : public System::Windows::Forms::Form
 	{
 	private:array<System::Windows::Forms::Button^>^ buttonArray;
+	private: System::Windows::Forms::Button^ button1;
+		   Form^ activeForm;
 
 	public:
 		Map1(void)
@@ -137,6 +139,7 @@ namespace airways {
 			this->labelAnkara = (gcnew System::Windows::Forms::Label());
 			this->labelTallinn = (gcnew System::Windows::Forms::Label());
 			this->confirmationPanel = (gcnew System::Windows::Forms::Panel());
+			this->confirmMask = (gcnew System::Windows::Forms::Label());
 			this->buttonConfirm = (gcnew System::Windows::Forms::Button());
 			this->Distance = (gcnew System::Windows::Forms::Label());
 			this->Destination = (gcnew System::Windows::Forms::Label());
@@ -144,7 +147,7 @@ namespace airways {
 			this->labelDistance = (gcnew System::Windows::Forms::Label());
 			this->labelDestination = (gcnew System::Windows::Forms::Label());
 			this->labelDeparture = (gcnew System::Windows::Forms::Label());
-			this->confirmMask = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->confirmationPanel->SuspendLayout();
 			this->SuspendLayout();
@@ -481,6 +484,19 @@ namespace airways {
 			this->confirmationPanel->Size = System::Drawing::Size(550, 100);
 			this->confirmationPanel->TabIndex = 21;
 			// 
+			// confirmMask
+			// 
+			this->confirmMask->AutoSize = true;
+			this->confirmMask->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->confirmMask->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->confirmMask->Location = System::Drawing::Point(448, 67);
+			this->confirmMask->Name = L"confirmMask";
+			this->confirmMask->Size = System::Drawing::Size(82, 24);
+			this->confirmMask->TabIndex = 29;
+			this->confirmMask->Text = L"Confirm";
+			// 
 			// buttonConfirm
 			// 
 			this->buttonConfirm->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
@@ -585,24 +601,22 @@ namespace airways {
 			this->labelDeparture->TabIndex = 0;
 			this->labelDeparture->Text = L"Departure";
 			// 
-			// confirmMask
+			// button1
 			// 
-			this->confirmMask->AutoSize = true;
-			this->confirmMask->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->confirmMask->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
-				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->confirmMask->Location = System::Drawing::Point(448, 67);
-			this->confirmMask->Name = L"confirmMask";
-			this->confirmMask->Size = System::Drawing::Size(82, 24);
-			this->confirmMask->TabIndex = 29;
-			this->confirmMask->Text = L"Confirm";
+			this->button1->Location = System::Drawing::Point(189, 184);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(145, 33);
+			this->button1->TabIndex = 22;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Map1::button1_Click);
 			// 
 			// Map1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->confirmationPanel);
 			this->Controls->Add(this->labelTallinn);
 			this->Controls->Add(this->labelAnkara);
@@ -671,9 +685,17 @@ namespace airways {
 		System::Void Milan_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Ankara_Click(System::Object^ sender, System::EventArgs^ e);
 
+		System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 	
 
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	Map1^ map1 = gcnew Map1();
+
+
+	// Otwórz formularz
+	OpenChildForm(map1, sender);
+}
 };
 }
 

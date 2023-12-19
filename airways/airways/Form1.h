@@ -233,7 +233,7 @@ namespace airways {
 
 
 
-private: void OpenChildForm(Form^ childForm, Object^ btnSender);
+private:  System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 
 

@@ -263,3 +263,31 @@ System::Void airways::Map1::Ankara_Click(System::Object^ sender, System::EventAr
 	HandleButtonClick(Ankara, labelAnkara);
 }
 
+System::Void airways::Map1::OpenChildForm(Form^ childForm, Object^ btnSender)
+{
+	if (activeForm != nullptr)
+	{
+		//jezeli jest juz aktywny form tego samego typu to nic nie robimy
+		if (activeForm->GetType() == childForm->GetType())
+			return;
+		//jezeli istnieje innego typu to zamykamy go
+		activeForm->Close();
+	}
+	//ustawiamy nowy form jako aktywny
+	activeForm = childForm;
+	//nie jest glownym oknem aplikacji
+	childForm->TopLevel = false;
+	//brak obramowania
+	childForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+	//ma wypelniac caly panel 
+	childForm->Dock = System::Windows::Forms::DockStyle::Fill;
+	//czyscimy panel glowny
+	this->Controls->Clear();
+	//dodajemy nowy form do panelu
+	this->Controls->Add(childForm);
+	this->Tag = childForm;
+	//ustawiamy form na pierwszy plan i wyswietlamy
+	childForm->BringToFront();
+	childForm->Show();
+}
+
