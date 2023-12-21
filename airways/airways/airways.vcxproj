@@ -132,6 +132,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="Map1.cpp" />
+    <ClCompile Include="Map2.cpp" />
     <ClCompile Include="SmallBag.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map1.resx">
       <DependentUpon>Map1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map2.resx">
+      <DependentUpon>Map2.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

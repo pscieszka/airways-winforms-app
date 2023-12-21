@@ -1,5 +1,4 @@
 #pragma once
-
 namespace airways {
 
 	using namespace System;
@@ -17,7 +16,7 @@ namespace airways {
 	public:
 		Map2(void)
 		{
-
+			InitializeComponent();
 			//
 
 
@@ -36,7 +35,8 @@ namespace airways {
 				delete components;
 			}
 		}
-
+	private: System::Windows::Forms::PictureBox^ background;
+	private: System::Windows::Forms::Panel^ panel1;
 
 
 
@@ -120,17 +120,40 @@ namespace airways {
 
 		void InitializeComponent(void)
 		{
+			this->background = (gcnew System::Windows::Forms::PictureBox());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// Home1
+			// background
+			// 
+			this->background->Location = System::Drawing::Point(0, 0);
+			this->background->Name = L"background";
+			this->background->Size = System::Drawing::Size(1040, 720);
+			this->background->TabIndex = 0;
+			this->background->TabStop = false;
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(1039, 100);
+			this->panel1->TabIndex = 1;
+			// 
+			// Map2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->background);
 			this->Name = L"Map2";
-			this->Text = L"Map2";
+			this->Text = L"Home1";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->EndInit();
 			this->ResumeLayout(false);
 
 		}
