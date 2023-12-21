@@ -1,4 +1,5 @@
 #include "Map1.h"
+#include "Map2.h"
 #include "math.h"
 
 System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
@@ -139,7 +140,6 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 			this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
 			this->confirmMask->Visible = false;
 
-			this->buttonConfirm->Enabled = true;
 
 
 			pictureBox1_Paint(this->pictureBox1, gcnew System::Windows::Forms::PaintEventArgs(
@@ -166,7 +166,6 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(153, 153,153);
 		this->confirmMask->Visible = true;
 
-		this->buttonConfirm->Enabled = false;
 
 	}
 	if (buttonArray[1] != nullptr) {
@@ -181,7 +180,6 @@ System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 		this->Distance->Text = "________";
 		this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
 		this->confirmMask->Visible = true;
-		this->buttonConfirm->Enabled = false;
 
 	}
 	
@@ -289,5 +287,14 @@ System::Void airways::Map1::OpenChildForm(Form^ childForm, Object^ btnSender)
 	//ustawiamy form na pierwszy plan i wyswietlamy
 	childForm->BringToFront();
 	childForm->Show();
+}
+
+System::Void airways::Map1::buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	Map2^ map2 = gcnew Map2();
+
+
+	// Otwórz formularz
+	OpenChildForm(map2, sender);
 }
 

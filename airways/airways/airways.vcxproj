@@ -150,6 +150,9 @@
     <ClInclude Include="Map1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Map2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SmallBag.h" />
   </ItemGroup>
   <ItemGroup>
