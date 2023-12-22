@@ -7,7 +7,7 @@
 #include "math.h"
 #include "flightsList.h"
 
-int distanceRem;
+
 
 System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
 	if (cityButton->BackColor == System::Drawing::Color::FromArgb(172, 172, 172)){
@@ -299,13 +299,9 @@ System::Void airways::Map1::OpenChildForm(Form^ childForm, Object^ btnSender)
 
 System::Void airways::Map1::buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	System::String^ managedString = buttonArray[0]->Name;
-	System::String^ managedString2 = buttonArray[1]->Name;
-	std::string unmanaged = msclr::interop::marshal_as<std::string>(managedString);
-	std::string unmanaged2 = msclr::interop::marshal_as<std::string>(managedString2);
 
-	Flight f(unmanaged, unmanaged2, distanceRem);
-	flights.add(f,unmanaged);
+	dep = msclr::interop::marshal_as<std::string>(buttonArray[0]->Name);
+	dest = msclr::interop::marshal_as<std::string>(buttonArray[1]->Name);
 
 	Map2^ map2 = gcnew Map2();
 

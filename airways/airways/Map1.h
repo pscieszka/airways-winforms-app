@@ -8,6 +8,10 @@ namespace airways {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+
+	static std::string dep = "";
+	static std::string dest = "";
+	static int distanceRem = 0;
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>

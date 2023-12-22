@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Baggage.cpp" />
-    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Flight.cpp" />
     <ClCompile Include="CheckedLuggage.cpp" />
     <ClCompile Include="HandLuggage.cpp" />
     <ClCompile Include="Passenger.cpp" />
@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baggage.h" />
-    <ClInclude Include="Board.h" />
+    <ClInclude Include="Flight.h" />
     <ClInclude Include="CheckedLuggage.h" />
     <ClInclude Include="HandLuggage.h" />
     <ClInclude Include="Passenger.h" />

@@ -1,7 +1,7 @@
 #include "Flight.h"
 
 
-Flight::Flight(std::string departure, std::string destination, int time, int date) : departure(departure) , destination(destination), time(time), date(date)
+Flight::Flight(std::string departure, std::string destination, int distance) : departure(departure) , destination(destination), time(time), date(date)
 {
 	gate = "N/A"; //not asigned yet
 }
