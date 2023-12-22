@@ -1,4 +1,6 @@
 #pragma once
+#include <msclr/marshal_cppstd.h>
+
 namespace airways {
 
 	using namespace System;
@@ -37,6 +39,7 @@ namespace airways {
 		}
 	private: System::Windows::Forms::PictureBox^ background;
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Label^ labelDestination;
 
 
 
@@ -122,7 +125,9 @@ namespace airways {
 		{
 			this->background = (gcnew System::Windows::Forms::PictureBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->labelDestination = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// background
@@ -137,10 +142,20 @@ namespace airways {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->panel1->Controls->Add(this->labelDestination);
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1039, 100);
 			this->panel1->TabIndex = 1;
+			// 
+			// labelDestination
+			// 
+			this->labelDestination->AutoSize = true;
+			this->labelDestination->Location = System::Drawing::Point(37, 29);
+			this->labelDestination->Name = L"labelDestination";
+			this->labelDestination->Size = System::Drawing::Size(35, 13);
+			this->labelDestination->TabIndex = 0;
+			this->labelDestination->Text = msclr::interop::marshal_as<System::String^>(flights.get());
 			// 
 			// Map2
 			// 
@@ -154,6 +169,8 @@ namespace airways {
 			this->Name = L"Map2";
 			this->Text = L"Home1";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->EndInit();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}

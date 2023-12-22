@@ -1,4 +1,6 @@
 #pragma once
+#include "flightsList.h"
+
 namespace airways {
 
 	using namespace System;
@@ -8,16 +10,20 @@ namespace airways {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+
+	static flightsList flights;
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 		Form^ activeForm;
+		
 	public:
 		Form1(void)
 		{
 			InitializeComponent();
+		
 
 			//
 			

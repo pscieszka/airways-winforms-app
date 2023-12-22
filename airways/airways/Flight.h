@@ -1,5 +1,6 @@
 #pragma once
-#include"Passenger.h"
+//#include"Passenger.h"
+#include "string"
 #include "vector"
 
 enum EditType {
@@ -16,14 +17,14 @@ class Flight
 	int date; //days since 1 jan 2023
 	int distance;
 	std::string gate;
-	std::vector<Passenger> passengers;
+	//std::vector<Passenger> passengers;
 public:
 	Flight(std::string departure, std::string destination, int distance);
-	Flight(std::string departure, std::string destination, int time, int date,std::string gate);
+	Flight(std::string departure, std::string destination, int time, int date, std::string gate);
 
 	void edit(int value, EditType editType);
 
-	void edit(int time, int date,int gate);
+	void edit(int time, int date, int gate);
 
 	std::vector<std::string> getData;
 
@@ -32,4 +33,3 @@ private:
 	std::string convertDate();
 
 };
-

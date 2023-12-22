@@ -128,6 +128,8 @@
   <ItemGroup>
     <ClCompile Include="Baggage.cpp" />
     <ClCompile Include="CheckedLuggage.cpp" />
+    <ClCompile Include="Flight.cpp" />
+    <ClCompile Include="flightsList.cpp" />
     <ClCompile Include="HandLuggage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Form1.cpp" />
@@ -138,6 +140,8 @@
   <ItemGroup>
     <ClInclude Include="Baggage.h" />
     <ClInclude Include="CheckedLuggage.h" />
+    <ClInclude Include="Flight.h" />
+    <ClInclude Include="flightsList.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>

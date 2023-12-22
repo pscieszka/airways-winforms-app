@@ -1,7 +1,13 @@
+#include <msclr/marshal_cppstd.h>
+
 #include "Map1.h"
+#include "Form1.h"
 #include "Map2.h"
 #include "Home1.h"
 #include "math.h"
+#include "flightsList.h"
+
+int distanceRem;
 
 System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel) {
 	if (cityButton->BackColor == System::Drawing::Color::FromArgb(172, 172, 172)){
@@ -25,6 +31,7 @@ System::Void airways::Map1::calculateDistance(Button^ button1, Button^ button2)
 	Point center1 = Point(button1->Left + button1->Width / 2, button1->Top + button1->Height / 2);
 	Point center2 = Point(button2->Left + button2->Width / 2, button2->Top + button2->Height / 2);
 	int distance = sqrt((center1.X - center2.X) * (center1.X - center2.X) + (center1.Y - center2.Y) * (center1.Y - center2.Y))*3.98;
+	distanceRem = distance;
 	this->Distance->Text = System::Convert::ToString(distance) + " km";
 }
 
@@ -292,6 +299,14 @@ System::Void airways::Map1::OpenChildForm(Form^ childForm, Object^ btnSender)
 
 System::Void airways::Map1::buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	System::String^ managedString = buttonArray[0]->Name;
+	System::String^ managedString2 = buttonArray[1]->Name;
+	std::string unmanaged = msclr::interop::marshal_as<std::string>(managedString);
+	std::string unmanaged2 = msclr::interop::marshal_as<std::string>(managedString2);
+
+	Flight f(unmanaged, unmanaged2, distanceRem);
+	flights.add(f,unmanaged);
+
 	Map2^ map2 = gcnew Map2();
 
 
