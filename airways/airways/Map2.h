@@ -67,7 +67,10 @@ namespace airways {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::CheckBox^ checkBoxBoeing;
 	private: System::Windows::Forms::CheckBox^ checkBoxAirbus;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBoxBoeing;
+	private: System::Windows::Forms::PictureBox^ pictureBoxAirbus;
+
+
 
 
 
@@ -183,11 +186,13 @@ namespace airways {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->checkBoxBoeing = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxAirbus = (gcnew System::Windows::Forms::CheckBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBoxBoeing = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBoxAirbus = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBoeing))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxAirbus))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// background
@@ -494,13 +499,25 @@ namespace airways {
 			this->checkBoxAirbus->UseVisualStyleBackColor = true;
 			this->checkBoxAirbus->CheckedChanged += gcnew System::EventHandler(this, &Map2::checkBoxAirbus_CheckedChanged);
 			// 
-			// pictureBox2
+			// pictureBoxBoeing
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(561, 200);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(301, 367);
-			this->pictureBox2->TabIndex = 18;
-			this->pictureBox2->TabStop = false;
+			this->pictureBoxBoeing->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxBoeing.Image")));
+			this->pictureBoxBoeing->Location = System::Drawing::Point(561, 200);
+			this->pictureBoxBoeing->Name = L"pictureBoxBoeing";
+			this->pictureBoxBoeing->Size = System::Drawing::Size(301, 367);
+			this->pictureBoxBoeing->TabIndex = 18;
+			this->pictureBoxBoeing->TabStop = false;
+			this->pictureBoxBoeing->Visible = false;
+			// 
+			// pictureBoxAirbus
+			// 
+			this->pictureBoxAirbus->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxAirbus.Image")));
+			this->pictureBoxAirbus->Location = System::Drawing::Point(562, 200);
+			this->pictureBoxAirbus->Name = L"pictureBoxAirbus";
+			this->pictureBoxAirbus->Size = System::Drawing::Size(301, 367);
+			this->pictureBoxAirbus->TabIndex = 19;
+			this->pictureBoxAirbus->TabStop = false;
+			this->pictureBoxAirbus->Visible = false;
 			// 
 			// Map2
 			// 
@@ -509,7 +526,8 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
-			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->pictureBoxAirbus);
+			this->Controls->Add(this->pictureBoxBoeing);
 			this->Controls->Add(this->checkBoxAirbus);
 			this->Controls->Add(this->checkBoxBoeing);
 			this->Controls->Add(this->label2);
@@ -533,7 +551,8 @@ namespace airways {
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxBoeing))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBoxAirbus))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
