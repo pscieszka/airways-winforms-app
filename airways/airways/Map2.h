@@ -13,6 +13,7 @@ namespace airways {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
+
 	public ref class Map2 : public System::Windows::Forms::Form
 	{
 	public:
@@ -47,6 +48,34 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelTime;
 	private: System::Windows::Forms::Label^ labelTylda;
 	private: System::Windows::Forms::Label^ labelFtime;
+	private: System::Windows::Forms::Label^ labelDate;
+	private: System::Windows::Forms::TextBox^ textBoxDD;
+	private: System::Windows::Forms::Label^ labelDateSep;
+
+
+	private: System::Windows::Forms::TextBox^ textBoxMM;
+	private: System::Windows::Forms::Label^ labelDateFormat;
+
+
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::TextBox^ textBoxMinutes;
+	private: System::Windows::Forms::TextBox^ textBoxHours;
+	private: System::Windows::Forms::Label^ labelTimeSeparator;
+	private: System::Windows::Forms::Label^ labelTimeFormat;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::CheckBox^ checkBoxBoeing;
+	private: System::Windows::Forms::CheckBox^ checkBoxAirbus;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+
+
+
+
+
+
+
+
 
 
 
@@ -139,9 +168,26 @@ namespace airways {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->labelDestination = (gcnew System::Windows::Forms::Label());
 			this->labelDeparture = (gcnew System::Windows::Forms::Label());
+			this->labelDate = (gcnew System::Windows::Forms::Label());
+			this->textBoxDD = (gcnew System::Windows::Forms::TextBox());
+			this->labelDateSep = (gcnew System::Windows::Forms::Label());
+			this->textBoxMM = (gcnew System::Windows::Forms::TextBox());
+			this->labelDateFormat = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->textBoxMinutes = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxHours = (gcnew System::Windows::Forms::TextBox());
+			this->labelTimeSeparator = (gcnew System::Windows::Forms::Label());
+			this->labelTimeFormat = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->checkBoxBoeing = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxAirbus = (gcnew System::Windows::Forms::CheckBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// background
@@ -202,10 +248,9 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
 			this->labelTime->Location = System::Drawing::Point(902, 38);
 			this->labelTime->Name = L"labelTime";
-			this->labelTime->Size = System::Drawing::Size(88, 39);
+			this->labelTime->Size = System::Drawing::Size(108, 39);
 			this->labelTime->TabIndex = 3;
-			this->labelTime->Text = "02:34";
-			//this->labelTime->Text = msclr::interop::marshal_as<String^>(calculateTime(distanceRem));
+			this->labelTime->Text = L"02:34";
 			// 
 			// pictureBox1
 			// 
@@ -226,10 +271,9 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
 			this->labelDestination->Location = System::Drawing::Point(430, 38);
 			this->labelDestination->Name = L"labelDestination";
-			this->labelDestination->Size = System::Drawing::Size(112, 39);
+			this->labelDestination->Size = System::Drawing::Size(99, 39);
 			this->labelDestination->TabIndex = 1;
-			this->labelDestination->Text="temp";
-			//this->labelDestination->Text = msclr::interop::marshal_as<String^>(dest);
+			this->labelDestination->Text = L"temp";
 			// 
 			// labelDeparture
 			// 
@@ -240,10 +284,223 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
 			this->labelDeparture->Location = System::Drawing::Point(58, 38);
 			this->labelDeparture->Name = L"labelDeparture";
-			this->labelDeparture->Size = System::Drawing::Size(112, 39);
+			this->labelDeparture->Size = System::Drawing::Size(99, 39);
 			this->labelDeparture->TabIndex = 0;
-			this->labelDeparture->Text = "temp";
-			//this->labelDeparture->Text = msclr::interop::marshal_as<String^>(dep);
+			this->labelDeparture->Text = L"temp";
+			// 
+			// labelDate
+			// 
+			this->labelDate->AutoSize = true;
+			this->labelDate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDate->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDate->Location = System::Drawing::Point(40, 206);
+			this->labelDate->Name = L"labelDate";
+			this->labelDate->Size = System::Drawing::Size(74, 29);
+			this->labelDate->TabIndex = 2;
+			this->labelDate->Text = L"Date:";
+			// 
+			// textBoxDD
+			// 
+			this->textBoxDD->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxDD->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxDD->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxDD->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxDD->Location = System::Drawing::Point(120, 203);
+			this->textBoxDD->Name = L"textBoxDD";
+			this->textBoxDD->Size = System::Drawing::Size(29, 30);
+			this->textBoxDD->TabIndex = 3;
+			// 
+			// labelDateSep
+			// 
+			this->labelDateSep->AutoSize = true;
+			this->labelDateSep->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDateSep->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDateSep->Location = System::Drawing::Point(155, 202);
+			this->labelDateSep->Name = L"labelDateSep";
+			this->labelDateSep->Size = System::Drawing::Size(24, 33);
+			this->labelDateSep->TabIndex = 4;
+			this->labelDateSep->Text = L"/";
+			// 
+			// textBoxMM
+			// 
+			this->textBoxMM->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxMM->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxMM->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxMM->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxMM->Location = System::Drawing::Point(180, 203);
+			this->textBoxMM->Name = L"textBoxMM";
+			this->textBoxMM->Size = System::Drawing::Size(29, 30);
+			this->textBoxMM->TabIndex = 6;
+			// 
+			// labelDateFormat
+			// 
+			this->labelDateFormat->AutoSize = true;
+			this->labelDateFormat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDateFormat->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDateFormat->Location = System::Drawing::Point(215, 218);
+			this->labelDateFormat->Name = L"labelDateFormat";
+			this->labelDateFormat->Size = System::Drawing::Size(54, 15);
+			this->labelDateFormat->TabIndex = 7;
+			this->labelDateFormat->Text = L"(dd/mm)";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->label3->Location = System::Drawing::Point(40, 296);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(80, 29);
+			this->label3->TabIndex = 8;
+			this->label3->Text = L"Time:";
+			// 
+			// textBoxMinutes
+			// 
+			this->textBoxMinutes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxMinutes->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxMinutes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxMinutes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxMinutes->Location = System::Drawing::Point(120, 297);
+			this->textBoxMinutes->Name = L"textBoxMinutes";
+			this->textBoxMinutes->Size = System::Drawing::Size(29, 30);
+			this->textBoxMinutes->TabIndex = 9;
+			// 
+			// textBoxHours
+			// 
+			this->textBoxHours->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxHours->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxHours->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxHours->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxHours->Location = System::Drawing::Point(180, 297);
+			this->textBoxHours->Name = L"textBoxHours";
+			this->textBoxHours->Size = System::Drawing::Size(29, 30);
+			this->textBoxHours->TabIndex = 10;
+			// 
+			// labelTimeSeparator
+			// 
+			this->labelTimeSeparator->AutoSize = true;
+			this->labelTimeSeparator->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->labelTimeSeparator->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelTimeSeparator->Location = System::Drawing::Point(155, 292);
+			this->labelTimeSeparator->Name = L"labelTimeSeparator";
+			this->labelTimeSeparator->Size = System::Drawing::Size(24, 33);
+			this->labelTimeSeparator->TabIndex = 11;
+			this->labelTimeSeparator->Text = L":";
+			// 
+			// labelTimeFormat
+			// 
+			this->labelTimeFormat->AutoSize = true;
+			this->labelTimeFormat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelTimeFormat->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelTimeFormat->Location = System::Drawing::Point(215, 312);
+			this->labelTimeFormat->Name = L"labelTimeFormat";
+			this->labelTimeFormat->Size = System::Drawing::Size(54, 15);
+			this->labelTimeFormat->TabIndex = 12;
+			this->labelTimeFormat->Text = L"(hh:mm)";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->label1->Location = System::Drawing::Point(40, 386);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(75, 29);
+			this->label1->TabIndex = 13;
+			this->label1->Text = L"Gate:";
+			// 
+			// textBox1
+			// 
+			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBox1->Location = System::Drawing::Point(120, 385);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(59, 30);
+			this->textBox1->TabIndex = 14;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->label2->Location = System::Drawing::Point(40, 475);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(182, 29);
+			this->label2->TabIndex = 15;
+			this->label2->Text = L"Aircraft model:";
+			// 
+			// checkBoxBoeing
+			// 
+			this->checkBoxBoeing->AutoSize = true;
+			this->checkBoxBoeing->FlatAppearance->BorderSize = 0;
+			this->checkBoxBoeing->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->checkBoxBoeing->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->checkBoxBoeing->Location = System::Drawing::Point(45, 539);
+			this->checkBoxBoeing->Name = L"checkBoxBoeing";
+			this->checkBoxBoeing->Size = System::Drawing::Size(183, 29);
+			this->checkBoxBoeing->TabIndex = 16;
+			this->checkBoxBoeing->Text = L"Boeing 737-800";
+			this->checkBoxBoeing->UseVisualStyleBackColor = true;
+			this->checkBoxBoeing->CheckedChanged += gcnew System::EventHandler(this, &Map2::checkBoxBoeing_CheckedChanged);
+			// 
+			// checkBoxAirbus
+			// 
+			this->checkBoxAirbus->AutoSize = true;
+			this->checkBoxAirbus->FlatAppearance->BorderSize = 0;
+			this->checkBoxAirbus->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->checkBoxAirbus->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->checkBoxAirbus->Location = System::Drawing::Point(45, 586);
+			this->checkBoxAirbus->Name = L"checkBoxAirbus";
+			this->checkBoxAirbus->Size = System::Drawing::Size(191, 29);
+			this->checkBoxAirbus->TabIndex = 17;
+			this->checkBoxAirbus->Text = L"Airbus A320-200";
+			this->checkBoxAirbus->UseVisualStyleBackColor = true;
+			this->checkBoxAirbus->CheckedChanged += gcnew System::EventHandler(this, &Map2::checkBoxAirbus_CheckedChanged);
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Location = System::Drawing::Point(561, 200);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(301, 367);
+			this->pictureBox2->TabIndex = 18;
+			this->pictureBox2->TabStop = false;
 			// 
 			// Map2
 			// 
@@ -252,6 +509,22 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->checkBoxAirbus);
+			this->Controls->Add(this->checkBoxBoeing);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->labelTimeFormat);
+			this->Controls->Add(this->labelTimeSeparator);
+			this->Controls->Add(this->textBoxHours);
+			this->Controls->Add(this->textBoxMinutes);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->labelDateFormat);
+			this->Controls->Add(this->textBoxMM);
+			this->Controls->Add(this->labelDateSep);
+			this->Controls->Add(this->textBoxDD);
+			this->Controls->Add(this->labelDate);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->background);
 			this->Name = L"Map2";
@@ -260,7 +533,9 @@ namespace airways {
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -270,6 +545,12 @@ namespace airways {
 
 
 
+
+
+
+		private: 
+			System::Void checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+			System::Void checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

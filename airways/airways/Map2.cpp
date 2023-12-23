@@ -26,3 +26,36 @@ std::string airways::Map2::calculateTime(int dist)
 	return hours+":"+minutes;
 }
 
+System::Void airways::Map2::checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	if (this->checkBoxBoeing->Checked) {
+		// Jeœli Boeing jest zaznaczony, zresetuj Airbus
+		this->checkBoxAirbus->Checked = false;
+		this->checkBoxAirbus->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+
+		// Zmieñ kolor Boeinga
+		this->checkBoxBoeing->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
+	}
+	else {
+		// Jeœli Boeing nie jest zaznaczony, zresetuj kolor
+		this->checkBoxBoeing->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+	}
+
+}
+
+System::Void airways::Map2::checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	if (this->checkBoxAirbus->Checked) {
+		// Jeœli Airbus jest zaznaczony, zresetuj Boeing
+		this->checkBoxBoeing->Checked = false;
+		this->checkBoxBoeing->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+
+		// Zmieñ kolor Airbusa
+		this->checkBoxAirbus->ForeColor = System::Drawing::Color::FromArgb(229, 128, 15);
+	}
+	else {
+		// Jeœli Airbus nie jest zaznaczony, zresetuj kolor
+		this->checkBoxAirbus->ForeColor = System::Drawing::Color::FromArgb(153, 153, 153);
+	}
+}
+
