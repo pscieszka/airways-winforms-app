@@ -153,6 +153,52 @@ bool airways::Map2::validTextBoxes()
             isValid = false;
         }
     }
+    if (String::IsNullOrWhiteSpace(textBoxGate->Text))
+    {
+        infoLabelGate->Text = "Please fill gate number.";
+        isValid = false;
+    }
+    else
+    {
+        try
+        {
+            String^ gateText = textBoxGate->Text;
+
+            // SprawdŸ, czy pierwszy znak to du¿a litera od A do Z
+            if (!(gateText[0] >= 'A' && gateText[0] <= 'Z'))
+            {
+                infoLabelGate->Text = "Invalid gate number format. The first character must be a capital letter (A-Z).";
+                isValid = false;
+            }
+            // SprawdŸ, czy drugi znak to cyfra od 1 do 9
+            else if (!(gateText[1] >= '1' && gateText[1] <= '9'))
+            {
+                infoLabelGate->Text = "Invalid gate number format. The second character must be a digit (1-9).";
+                isValid = false;
+            }
+            // SprawdŸ, czy trzeci znak (jeœli istnieje) to cyfra od 0 do 9
+            else if (gateText->Length > 2 && !(gateText[2] >= '0' && gateText[2] <= '9'))
+            {
+                infoLabelGate->Text = "Invalid gate number format. The third character (if present) must be a digit (0-9).";
+                isValid = false;
+            }
+            else
+            {
+                infoLabelGate->Text = "";
+            }
+        }
+        catch (FormatException^)
+        {
+            infoLabelGate->Text = "Invalid gate number format. Make sure it follows the pattern [A-Z][1-9] or [A-Z][1-9][0-9].";
+            isValid = false;
+        }
+        catch (OverflowException^)
+        {
+            infoLabelGate->Text = "Invalid gate number format. The entered value exceeds the range of integers.";
+            isValid = false;
+        }
+    }
+
 
     if (this->checkBoxBoeing->Checked == false && this->checkBoxAirbus->Checked == false) {
         isValid = false;

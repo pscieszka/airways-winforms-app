@@ -63,7 +63,8 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelTimeSeparator;
 	private: System::Windows::Forms::Label^ labelTimeFormat;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBoxGate;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::CheckBox^ checkBoxBoeing;
 	private: System::Windows::Forms::CheckBox^ checkBoxAirbus;
@@ -190,7 +191,7 @@ namespace airways {
 			this->labelTimeSeparator = (gcnew System::Windows::Forms::Label());
 			this->labelTimeFormat = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxGate = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->checkBoxBoeing = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxAirbus = (gcnew System::Windows::Forms::CheckBox());
@@ -454,19 +455,19 @@ namespace airways {
 			this->label1->TabIndex = 13;
 			this->label1->Text = L"Gate:";
 			// 
-			// textBox1
+			// textBoxGate
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+			this->textBoxGate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBoxGate->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxGate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->textBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+			this->textBoxGate->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBox1->Location = System::Drawing::Point(120, 385);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(59, 30);
-			this->textBox1->TabIndex = 14;
+			this->textBoxGate->Location = System::Drawing::Point(120, 385);
+			this->textBoxGate->Name = L"textBoxGate";
+			this->textBoxGate->Size = System::Drawing::Size(59, 30);
+			this->textBoxGate->TabIndex = 14;
 			// 
 			// label2
 			// 
@@ -628,7 +629,7 @@ namespace airways {
 			this->Controls->Add(this->checkBoxAirbus);
 			this->Controls->Add(this->checkBoxBoeing);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->textBoxGate);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->labelTimeFormat);
 			this->Controls->Add(this->labelTimeSeparator);
