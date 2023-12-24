@@ -72,58 +72,91 @@ System::Void airways::Map2::checkBoxAirbus_CheckedChanged(System::Object^ sender
 //daty z tylko z 2023
 bool airways::Map2::validTextBoxes()
 {
+    bool isValid = true;
 
-	
-	if (String::IsNullOrWhiteSpace(textBoxDD->Text) || String::IsNullOrWhiteSpace(textBoxMM->Text))
-	{
-		infoLabelDD->Text = "Please fill in all fields.";
-		return false; 
-	}
+    // data
+    if (String::IsNullOrWhiteSpace(textBoxDD->Text) || String::IsNullOrWhiteSpace(textBoxMM->Text))
+    {
+        infoLabelDD->Text = "Please fill in all date fields.";
+        isValid = false;
+    }
+    else
+    {
+        try
+        {
+            int day = Int32::Parse(textBoxDD->Text);
+            int month = Int32::Parse(textBoxMM->Text);
+            int monthDays;
 
-	try
-	{
-		int value = Int32::Parse(textBoxDD->Text);
-		int month = Int32::Parse(textBoxMM->Text);
-		int monthDays;
-		if (month < 1 || month > 12) {
-			infoLabelDD->Text = "Month must be between 1 and 12.";
-			return false; // Przerywamy dalsze sprawdzanie, gdy miesi¹c jest poza zakresem.
-		}
-		if (month == 4 || month == 6 || month == 9 || month == 11) {
-			monthDays = 30;
-		}
-		else if (month == 2) {
-			monthDays = 28;
-		}
-		else {
-			monthDays = 31;
-		}
-		if (value >= 1 && value <= monthDays)
-		{
-			infoLabelDD->Text = "";
-		}
+            if (month < 1 || month > 12) {
+                infoLabelDD->Text = "Month must be between 1 and 12.";
+                isValid = false;
+            }
+            else
+            {
+                if (month == 4 || month == 6 || month == 9 || month == 11) {
+                    monthDays = 30;
+                }
+                else if (month == 2) {
+                    monthDays = 28;
+                }
+                else {
+                    monthDays = 31;
+                }
 
-		else
-		{
-			infoLabelDD->Text = "The entered value must be between 1 and " + gcnew String(std::to_string(monthDays).c_str()) + ".";
-		}
+                if (!(day >= 1 && day <= monthDays))
+                {
+                    infoLabelDD->Text = "The entered day must be between 1 and " + gcnew String(std::to_string(monthDays).c_str()) + ".";
+                    isValid = false;
+                }
+            }
+        }
+        catch (FormatException^)
+        {
+            infoLabelDD->Text = "The entered day is not an integer.";
+            isValid = false;
+        }
+        catch (OverflowException^)
+        {
+            infoLabelDD->Text = "The entered day exceeds the range of integers.";
+            isValid = false;
+        }
+    }
 
-	}
-	catch (FormatException^)
-	{
-		infoLabelDD->Text = "The entered value is not an integer.";
-	}
-	catch (OverflowException^)
-	{
-		infoLabelDD->Text = "The entered value exceeds the range of integers.";
-	}
+    //godzina
+    if (String::IsNullOrWhiteSpace(textBoxHours->Text) || String::IsNullOrWhiteSpace(textBoxMinutes->Text))
+    {
+        infoLabelHH->Text = "Please fill in all time fields.";
+        isValid = false;
+    }
+    else
+    {
+        try
+        {
+            int hours = Int32::Parse(textBoxHours->Text);
+            int minutes = Int32::Parse(textBoxMinutes->Text);
 
+            if (!(hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59))
+            {
+                infoLabelHH->Text = "The entered time is not valid.";
+                isValid = false;
+            }
+        }
+        catch (FormatException^)
+        {
+            infoLabelHH->Text = "The entered time is not a valid integer.";
+            isValid = false;
+        }
+        catch (OverflowException^)
+        {
+            infoLabelHH->Text = "The entered time exceeds the range of integers.";
+            isValid = false;
+        }
+    }
 
-
-
-
-	return true;
+    return isValid;
 }
+
 
 System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e)
 {

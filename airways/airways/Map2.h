@@ -71,6 +71,7 @@ namespace airways {
 	private: System::Windows::Forms::PictureBox^ pictureBoxAirbus;
 	private: System::Windows::Forms::Label^ infoLabelDD;
 	private: System::Windows::Forms::Button^ buttonConfirm;
+	private: System::Windows::Forms::Label^ infoLabelHH;
 
 
 
@@ -194,6 +195,7 @@ namespace airways {
 			this->pictureBoxAirbus = (gcnew System::Windows::Forms::PictureBox());
 			this->infoLabelDD = (gcnew System::Windows::Forms::Label());
 			this->buttonConfirm = (gcnew System::Windows::Forms::Button());
+			this->infoLabelHH = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -531,7 +533,7 @@ namespace airways {
 			this->infoLabelDD->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->infoLabelDD->ForeColor = System::Drawing::Color::Red;
-			this->infoLabelDD->Location = System::Drawing::Point(48, 234);
+			this->infoLabelDD->Location = System::Drawing::Point(42, 244);
 			this->infoLabelDD->Name = L"infoLabelDD";
 			this->infoLabelDD->Size = System::Drawing::Size(0, 13);
 			this->infoLabelDD->TabIndex = 20;
@@ -556,6 +558,17 @@ namespace airways {
 			this->buttonConfirm->UseVisualStyleBackColor = false;
 			this->buttonConfirm->Click += gcnew System::EventHandler(this, &Map2::buttonConfirm_Click);
 			// 
+			// infoLabelHH
+			// 
+			this->infoLabelHH->AutoSize = true;
+			this->infoLabelHH->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->infoLabelHH->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelHH->Location = System::Drawing::Point(42, 335);
+			this->infoLabelHH->Name = L"infoLabelHH";
+			this->infoLabelHH->Size = System::Drawing::Size(0, 13);
+			this->infoLabelHH->TabIndex = 29;
+			// 
 			// Map2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -563,6 +576,7 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->infoLabelHH);
 			this->Controls->Add(this->buttonConfirm);
 			this->Controls->Add(this->infoLabelDD);
 			this->Controls->Add(this->pictureBoxAirbus);
