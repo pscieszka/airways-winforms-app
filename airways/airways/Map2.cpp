@@ -69,3 +69,64 @@ System::Void airways::Map2::checkBoxAirbus_CheckedChanged(System::Object^ sender
 	}
 }
 
+//daty z tylko z 2023
+bool airways::Map2::validTextBoxes()
+{
+
+	
+	if (String::IsNullOrWhiteSpace(textBoxDD->Text) || String::IsNullOrWhiteSpace(textBoxMM->Text))
+	{
+		infoLabelDD->Text = "Please fill in all fields.";
+		return false; 
+	}
+
+	try
+	{
+		int value = Int32::Parse(textBoxDD->Text);
+		int month = Int32::Parse(textBoxMM->Text);
+		int monthDays;
+		if (month < 1 || month > 12) {
+			infoLabelDD->Text = "Month must be between 1 and 12.";
+			return false; // Przerywamy dalsze sprawdzanie, gdy miesi¹c jest poza zakresem.
+		}
+		if (month == 4 || month == 6 || month == 9 || month == 11) {
+			monthDays = 30;
+		}
+		else if (month == 2) {
+			monthDays = 28;
+		}
+		else {
+			monthDays = 31;
+		}
+		if (value >= 1 && value <= monthDays)
+		{
+			infoLabelDD->Text = "";
+		}
+
+		else
+		{
+			infoLabelDD->Text = "The entered value must be between 1 and " + gcnew String(std::to_string(monthDays).c_str()) + ".";
+		}
+
+	}
+	catch (FormatException^)
+	{
+		infoLabelDD->Text = "The entered value is not an integer.";
+	}
+	catch (OverflowException^)
+	{
+		infoLabelDD->Text = "The entered value exceeds the range of integers.";
+	}
+
+
+
+
+
+	return true;
+}
+
+System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	validTextBoxes();
+}
+

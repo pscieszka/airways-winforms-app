@@ -69,6 +69,10 @@ namespace airways {
 	private: System::Windows::Forms::CheckBox^ checkBoxAirbus;
 	private: System::Windows::Forms::PictureBox^ pictureBoxBoeing;
 	private: System::Windows::Forms::PictureBox^ pictureBoxAirbus;
+	private: System::Windows::Forms::Label^ infoLabelDD;
+	private: System::Windows::Forms::Button^ buttonConfirm;
+
+
 
 
 
@@ -188,6 +192,8 @@ namespace airways {
 			this->checkBoxAirbus = (gcnew System::Windows::Forms::CheckBox());
 			this->pictureBoxBoeing = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBoxAirbus = (gcnew System::Windows::Forms::PictureBox());
+			this->infoLabelDD = (gcnew System::Windows::Forms::Label());
+			this->buttonConfirm = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -519,6 +525,37 @@ namespace airways {
 			this->pictureBoxAirbus->TabStop = false;
 			this->pictureBoxAirbus->Visible = false;
 			// 
+			// infoLabelDD
+			// 
+			this->infoLabelDD->AutoSize = true;
+			this->infoLabelDD->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->infoLabelDD->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelDD->Location = System::Drawing::Point(48, 234);
+			this->infoLabelDD->Name = L"infoLabelDD";
+			this->infoLabelDD->Size = System::Drawing::Size(0, 13);
+			this->infoLabelDD->TabIndex = 20;
+			// 
+			// buttonConfirm
+			// 
+			this->buttonConfirm->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->buttonConfirm->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->buttonConfirm->FlatAppearance->BorderSize = 0;
+			this->buttonConfirm->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonConfirm->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->buttonConfirm->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->buttonConfirm->Location = System::Drawing::Point(816, 539);
+			this->buttonConfirm->Name = L"buttonConfirm";
+			this->buttonConfirm->Size = System::Drawing::Size(194, 64);
+			this->buttonConfirm->TabIndex = 28;
+			this->buttonConfirm->Text = L"Confirm";
+			this->buttonConfirm->UseVisualStyleBackColor = false;
+			this->buttonConfirm->Click += gcnew System::EventHandler(this, &Map2::buttonConfirm_Click);
+			// 
 			// Map2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -526,6 +563,8 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->buttonConfirm);
+			this->Controls->Add(this->infoLabelDD);
 			this->Controls->Add(this->pictureBoxAirbus);
 			this->Controls->Add(this->pictureBoxBoeing);
 			this->Controls->Add(this->checkBoxAirbus);
@@ -561,7 +600,7 @@ namespace airways {
 		private:
 			std::string calculateTime(int dist);
 
-
+			
 
 
 
@@ -570,6 +609,10 @@ namespace airways {
 		private: 
 			System::Void checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 			System::Void checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+			bool validTextBoxes();
+			System::Void buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e);
+
+ 
 
 };
 }
