@@ -504,7 +504,7 @@ namespace airways {
 			this->pictureBoxBoeing->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxBoeing.Image")));
 			this->pictureBoxBoeing->Location = System::Drawing::Point(363, 120);
 			this->pictureBoxBoeing->Name = L"pictureBoxBoeing";
-			this->pictureBoxBoeing->Size = System::Drawing::Size(414, 495);
+			this->pictureBoxBoeing->Size = System::Drawing::Size(410, 483);
 			this->pictureBoxBoeing->TabIndex = 18;
 			this->pictureBoxBoeing->TabStop = false;
 			this->pictureBoxBoeing->Visible = false;
@@ -512,9 +512,9 @@ namespace airways {
 			// pictureBoxAirbus
 			// 
 			this->pictureBoxAirbus->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBoxAirbus.Image")));
-			this->pictureBoxAirbus->Location = System::Drawing::Point(809, 120);
+			this->pictureBoxAirbus->Location = System::Drawing::Point(363, 120);
 			this->pictureBoxAirbus->Name = L"pictureBoxAirbus";
-			this->pictureBoxAirbus->Size = System::Drawing::Size(245, 417);
+			this->pictureBoxAirbus->Size = System::Drawing::Size(410, 483);
 			this->pictureBoxAirbus->TabIndex = 19;
 			this->pictureBoxAirbus->TabStop = false;
 			this->pictureBoxAirbus->Visible = false;
