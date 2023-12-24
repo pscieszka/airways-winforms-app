@@ -154,6 +154,10 @@ bool airways::Map2::validTextBoxes()
         }
     }
 
+    if (this->checkBoxBoeing->Checked == false && this->checkBoxAirbus->Checked == false) {
+        isValid = false;
+        infoLabelModel->Text = "Choose one option.";
+    }
     return isValid;
 }
 

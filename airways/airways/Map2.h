@@ -72,6 +72,9 @@ namespace airways {
 	private: System::Windows::Forms::Label^ infoLabelDD;
 	private: System::Windows::Forms::Button^ buttonConfirm;
 	private: System::Windows::Forms::Label^ infoLabelHH;
+	private: System::Windows::Forms::Label^ labelGateFormat;
+	private: System::Windows::Forms::Label^ infoLabelModel;
+	private: System::Windows::Forms::Label^ infoLabelGate;
 
 
 
@@ -196,6 +199,9 @@ namespace airways {
 			this->infoLabelDD = (gcnew System::Windows::Forms::Label());
 			this->buttonConfirm = (gcnew System::Windows::Forms::Button());
 			this->infoLabelHH = (gcnew System::Windows::Forms::Label());
+			this->labelGateFormat = (gcnew System::Windows::Forms::Label());
+			this->infoLabelModel = (gcnew System::Windows::Forms::Label());
+			this->infoLabelGate = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->BeginInit();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -569,6 +575,41 @@ namespace airways {
 			this->infoLabelHH->Size = System::Drawing::Size(0, 13);
 			this->infoLabelHH->TabIndex = 29;
 			// 
+			// labelGateFormat
+			// 
+			this->labelGateFormat->AutoSize = true;
+			this->labelGateFormat->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelGateFormat->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelGateFormat->Location = System::Drawing::Point(185, 400);
+			this->labelGateFormat->Name = L"labelGateFormat";
+			this->labelGateFormat->Size = System::Drawing::Size(149, 15);
+			this->labelGateFormat->TabIndex = 30;
+			this->labelGateFormat->Text = L"([A-Z][1-99], e.g. A01, G12)";
+			// 
+			// infoLabelModel
+			// 
+			this->infoLabelModel->AutoSize = true;
+			this->infoLabelModel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->infoLabelModel->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelModel->Location = System::Drawing::Point(42, 618);
+			this->infoLabelModel->Name = L"infoLabelModel";
+			this->infoLabelModel->Size = System::Drawing::Size(0, 13);
+			this->infoLabelModel->TabIndex = 31;
+			// 
+			// infoLabelGate
+			// 
+			this->infoLabelGate->AutoSize = true;
+			this->infoLabelGate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->infoLabelGate->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelGate->Location = System::Drawing::Point(42, 430);
+			this->infoLabelGate->Name = L"infoLabelGate";
+			this->infoLabelGate->Size = System::Drawing::Size(0, 13);
+			this->infoLabelGate->TabIndex = 32;
+			// 
 			// Map2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -576,6 +617,9 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->infoLabelGate);
+			this->Controls->Add(this->infoLabelModel);
+			this->Controls->Add(this->labelGateFormat);
 			this->Controls->Add(this->infoLabelHH);
 			this->Controls->Add(this->buttonConfirm);
 			this->Controls->Add(this->infoLabelDD);
