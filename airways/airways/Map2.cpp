@@ -214,11 +214,14 @@ System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::
 {
     if (validTextBoxes()) {
         int time = Int32::Parse(textBoxHours->Text) * 60 + Int32::Parse(textBoxMinutes->Text);
-        int date = 12; //temp
-        std::string gate = msclr::interop::marshal_as<std::string>(textBoxGate->Text);
+        int date = 12; //temp trzeba zrobic funkcje
+
+        std::string gate;
+        String::IsNullOrWhiteSpace(textBoxGate->Text) ? gate = "N/A" : gate = msclr::interop::marshal_as<std::string>(textBoxGate->Text);
+
         std::string aircraft;
-        this->checkBoxAirbus->Checked ? aircraft = msclr::interop::marshal_as<std::string>(checkBoxAirbus->Text);
-        Flight f(dep,dest,distanceRem,time,date,gate)
+        this->checkBoxAirbus->Checked ? aircraft = msclr::interop::marshal_as<std::string>(checkBoxAirbus->Text) : aircraft = msclr::interop::marshal_as<std::string>(checkBoxBoeing->Text);
+        Flight f(dep, dest, distanceRem, time, date, gate, aircraft, calculateTime(distanceRem));
        
         List1^ list1 = gcnew List1();
         OpenChildForm(list1, sender);
