@@ -16,8 +16,8 @@ namespace airways {
 	public:
 		List1(void)
 		{
-			
-			//
+			InitializeComponent();
+
 
 
 			//TODO: Add the constructor code here
@@ -121,15 +121,15 @@ namespace airways {
 		{
 			this->SuspendLayout();
 			// 
-			// Home1
+			// List1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
-			this->Name = L"Home1";
-			this->Text = L"Home1";
+			this->Name = L"List1";
+			this->Text = L"List1";
 			this->ResumeLayout(false);
 
 		}

@@ -16,6 +16,8 @@ namespace airways {
 
 	public ref class Map2 : public System::Windows::Forms::Form
 	{
+		Form^ activeForm;
+
 	public:
 		Map2(void)
 		{
@@ -672,6 +674,7 @@ namespace airways {
 			System::Void checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 			bool validTextBoxes();
 			System::Void buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e);
+			System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
 
  
 

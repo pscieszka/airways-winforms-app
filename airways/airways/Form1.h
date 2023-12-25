@@ -11,7 +11,6 @@ namespace airways {
 	using namespace System::Drawing;
 
 
-	static flightsList flights;
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
