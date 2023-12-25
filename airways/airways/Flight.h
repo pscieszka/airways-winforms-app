@@ -27,7 +27,9 @@ public:
 	void edit(int value, EditType editType);
 
 	void edit(int time, int date, int gate);
-
+	std::string test() {
+		return aircraft + " " + gate;
+	}
 	std::vector<std::string> getData;
 
 private:

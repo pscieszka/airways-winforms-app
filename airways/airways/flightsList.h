@@ -4,15 +4,15 @@
 
 class flightsList
 {
-	std::vector<Flight> flights;
-	std::string test;
+	Flight ff;
+
 public:
-	void add(Flight f,std::string s) {
-		flights.push_back(f);
-		test = s;
+	void add(Flight f) {
+		ff = f;
+
 	}
 	std::string get() {
-		return test;
+		return ff.test();
 	}
 };
 

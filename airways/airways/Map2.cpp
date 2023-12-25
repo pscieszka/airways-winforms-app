@@ -1,6 +1,7 @@
 #include "Map2.h"
 #include "Flight.h"
 #include "List1.h"
+
 int monthDays;
 std::string airways::Map2::calculateTime(int dist)
 {
@@ -222,7 +223,9 @@ System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::
         std::string aircraft;
         this->checkBoxAirbus->Checked ? aircraft = msclr::interop::marshal_as<std::string>(checkBoxAirbus->Text) : aircraft = msclr::interop::marshal_as<std::string>(checkBoxBoeing->Text);
         Flight f(dep, dest, distanceRem, time, date, gate, aircraft, calculateTime(distanceRem));
-       
+        MessageBox::Show("Hok!", "Message", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+        flights.push_back(f);
         List1^ list1 = gcnew List1();
         OpenChildForm(list1, sender);
     }

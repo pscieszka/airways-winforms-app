@@ -2,6 +2,7 @@
 #include <msclr/marshal_cppstd.h>
 #include "Map1.h"
 #include "flightsList.h"
+
 namespace airways {
 
 	using namespace System;
@@ -14,17 +15,20 @@ namespace airways {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
-	static flightsList flights;
+	
+
 
 	public ref class Map2 : public System::Windows::Forms::Form
 	{
 		Form^ activeForm;
+		
 
 	public:
 		Map2(void)
 		{
 			InitializeComponent();
 			//
+			
 
 
 			//TODO: Add the constructor code here
