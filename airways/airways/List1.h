@@ -1,7 +1,7 @@
 #pragma once
 #include <msclr/marshal_cppstd.h>
 #include "Form1.h"
-
+#include "flightsList.h"
 
 namespace airways {
 
@@ -141,7 +141,7 @@ namespace airways {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(50, 16);
 			this->label1->TabIndex = 0;
-			this->label1->Text = msclr::interop::marshal_as<System::String^>(flights[0].test());
+			this->label1->Text = msclr::interop::marshal_as<System::String^>(flights->get());
 			// 
 			// List1
 			// 
