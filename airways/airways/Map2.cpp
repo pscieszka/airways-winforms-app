@@ -1,6 +1,7 @@
 #include "Map2.h"
+#include "Flight.h"
 #include "List1.h"
-
+int monthDays;
 std::string airways::Map2::calculateTime(int dist)
 {
 	double time = 0.551104 * pow((dist / 100), 0.608872) - 0.257423;
@@ -87,7 +88,7 @@ bool airways::Map2::validTextBoxes()
         {
             int day = Int32::Parse(textBoxDD->Text);
             int month = Int32::Parse(textBoxMM->Text);
-            int monthDays;
+            
 
             if (month < 1 || month > 12) {
                 infoLabelDD->Text = "Month must be between 1 and 12.";
@@ -156,8 +157,8 @@ bool airways::Map2::validTextBoxes()
     }
     if (String::IsNullOrWhiteSpace(textBoxGate->Text))
     {
-        infoLabelGate->Text = "Please fill gate number.";
-        isValid = false;
+        infoLabelGate->Text = "";
+        isValid = true;
     }
     else
     {
@@ -212,10 +213,14 @@ bool airways::Map2::validTextBoxes()
 System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (validTextBoxes()) {
+        int time = Int32::Parse(textBoxHours->Text) * 60 + Int32::Parse(textBoxMinutes->Text);
+        int date = 12; //temp
+        std::string gate = msclr::interop::marshal_as<std::string>(textBoxGate->Text);
+        std::string aircraft;
+        this->checkBoxAirbus->Checked ? aircraft = msclr::interop::marshal_as<std::string>(checkBoxAirbus->Text);
+        Flight f(dep,dest,distanceRem,time,date,gate)
+       
         List1^ list1 = gcnew List1();
-
-
-        // Otwórz formularz
         OpenChildForm(list1, sender);
     }
 }

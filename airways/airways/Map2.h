@@ -1,6 +1,7 @@
 #pragma once
 #include <msclr/marshal_cppstd.h>
 #include "Map1.h"
+#include "flightsList.h"
 namespace airways {
 
 	using namespace System;
@@ -13,6 +14,7 @@ namespace airways {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
+	static flightsList flights;
 
 	public ref class Map2 : public System::Windows::Forms::Form
 	{
@@ -274,7 +276,7 @@ namespace airways {
 			this->labelTime->Name = L"labelTime";
 			this->labelTime->Size = System::Drawing::Size(108, 39);
 			this->labelTime->TabIndex = 3;
-			this->labelTime->Text = L"02:34";
+			this->labelTime->Text = msclr::interop::marshal_as<System::String^>(calculateTime(distanceRem));
 			// 
 			// pictureBox1
 			// 
@@ -297,7 +299,7 @@ namespace airways {
 			this->labelDestination->Name = L"labelDestination";
 			this->labelDestination->Size = System::Drawing::Size(99, 39);
 			this->labelDestination->TabIndex = 1;
-			this->labelDestination->Text = L"temp";
+			this->labelDestination->Text = msclr::interop::marshal_as<System::String^>(dest);
 			// 
 			// labelDeparture
 			// 
@@ -310,7 +312,7 @@ namespace airways {
 			this->labelDeparture->Name = L"labelDeparture";
 			this->labelDeparture->Size = System::Drawing::Size(99, 39);
 			this->labelDeparture->TabIndex = 0;
-			this->labelDeparture->Text = L"temp";
+			this->labelDeparture->Text = msclr::interop::marshal_as<System::String^>(dep);
 			// 
 			// labelDate
 			// 
@@ -319,11 +321,11 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->labelDate->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelDate->Location = System::Drawing::Point(40, 206);
+			this->labelDate->Location = System::Drawing::Point(24, 206);
 			this->labelDate->Name = L"labelDate";
-			this->labelDate->Size = System::Drawing::Size(74, 29);
+			this->labelDate->Size = System::Drawing::Size(85, 29);
 			this->labelDate->TabIndex = 2;
-			this->labelDate->Text = L"Date:";
+			this->labelDate->Text = L"Date*:";
 			// 
 			// textBoxDD
 			// 
@@ -386,11 +388,11 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->label3->Location = System::Drawing::Point(40, 296);
+			this->label3->Location = System::Drawing::Point(24, 296);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(80, 29);
+			this->label3->Size = System::Drawing::Size(91, 29);
 			this->label3->TabIndex = 8;
-			this->label3->Text = L"Time:";
+			this->label3->Text = L"Time*:";
 			// 
 			// textBoxMinutes
 			// 
@@ -453,7 +455,7 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->label1->Location = System::Drawing::Point(40, 386);
+			this->label1->Location = System::Drawing::Point(24, 386);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(75, 29);
 			this->label1->TabIndex = 13;
@@ -480,11 +482,11 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->label2->Location = System::Drawing::Point(40, 475);
+			this->label2->Location = System::Drawing::Point(24, 475);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(182, 29);
+			this->label2->Size = System::Drawing::Size(193, 29);
 			this->label2->TabIndex = 15;
-			this->label2->Text = L"Aircraft model:";
+			this->label2->Text = L"Aircraft model*:";
 			// 
 			// checkBoxBoeing
 			// 
@@ -677,6 +679,7 @@ namespace airways {
 			System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
 
  
+
 
 };
 }
