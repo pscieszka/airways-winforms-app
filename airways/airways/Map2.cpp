@@ -3,14 +3,16 @@
 #include "List1.h"
 #include "flightsList.h"
 int monthDays;
+int distance;
 std::string airways::Map2::calculateTime(int dist)
 {
+    distance = dist;
 	double time = 0.551104 * pow((dist / 100), 0.608872) - 0.257423;
 	int h = static_cast<int>(time);
 	int m = static_cast<int>((time - h) * 60);
 	std::string hours;
 	std::string minutes;
-
+    
 	if (h < 10) {
 		hours = "0" + std::to_string(h);
 	}
@@ -215,15 +217,17 @@ System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::
 {
     if (validTextBoxes()) {
         int time = Int32::Parse(textBoxHours->Text) * 60 + Int32::Parse(textBoxMinutes->Text);
-        int date = 12; //temp trzeba zrobic funkcje
+        std::string date = msclr::interop::marshal_as<std::string>(textBoxDD->Text) + '.' + msclr::interop::marshal_as<std::string>(textBoxMM->Text);
 
         std::string gate;
         String::IsNullOrWhiteSpace(textBoxGate->Text) ? gate = "N/A" : gate = msclr::interop::marshal_as<std::string>(textBoxGate->Text);
-
+        std::string departure = msclr::interop::marshal_as<std::string>(labelDeparture->Text);
+        std::string destination = msclr::interop::marshal_as<std::string>(labelDestination->Text);
+        
         std::string aircraft;
         this->checkBoxAirbus->Checked ? aircraft = msclr::interop::marshal_as<std::string>(checkBoxAirbus->Text) : aircraft = msclr::interop::marshal_as<std::string>(checkBoxBoeing->Text);
-        Flight f(dep, dest, distanceRem, time, date, gate, aircraft, calculateTime(distanceRem));
-        MessageBox::Show(" New flight created!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        Flight f(departure, destination, distance, time, date, gate, aircraft, calculateTime(distance));
+        MessageBox::Show("New flight created!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
         flights->add(f);
         List1^ list1 = gcnew List1();

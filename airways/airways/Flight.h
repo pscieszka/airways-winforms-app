@@ -15,20 +15,26 @@ class Flight
 	std::string departure;
 	std::string aircraft;
 	int time; //minutes
-	int date; //days since 1 jan 2023
+	std::string date; 
 	int distance;
 	std::string flightDuration;
 	std::string gate;
 	//std::vector<Passenger> passengers;
 public:
 	Flight(std::string departure, std::string destination, int distance);
-	Flight(std::string departure, std::string destination,int distance, int time, int date, std::string gate, std::string aircraft, std::string flightDuration);
+	Flight(std::string departure, std::string destination,int distance, int time, std::string date, std::string gate, std::string aircraft, std::string flightDuration);
 
 	void edit(int value, EditType editType);
 
 	void edit(int time, int date, int gate);
 	std::string test() {
-		return aircraft + " " + gate;
+		
+		std::string str;
+		str += "Destination = " + destination + "\n";
+		str += "Departure = " + departure + "\n";
+		str += "Aircraft = " + aircraft + "\n";
+		str += "time = " +std::to_string(time) + "\n";
+		return str;
 	}
 	std::vector<std::string> getData;
 

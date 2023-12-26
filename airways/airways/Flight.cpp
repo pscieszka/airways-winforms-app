@@ -6,7 +6,7 @@ Flight::Flight(std::string departure, std::string destination, int distance) : d
     gate = "N/A"; //not asigned yet
 }
 
-Flight::Flight(std::string departure, std::string destination, int distance, int time, int date, std::string gate, std::string aircraft, std::string flightDuration)
+Flight::Flight(std::string departure, std::string destination, int distance, int time, std::string date, std::string gate, std::string aircraft, std::string flightDuration)
     : departure(departure), destination(destination), time(time), date(date), gate(gate),distance(distance),aircraft(aircraft), flightDuration(flightDuration)
 {
 }
