@@ -223,7 +223,7 @@ System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::
         std::string aircraft;
         this->checkBoxAirbus->Checked ? aircraft = msclr::interop::marshal_as<std::string>(checkBoxAirbus->Text) : aircraft = msclr::interop::marshal_as<std::string>(checkBoxBoeing->Text);
         Flight f(dep, dest, distanceRem, time, date, gate, aircraft, calculateTime(distanceRem));
-        MessageBox::Show("Hok!", "Message", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        MessageBox::Show(" New flight created!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
         flights->add(f);
         List1^ list1 = gcnew List1();

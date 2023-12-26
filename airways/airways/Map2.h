@@ -66,8 +66,11 @@ namespace airways {
 
 
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ textBoxMinutes;
 	private: System::Windows::Forms::TextBox^ textBoxHours;
+
+	private: System::Windows::Forms::TextBox^ textBoxMinutes;
+
+
 	private: System::Windows::Forms::Label^ labelTimeSeparator;
 	private: System::Windows::Forms::Label^ labelTimeFormat;
 	private: System::Windows::Forms::Label^ label1;
@@ -196,8 +199,8 @@ namespace airways {
 			this->textBoxMM = (gcnew System::Windows::Forms::TextBox());
 			this->labelDateFormat = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBoxMinutes = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxHours = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxMinutes = (gcnew System::Windows::Forms::TextBox());
 			this->labelTimeSeparator = (gcnew System::Windows::Forms::Label());
 			this->labelTimeFormat = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -278,9 +281,10 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
 			this->labelTime->Location = System::Drawing::Point(902, 38);
 			this->labelTime->Name = L"labelTime";
-			this->labelTime->Size = System::Drawing::Size(108, 39);
+			this->labelTime->Size = System::Drawing::Size(0, 39);
 			this->labelTime->TabIndex = 3;
 			this->labelTime->Text = msclr::interop::marshal_as<System::String^>(calculateTime(distanceRem));
+
 			// 
 			// pictureBox1
 			// 
@@ -301,9 +305,10 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
 			this->labelDestination->Location = System::Drawing::Point(430, 38);
 			this->labelDestination->Name = L"labelDestination";
-			this->labelDestination->Size = System::Drawing::Size(99, 39);
+			this->labelDestination->Size = System::Drawing::Size(0, 39);
 			this->labelDestination->TabIndex = 1;
 			this->labelDestination->Text = msclr::interop::marshal_as<System::String^>(dest);
+
 			// 
 			// labelDeparture
 			// 
@@ -314,9 +319,10 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
 			this->labelDeparture->Location = System::Drawing::Point(58, 38);
 			this->labelDeparture->Name = L"labelDeparture";
-			this->labelDeparture->Size = System::Drawing::Size(99, 39);
+			this->labelDeparture->Size = System::Drawing::Size(0, 39);
 			this->labelDeparture->TabIndex = 0;
 			this->labelDeparture->Text = msclr::interop::marshal_as<System::String^>(dep);
+
 			// 
 			// labelDate
 			// 
@@ -398,20 +404,6 @@ namespace airways {
 			this->label3->TabIndex = 8;
 			this->label3->Text = L"Time*:";
 			// 
-			// textBoxMinutes
-			// 
-			this->textBoxMinutes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
-				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			this->textBoxMinutes->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->textBoxMinutes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->textBoxMinutes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBoxMinutes->Location = System::Drawing::Point(120, 297);
-			this->textBoxMinutes->Name = L"textBoxMinutes";
-			this->textBoxMinutes->Size = System::Drawing::Size(29, 30);
-			this->textBoxMinutes->TabIndex = 9;
-			// 
 			// textBoxHours
 			// 
 			this->textBoxHours->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
@@ -421,10 +413,24 @@ namespace airways {
 				static_cast<System::Byte>(238)));
 			this->textBoxHours->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBoxHours->Location = System::Drawing::Point(180, 297);
+			this->textBoxHours->Location = System::Drawing::Point(120, 297);
 			this->textBoxHours->Name = L"textBoxHours";
 			this->textBoxHours->Size = System::Drawing::Size(29, 30);
-			this->textBoxHours->TabIndex = 10;
+			this->textBoxHours->TabIndex = 9;
+			// 
+			// textBoxMinutes
+			// 
+			this->textBoxMinutes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxMinutes->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxMinutes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxMinutes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxMinutes->Location = System::Drawing::Point(180, 297);
+			this->textBoxMinutes->Name = L"textBoxMinutes";
+			this->textBoxMinutes->Size = System::Drawing::Size(29, 30);
+			this->textBoxMinutes->TabIndex = 10;
 			// 
 			// labelTimeSeparator
 			// 
@@ -643,8 +649,8 @@ namespace airways {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->labelTimeFormat);
 			this->Controls->Add(this->labelTimeSeparator);
-			this->Controls->Add(this->textBoxHours);
 			this->Controls->Add(this->textBoxMinutes);
+			this->Controls->Add(this->textBoxHours);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->labelDateFormat);
 			this->Controls->Add(this->textBoxMM);
