@@ -9,10 +9,10 @@ namespace airways {
     public ref class listItem : public UserControl
     {
     public:
-        listItem(int numer)
+        listItem(String^ str)
         {
             InitializeComponent();
-            this->label1->Text = numer.ToString();
+            this->label1->Text = str;
 
         }
 

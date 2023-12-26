@@ -31,9 +31,7 @@ public:
 		
 		std::string str;
 		str += "Destination = " + destination + "\n";
-		str += "Departure = " + departure + "\n";
-		str += "Aircraft = " + aircraft + "\n";
-		str += "time = " +std::to_string(time) + "\n";
+		
 		return str;
 	}
 	std::vector<std::string> getData;
