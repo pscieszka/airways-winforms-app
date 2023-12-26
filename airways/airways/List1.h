@@ -2,6 +2,7 @@
 #include <msclr/marshal_cppstd.h>
 #include "Form1.h"
 #include "flightsList.h"
+#include "listItem.h"
 
 namespace airways {
 
@@ -24,7 +25,13 @@ namespace airways {
 		List1(void)
 		{
 			InitializeComponent();
-			
+			for (int i = 1; i <= 10; ++i)
+			{
+				listItem^ mojControl = gcnew listItem(i);
+				mojControl->BackColor = Color::FromArgb(41, 41,41);
+				mojControl->Size = System::Drawing::Size(900, 75);
+				flowLayoutPanel1->Controls->Add(mojControl);
+			}
 
 
 			//TODO: Add the constructor code here
@@ -42,7 +49,11 @@ namespace airways {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+
+	protected:
+
 	protected:
 
 
@@ -117,7 +128,10 @@ namespace airways {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
+		/// 
+		/// 
+		/// 
+		//this->label1->Text = msclr::interop::marshal_as<System::String^>(flights->get());
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -128,20 +142,28 @@ namespace airways {
 
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->SuspendLayout();
 			// 
-			// label1
+			// panel1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->label1->ForeColor = System::Drawing::Color::CornflowerBlue;
-			this->label1->Location = System::Drawing::Point(324, 150);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(50, 16);
-			this->label1->TabIndex = 0;
-			this->label1->Text = msclr::interop::marshal_as<System::String^>(flights->get());
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->panel1->Size = System::Drawing::Size(1040, 100);
+			this->panel1->TabIndex = 0;
+			// 
+			// flowLayoutPanel1
+			// 
+			this->flowLayoutPanel1->AutoScroll = true;
+
+			this->flowLayoutPanel1->Location = System::Drawing::Point(65, 134);
+			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
+			this->flowLayoutPanel1->Size = System::Drawing::Size(950, 500);
+			this->flowLayoutPanel1->TabIndex = 1;
 			// 
 			// List1
 			// 
@@ -150,11 +172,11 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->flowLayoutPanel1);
+			this->Controls->Add(this->panel1);
 			this->Name = L"List1";
 			this->Text = L"List1";
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

@@ -153,6 +153,9 @@
     <ClInclude Include="Home1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="listItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Map1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -170,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="List1.resx">
       <DependentUpon>List1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listItem.resx">
+      <DependentUpon>listItem.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map1.resx">
       <DependentUpon>Map1.h</DependentUpon>

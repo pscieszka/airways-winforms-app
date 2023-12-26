@@ -83,5 +83,8 @@
     <ClInclude Include="flightsList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="listItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
