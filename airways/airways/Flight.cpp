@@ -32,19 +32,26 @@ std::vector<std::string> Flight::getData()
 
 std::string Flight::convertTime()
 {
-    if (time < 60) {
-        if (time >= 10) {
-            return "00:" + std::to_string(time);
-        }
-        else {
-            return "00:0" + std::to_string(time);
-        }
-    }
-
+    std::string ret="";
+ 
     std::string hours = std::to_string(time / 60);
     std::string minutes = std::to_string(time % 60);
 
-    return  "";
+    if (stoi(hours) < 10) {
+        ret += "0" + hours;
+    }
+    else {
+        ret += hours;
+    }
+
+    if (stoi(minutes) < 10) {
+        ret += ":0" + minutes;
+    }
+    else {
+        ret += ":" + minutes;
+    }
+    
+    return  ret;
 }
 
 void Flight::edit(int value, EditType editType)
