@@ -18,14 +18,14 @@ namespace airways {
                 case 0:
                     this->labelDeparture->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
-                case1:
+                case 1:
                     this->labelDestination->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 2:
-                    this->labelAircraft ->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelAircraft->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 3:
-                   // this->labelDistance->Text = str[i];
+                   this->labelDistance->Text = msclr::interop::marshal_as<System::String^>(str[i]) + "km";
                     break;
                 case 4:
                     this->labelDate->Text = msclr::interop::marshal_as<System::String^>(str[i]);
@@ -135,7 +135,7 @@ namespace airways {
                 static_cast<System::Byte>(238)));
             this->labelDistance->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
                 static_cast<System::Int32>(static_cast<System::Byte>(153)));
-            this->labelDistance->Location = System::Drawing::Point(123, 49);
+            this->labelDistance->Location = System::Drawing::Point(157, 49);
             this->labelDistance->Name = L"labelDistance";
             this->labelDistance->Size = System::Drawing::Size(63, 15);
             this->labelDistance->TabIndex = 4;
@@ -148,7 +148,7 @@ namespace airways {
                 static_cast<System::Byte>(238)));
             this->labelDate->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
                 static_cast<System::Int32>(static_cast<System::Byte>(153)));
-            this->labelDate->Location = System::Drawing::Point(235, 49);
+            this->labelDate->Location = System::Drawing::Point(261, 49);
             this->labelDate->Name = L"labelDate";
             this->labelDate->Size = System::Drawing::Size(35, 15);
             this->labelDate->TabIndex = 5;

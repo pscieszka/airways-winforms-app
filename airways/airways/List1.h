@@ -25,12 +25,17 @@ namespace airways {
 		List1(void)
 		{
 			InitializeComponent();
-			for (int i = 0; i < flights->size(); ++i)
-			{
-				listItem^ flightList = gcnew listItem(flights->operator[](i).getData());
-				flightList->BackColor = Color::FromArgb(41, 41,41);
-				flightList->Size = System::Drawing::Size(900, 75);
-				flowLayoutPanel1->Controls->Add(flightList);
+			if (flights->size() == 0) {
+
+			}
+			else {
+				for (int i = 0; i < flights->size(); ++i)
+				{
+					listItem^ flightList = gcnew listItem(flights->operator[](i).getData());
+					flightList->BackColor = Color::FromArgb(41, 41,41);
+					flightList->Size = System::Drawing::Size(900, 75);
+					flowLayoutPanel1->Controls->Add(flightList);
+				}
 			}
 
 
@@ -51,6 +56,7 @@ namespace airways {
 		}
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+	private: System::Windows::Forms::Label^ labelEmpty;
 
 	protected:
 
@@ -144,6 +150,8 @@ namespace airways {
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->labelEmpty = (gcnew System::Windows::Forms::Label());
+			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -159,11 +167,24 @@ namespace airways {
 			// flowLayoutPanel1
 			// 
 			this->flowLayoutPanel1->AutoScroll = true;
-
+			this->flowLayoutPanel1->Controls->Add(this->labelEmpty);
 			this->flowLayoutPanel1->Location = System::Drawing::Point(65, 134);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
 			this->flowLayoutPanel1->Size = System::Drawing::Size(950, 500);
 			this->flowLayoutPanel1->TabIndex = 1;
+			// 
+			// labelEmpty
+			// 
+			this->labelEmpty->AutoSize = true;
+			this->labelEmpty->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 72, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelEmpty->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(81)), static_cast<System::Int32>(static_cast<System::Byte>(81)),
+				static_cast<System::Int32>(static_cast<System::Byte>(81)));
+			this->labelEmpty->Location = System::Drawing::Point(3, 0);
+			this->labelEmpty->Name = L"labelEmpty";
+			this->labelEmpty->Size = System::Drawing::Size(617, 108);
+			this->labelEmpty->TabIndex = 2;
+			this->labelEmpty->Text = L"List is empty.";
 			// 
 			// List1
 			// 
@@ -176,6 +197,8 @@ namespace airways {
 			this->Controls->Add(this->panel1);
 			this->Name = L"List1";
 			this->Text = L"List1";
+			this->flowLayoutPanel1->ResumeLayout(false);
+			this->flowLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
