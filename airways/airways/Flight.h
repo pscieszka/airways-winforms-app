@@ -1,5 +1,6 @@
 #pragma once
 //#include"Passenger.h"
+#include <msclr/marshal_cppstd.h>
 #include "string"
 #include "vector"
 
@@ -34,7 +35,7 @@ public:
 		
 		return str;
 	}
-	std::vector<std::string> getData;
+	std::vector<std::string> getData();
 
 private:
 	std::string convertTime();

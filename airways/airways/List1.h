@@ -27,7 +27,7 @@ namespace airways {
 			InitializeComponent();
 			for (int i = 0; i < flights->size(); ++i)
 			{
-				listItem^ flightList = gcnew listItem(msclr::interop::marshal_as<System::String^>(flights->get(0)));
+				listItem^ flightList = gcnew listItem(flights->operator[](i).getData());
 				flightList->BackColor = Color::FromArgb(41, 41,41);
 				flightList->Size = System::Drawing::Size(900, 75);
 				flowLayoutPanel1->Controls->Add(flightList);

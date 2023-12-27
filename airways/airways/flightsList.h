@@ -32,6 +32,12 @@ public:
     int size() {
         return flights.size();
     }
+    Flight& operator[](int idx) {
+        if (idx >= 0 && idx < flights.size()) {
+            return flights[idx];
+        }
+        return flights[0];
+    }
 };
 
 // Inicjalizacja statycznej zmiennej klasy

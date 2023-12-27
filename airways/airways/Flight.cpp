@@ -18,6 +18,18 @@ void Flight::edit(int time, int date, int gate)
     this->gate = gate;
 }
 
+std::vector<std::string> Flight::getData()
+{
+    std::vector<std::string>  vec;
+    vec.push_back(departure);
+    vec.push_back(destination);
+    vec.push_back(aircraft);
+    vec.push_back(std::to_string(distance));
+    vec.push_back(date);
+
+    return vec;
+}
+
 std::string Flight::convertTime()
 {
     if (time < 60) {
