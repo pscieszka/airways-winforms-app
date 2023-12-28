@@ -23,12 +23,6 @@ public:
         flights.push_back(f);
     }
 
-    std::string get(int idx) {
-        if (!flights.empty()) {
-            return flights[idx].test();
-        }
-        return "No flights available.";
-    }
     int size() {
         return flights.size();
     }

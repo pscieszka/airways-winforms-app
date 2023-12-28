@@ -26,6 +26,10 @@ std::vector<std::string> Flight::getData()
     vec.push_back(aircraft);
     vec.push_back(std::to_string(distance));
     vec.push_back(date);
+    vec.push_back(gate);
+    vec.push_back(addTime(time,flightDuration));
+    vec.push_back(convertTime(time));
+
 
     return vec;
 }

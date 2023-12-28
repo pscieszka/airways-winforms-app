@@ -12,7 +12,7 @@ namespace airways {
         listItem(std::vector<std::string> str)
         {
             InitializeComponent();
-            for (int i = 0; i < str.size(); i++) {
+            for (int i = 0; i < str.size()-1; i++) {
                 switch (i)
                 {
                 case 0:
@@ -29,6 +29,12 @@ namespace airways {
                     break;
                 case 4:
                     this->labelDate->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 5:
+                    this->labelGate->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 6:
+                    this->labelHours->Text = msclr::interop::marshal_as<System::String^>(str[i+1]) + " - " + msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 default:
                     break;
