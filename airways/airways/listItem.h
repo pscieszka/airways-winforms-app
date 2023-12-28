@@ -1,5 +1,6 @@
 
 #pragma once
+#include "Edit1.h"
 #include "vector"
 namespace airways {
 
@@ -25,7 +26,7 @@ namespace airways {
                     this->labelAircraft->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 3:
-                   this->labelDistance->Text = msclr::interop::marshal_as<System::String^>(str[i]) + "km";
+                   this->labelDistance->Text = msclr::interop::marshal_as<System::String^>(str[i]) + " km";
                     break;
                 case 4:
                     this->labelDate->Text = msclr::interop::marshal_as<System::String^>(str[i]);
@@ -202,6 +203,7 @@ namespace airways {
             this->buttonEdit->TabIndex = 9;
             this->buttonEdit->Text = L"edit";
             this->buttonEdit->UseVisualStyleBackColor = false;
+            this->buttonEdit->Click += gcnew System::EventHandler(this, &listItem::buttonEdit_Click);
             // 
             // buttonAddPassenger
             // 
@@ -235,5 +237,10 @@ namespace airways {
         }
 #pragma endregion
 
-    };
+    private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+       Edit1^ edit1 = gcnew  Edit1();
+
+       edit1->Show();
+    }
+};
 }

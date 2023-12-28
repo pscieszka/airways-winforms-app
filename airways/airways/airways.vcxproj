@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClInclude Include="Baggage.h" />
     <ClInclude Include="CheckedLuggage.h" />
+    <ClInclude Include="Edit1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Flight.h" />
     <ClInclude Include="flightsList.h" />
     <ClInclude Include="Form1.h">
@@ -165,6 +168,9 @@
     <ClInclude Include="SmallBag.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Edit1.resx">
+      <DependentUpon>Edit1.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
