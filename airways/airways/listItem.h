@@ -188,12 +188,20 @@ namespace airways {
             // 
             // buttonEdit
             // 
-            this->buttonEdit->Location = System::Drawing::Point(827, 25);
+            this->buttonEdit->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+                static_cast<System::Int32>(static_cast<System::Byte>(51)));
+            this->buttonEdit->FlatAppearance->BorderSize = 0;
+            this->buttonEdit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->buttonEdit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(238)));
+            this->buttonEdit->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+                static_cast<System::Int32>(static_cast<System::Byte>(153)));
+            this->buttonEdit->Location = System::Drawing::Point(828, 16);
             this->buttonEdit->Name = L"buttonEdit";
-            this->buttonEdit->Size = System::Drawing::Size(41, 22);
+            this->buttonEdit->Size = System::Drawing::Size(54, 30);
             this->buttonEdit->TabIndex = 9;
             this->buttonEdit->Text = L"edit";
-            this->buttonEdit->UseVisualStyleBackColor = true;
+            this->buttonEdit->UseVisualStyleBackColor = false;
             // 
             // buttonAddPassenger
             // 
