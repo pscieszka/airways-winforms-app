@@ -26,9 +26,10 @@ namespace airways {
 		{
 			InitializeComponent();
 			if (flights->size() == 0) {
-
+				this->labelEmpty->Visible = true;
 			}
 			else {
+				this->labelEmpty->Visible = false;
 				for (int i = 0; i < flights->size(); ++i)
 				{
 					listItem^ flightList = gcnew listItem(flights->operator[](i).getData());
