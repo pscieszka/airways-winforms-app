@@ -30,7 +30,23 @@ std::vector<std::string> Flight::getData()
     return vec;
 }
 
-std::string Flight::convertTime()
+
+
+std::string Flight::addTime(int timeInt, std::string timeStr)
+{
+    std::string ret;
+    if (timeStr.find(':') != std::string::npos) {
+        int hours = stoi(timeStr.substr(0, timeStr.find(':')));
+        int minutes = stoi(timeStr.substr(timeStr.find(':') + 1));
+        timeInt += hours * 60 + minutes;
+        return convertTime(timeInt);
+    }
+    else {
+        return "";
+    }
+}
+
+std::string Flight::convertTime(int time)
 {
     std::string ret="";
  

@@ -28,17 +28,13 @@ public:
 	void edit(int value, EditType editType);
 
 	void edit(int time, int date, int gate);
-	std::string test() {
-		
-		std::string str;
-		str += "Destination = " + destination + "\n";
-		
-		return str;
-	}
+
 	std::vector<std::string> getData();
 
 private:
-	std::string convertTime();
+
+	std::string addTime(int timeInt,std::string timeStr); // minutes + mm::hh, returns mm::hh
+	std::string convertTime(int time);
 	std::string convertDate();
 
 };
