@@ -11,7 +11,7 @@ Flight::Flight(std::string departure, std::string destination, int distance, int
 {
 }
 
-void Flight::edit(int time, int date, int gate)
+void Flight::edit(int time, std::string date, std::string gate)
 {
     this->time = time;
     this->date = date;

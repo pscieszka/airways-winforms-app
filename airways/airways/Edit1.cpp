@@ -138,6 +138,13 @@ bool airways::Edit1::validTextBoxes()
 System::Void airways::Edit1::buttonChangeData_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if (validTextBoxes()) {
-        return;
+       
+        (*flights)[idx].edit(
+            Int32::Parse(this->textBoxMinutes->Text)+ Int32::Parse(this->textBoxHours->Text)*60,
+            msclr::interop::marshal_as<std::string>(this->textBoxDD->Text) + "." + msclr::interop::marshal_as<std::string>(this->textBoxMM->Text), //???
+            msclr::interop::marshal_as<std::string>(this->textBoxGate->Text));
+
+        //RELOAD LIST
+        this->Close();
     }
 }
