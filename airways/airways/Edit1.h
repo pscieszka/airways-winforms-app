@@ -23,8 +23,10 @@ namespace airways {
 			InitializeComponent();
 			this->idx = idx;
 			std::vector<std::string> str = (*flights)[idx].getData();
-			this->textBoxDD->Text = msclr::interop::marshal_as<System::String^>(str[4]);
-			this->textBoxMinutes->Text = msclr::interop::marshal_as<System::String^>(str[7]);
+			this->textBoxDD->Text = msclr::interop::marshal_as<System::String^>(str[4].substr(0,2));
+			this->textBoxMM->Text = msclr::interop::marshal_as<System::String^>(str[4].substr(3));
+			this->textBoxMinutes->Text = msclr::interop::marshal_as<System::String^>(str[7].substr(3));
+			this->textBoxHours->Text = msclr::interop::marshal_as<System::String^>(str[7].substr(0, 2));
 			this->textBoxGate->Text = msclr::interop::marshal_as<System::String^>(str[5]);
 			//
 
