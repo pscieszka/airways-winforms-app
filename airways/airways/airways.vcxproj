@@ -145,6 +145,9 @@
     <ClInclude Include="Edit1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Edit2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Flight.h" />
     <ClInclude Include="flightsList.h" />
     <ClInclude Include="Form1.h">

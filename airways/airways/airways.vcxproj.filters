@@ -92,5 +92,8 @@
     <ClInclude Include="Edit1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Edit2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

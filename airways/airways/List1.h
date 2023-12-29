@@ -58,6 +58,8 @@ namespace airways {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Label^ labelEmpty;
+	private: System::Windows::Forms::Label^ labelHeader;
+	private: System::Windows::Forms::Button^ button1;
 
 	protected:
 
@@ -152,6 +154,9 @@ namespace airways {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->labelEmpty = (gcnew System::Windows::Forms::Label());
+			this->labelHeader = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->panel1->SuspendLayout();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -159,6 +164,7 @@ namespace airways {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->panel1->Controls->Add(this->labelHeader);
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
 			this->panel1->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
@@ -171,7 +177,7 @@ namespace airways {
 			this->flowLayoutPanel1->Controls->Add(this->labelEmpty);
 			this->flowLayoutPanel1->Location = System::Drawing::Point(65, 134);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(950, 500);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(950, 472);
 			this->flowLayoutPanel1->TabIndex = 1;
 			// 
 			// labelEmpty
@@ -187,6 +193,37 @@ namespace airways {
 			this->labelEmpty->TabIndex = 2;
 			this->labelEmpty->Text = L"List is empty.";
 			// 
+			// labelHeader
+			// 
+			this->labelHeader->AutoSize = true;
+			this->labelHeader->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelHeader->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelHeader->Location = System::Drawing::Point(399, 21);
+			this->labelHeader->Name = L"labelHeader";
+			this->labelHeader->Size = System::Drawing::Size(246, 55);
+			this->labelHeader->TabIndex = 3;
+			this->labelHeader->Text = L"Flights list";
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->button1->FlatAppearance->BorderSize = 0;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->button1->Location = System::Drawing::Point(47, 628);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(186, 43);
+			this->button1->TabIndex = 2;
+			this->button1->Text = L"Refresh";
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &List1::button1_Click);
+			// 
 			// List1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -194,10 +231,13 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->panel1);
 			this->Name = L"List1";
 			this->Text = L"List1";
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->flowLayoutPanel1->ResumeLayout(false);
 			this->flowLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
@@ -207,6 +247,8 @@ namespace airways {
 
 
 
-
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//to do
+}
 };
 }

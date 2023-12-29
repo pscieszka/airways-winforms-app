@@ -1,4 +1,5 @@
 #include "Edit1.h"
+#include "List1.h"
 #include "string"
 
 bool airways::Edit1::validTextBoxes()
@@ -92,6 +93,9 @@ bool airways::Edit1::validTextBoxes()
         infoLabelGate->Text = "";
         isValid = true;
     }
+    if (textBoxGate->Text == "N/A") {
+        isValid = true;
+    }
     else
     {
         try
@@ -141,10 +145,8 @@ System::Void airways::Edit1::buttonChangeData_Click(System::Object^ sender, Syst
        
         (*flights)[idx].edit(
             Int32::Parse(this->textBoxMinutes->Text)+ Int32::Parse(this->textBoxHours->Text)*60,
-            msclr::interop::marshal_as<std::string>(this->textBoxDD->Text) + "." + msclr::interop::marshal_as<std::string>(this->textBoxMM->Text), //???
+            msclr::interop::marshal_as<std::string>(this->textBoxDD->Text) + "." + msclr::interop::marshal_as<std::string>(this->textBoxMM->Text), 
             msclr::interop::marshal_as<std::string>(this->textBoxGate->Text));
-
-        //RELOAD LIST
         this->Close();
     }
 }

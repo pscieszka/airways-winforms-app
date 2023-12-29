@@ -3,7 +3,8 @@
 #include "Edit1.h"
 #include "vector"
 namespace airways {
-    static bool isOpen = false;
+    static bool isOpenEdit1 = false;
+    static bool isOpenEdit2 = false;
 
     using namespace System;
     using namespace System::Windows::Forms;
@@ -64,14 +65,15 @@ namespace airways {
     private: System::Windows::Forms::Label^ labelHours;
     private: System::Windows::Forms::Label^ labelGate;
     private: System::Windows::Forms::Button^ buttonEdit;
-    private: System::Windows::Forms::Button^ buttonAddPassenger;
+
 
 
     protected:
 
     private:
         int idx;
-        System::ComponentModel::Container^ components;
+    private: System::Windows::Forms::Button^ button1;
+           System::ComponentModel::Container^ components;
 #pragma region components
 
         void InitializeComponent(void)
@@ -86,7 +88,7 @@ namespace airways {
             this->labelHours = (gcnew System::Windows::Forms::Label());
             this->labelGate = (gcnew System::Windows::Forms::Label());
             this->buttonEdit = (gcnew System::Windows::Forms::Button());
-            this->buttonAddPassenger = (gcnew System::Windows::Forms::Button());
+            this->button1 = (gcnew System::Windows::Forms::Button());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
             // 
@@ -208,20 +210,29 @@ namespace airways {
             this->buttonEdit->UseVisualStyleBackColor = false;
             this->buttonEdit->Click += gcnew System::EventHandler(this, &listItem::buttonEdit_Click);
             // 
-            // buttonAddPassenger
+            // button1
             // 
-            this->buttonAddPassenger->Location = System::Drawing::Point(684, 25);
-            this->buttonAddPassenger->Name = L"buttonAddPassenger";
-            this->buttonAddPassenger->Size = System::Drawing::Size(96, 21);
-            this->buttonAddPassenger->TabIndex = 10;
-            this->buttonAddPassenger->Text = L"add passenger";
-            this->buttonAddPassenger->UseVisualStyleBackColor = true;
+            this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+                static_cast<System::Int32>(static_cast<System::Byte>(51)));
+            this->button1->FlatAppearance->BorderSize = 0;
+            this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(238)));
+            this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+                static_cast<System::Int32>(static_cast<System::Byte>(153)));
+            this->button1->Location = System::Drawing::Point(649, 16);
+            this->button1->Name = L"button1";
+            this->button1->Size = System::Drawing::Size(136, 30);
+            this->button1->TabIndex = 11;
+            this->button1->Text = L"Add passengers";
+            this->button1->UseVisualStyleBackColor = false;
+            this->button1->Click += gcnew System::EventHandler(this, &listItem::button1_Click);
             // 
             // listItem
             // 
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(41)),
                 static_cast<System::Int32>(static_cast<System::Byte>(41)));
-            this->Controls->Add(this->buttonAddPassenger);
+            this->Controls->Add(this->button1);
             this->Controls->Add(this->buttonEdit);
             this->Controls->Add(this->labelGate);
             this->Controls->Add(this->labelHours);
@@ -241,12 +252,15 @@ namespace airways {
 #pragma endregion
 
     private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
-        if (!isOpen) {
-            isOpen = true;
+        if (!isOpenEdit1) {
+            isOpenEdit1 = true;
             Edit1^ edit1 = gcnew  Edit1(idx);
             edit1->ShowDialog();
-            isOpen = false;
+            isOpenEdit1 = false;
         }
     }
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
 };
 }
