@@ -11,12 +11,14 @@ namespace airways {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
+	
 	public ref class Edit1 : public System::Windows::Forms::Form
 	{
 	public:
-		Edit1(void)
+		Edit1(int idx)
 		{
 			InitializeComponent();
+			this->idx = idx;
 			
 			//
 
@@ -131,6 +133,7 @@ namespace airways {
 	protected:
 
 	private:
+		int idx;
 
 
 		/// <summary>

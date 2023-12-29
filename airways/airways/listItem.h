@@ -11,9 +11,10 @@ namespace airways {
     public ref class listItem : public UserControl
     {
     public:
-        listItem(std::vector<std::string> str)
+        listItem(std::vector<std::string> str,int idx)
         {
             InitializeComponent();
+            this->idx = idx;
             for (int i = 0; i < str.size()-1; i++) {
                 switch (i)
                 {
@@ -69,6 +70,7 @@ namespace airways {
     protected:
 
     private:
+        int idx;
         System::ComponentModel::Container^ components;
 #pragma region components
 
@@ -241,7 +243,7 @@ namespace airways {
     private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
         if (!isOpen) {
             isOpen = true;
-            Edit1^ edit1 = gcnew  Edit1();
+            Edit1^ edit1 = gcnew  Edit1(idx);
             edit1->ShowDialog();
             isOpen = false;
         }

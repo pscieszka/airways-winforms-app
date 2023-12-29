@@ -30,9 +30,9 @@ namespace airways {
 			}
 			else {
 				this->labelEmpty->Visible = false;
-				for (int i = 0; i < flights->size(); ++i)
+				for (int i = 0; i < flights->size(); i++)
 				{
-					listItem^ flightList = gcnew listItem(flights->operator[](i).getData());
+					listItem^ flightList = gcnew listItem((*flights)[i].getData(),i);
 					flightList->BackColor = Color::FromArgb(41, 41,41);
 					flightList->Size = System::Drawing::Size(900, 75);
 					flowLayoutPanel1->Controls->Add(flightList);

@@ -1,8 +1,9 @@
 #include "Edit1.h"
 #include "string"
-int monthDays2;
 bool airways::Edit1::validTextBoxes()
 {
+    int monthDays2;
+
     bool isValid = true;
 
     // data

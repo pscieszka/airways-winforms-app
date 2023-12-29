@@ -35,6 +35,6 @@ private:
 
 	std::string addTime(int timeInt,std::string timeStr); // minutes + mm::hh, returns mm::hh
 	std::string convertTime(int time);
-	std::string convertDate();
+	std::string convertDate(std::string date);
 
 };

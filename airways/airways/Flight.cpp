@@ -25,7 +25,7 @@ std::vector<std::string> Flight::getData()
     vec.push_back(destination);
     vec.push_back(aircraft);
     vec.push_back(std::to_string(distance));
-    vec.push_back(date);
+    vec.push_back(convertDate(date));
     vec.push_back(gate);
     vec.push_back(addTime(time,flightDuration));
     vec.push_back(convertTime(time));
@@ -72,6 +72,25 @@ std::string Flight::convertTime(int time)
     }
     
     return  ret;
+}
+
+std::string Flight::convertDate(std::string date)
+{
+    
+    std::string day;
+    std::string month;
+    if (date.find('.') != std::string::npos) {
+        day = date.substr(0, date.find('.'));
+        month = date.substr(date.find('.')+1);
+        if (day.size() == 1) {
+            day = '0' + day;
+        }
+        if (month.size() == 1) {
+            month = '0' + month;
+        }
+    }
+    date = day + "." + month;
+    return  date;
 }
 
 void Flight::edit(int value, EditType editType)
