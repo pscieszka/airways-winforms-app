@@ -6,6 +6,8 @@ public:
 	HandLuggage(double weight, const std::vector<int>& size);
 	HandLuggage();
 	std::string display() const override;
+	std::string getType() const override;
+	int getPrice() const override;
 	~HandLuggage();
 
 private:

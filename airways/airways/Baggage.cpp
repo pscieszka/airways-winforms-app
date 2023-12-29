@@ -27,4 +27,11 @@ std::string Baggage::objsNumToString() {
 Baggage::~Baggage() {
 	//colisions
 	//objsNumber--;
+	std::cout << "Dest baggage";
 }
+
+std::string Baggage::display() const
+{
+	return std::string();
+}
+

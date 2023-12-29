@@ -137,6 +137,8 @@
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="Map1.cpp" />
     <ClCompile Include="Map2.cpp" />
+    <ClCompile Include="MixedBaggage.cpp" />
+    <ClCompile Include="Passenger.cpp" />
     <ClCompile Include="SmallBag.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +171,8 @@
     <ClInclude Include="Map2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MixedBaggage.h" />
+    <ClInclude Include="Passenger.h" />
     <ClInclude Include="PassengerItem.h">
       <FileType>CppHeader</FileType>
     </ClInclude>
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map2.resx">
       <DependentUpon>Map2.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassengerItem.resx">
+      <DependentUpon>PassengerItem.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

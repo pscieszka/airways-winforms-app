@@ -48,9 +48,11 @@ namespace airways {
     private: System::Windows::Forms::Label^ infoLabelSeat;
     private: System::Windows::Forms::Label^ infoLabelTicketType;
     private: System::Windows::Forms::Label^ labelPrice;
-    private: System::Windows::Forms::Label^ label1;
+    private: System::Windows::Forms::Label^ infoLabelTicketPrice;
+
     private: System::Windows::Forms::Label^ labelBaggages;
-    private: System::Windows::Forms::Label^ label2;
+    private: System::Windows::Forms::Label^ infoLabelBaggages;
+
 
 
 
@@ -80,9 +82,9 @@ namespace airways {
                this->infoLabelSeat = (gcnew System::Windows::Forms::Label());
                this->infoLabelTicketType = (gcnew System::Windows::Forms::Label());
                this->labelPrice = (gcnew System::Windows::Forms::Label());
-               this->label1 = (gcnew System::Windows::Forms::Label());
+               this->infoLabelTicketPrice = (gcnew System::Windows::Forms::Label());
                this->labelBaggages = (gcnew System::Windows::Forms::Label());
-               this->label2 = (gcnew System::Windows::Forms::Label());
+               this->infoLabelBaggages = (gcnew System::Windows::Forms::Label());
                this->SuspendLayout();
                // 
                // labelName
@@ -219,18 +221,18 @@ namespace airways {
                this->labelPrice->TabIndex = 13;
                this->labelPrice->Text = L"100 EUR";
                // 
-               // label1
+               // infoLabelTicketPrice
                // 
-               this->label1->AutoSize = true;
-               this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+               this->infoLabelTicketPrice->AutoSize = true;
+               this->infoLabelTicketPrice->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(238)));
-               this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(153)));
-               this->label1->Location = System::Drawing::Point(458, 49);
-               this->label1->Name = L"label1";
-               this->label1->Size = System::Drawing::Size(81, 15);
-               this->label1->TabIndex = 14;
-               this->label1->Text = L"Ticket price";
+               this->infoLabelTicketPrice->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+                   static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+               this->infoLabelTicketPrice->Location = System::Drawing::Point(458, 49);
+               this->infoLabelTicketPrice->Name = L"infoLabelTicketPrice";
+               this->infoLabelTicketPrice->Size = System::Drawing::Size(81, 15);
+               this->infoLabelTicketPrice->TabIndex = 14;
+               this->infoLabelTicketPrice->Text = L"Ticket price";
                // 
                // labelBaggages
                // 
@@ -245,26 +247,26 @@ namespace airways {
                this->labelBaggages->TabIndex = 15;
                this->labelBaggages->Text = L"baggessss";
                // 
-               // label2
+               // infoLabelBaggages
                // 
-               this->label2->AutoSize = true;
-               this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+               this->infoLabelBaggages->AutoSize = true;
+               this->infoLabelBaggages->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                    static_cast<System::Byte>(238)));
-               this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
-                   static_cast<System::Int32>(static_cast<System::Byte>(153)));
-               this->label2->Location = System::Drawing::Point(572, 49);
-               this->label2->Name = L"label2";
-               this->label2->Size = System::Drawing::Size(71, 15);
-               this->label2->TabIndex = 16;
-               this->label2->Text = L"Baggages";
+               this->infoLabelBaggages->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+                   static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+               this->infoLabelBaggages->Location = System::Drawing::Point(572, 49);
+               this->infoLabelBaggages->Name = L"infoLabelBaggages";
+               this->infoLabelBaggages->Size = System::Drawing::Size(71, 15);
+               this->infoLabelBaggages->TabIndex = 16;
+               this->infoLabelBaggages->Text = L"Baggages";
                // 
                // listItem
                // 
                this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(41)),
                    static_cast<System::Int32>(static_cast<System::Byte>(41)));
-               this->Controls->Add(this->label2);
+               this->Controls->Add(this->infoLabelBaggages);
                this->Controls->Add(this->labelBaggages);
-               this->Controls->Add(this->label1);
+               this->Controls->Add(this->infoLabelTicketPrice);
                this->Controls->Add(this->labelPrice);
                this->Controls->Add(this->infoLabelTicketType);
                this->Controls->Add(this->infoLabelSeat);

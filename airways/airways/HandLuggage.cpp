@@ -1,3 +1,4 @@
+
 #include "HandLuggage.h"
 
 HandLuggage::HandLuggage(double weight, const std::vector<int>& size) : Baggage(weight, size)
@@ -27,6 +28,24 @@ std::string HandLuggage::display() const
 
 	return result;
 }
+
+std::string HandLuggage::getType() const
+{
+	if (isValid) {
+		return "Hand Luggage. The luggage has been approved.";
+	}
+	else {
+		return "Hand Luggage. The luggage  has been rejected.";
+	}
+
+}
+
+int HandLuggage::getPrice() const
+{
+	return 75;
+}
+
+
 
 HandLuggage::~HandLuggage()
 {

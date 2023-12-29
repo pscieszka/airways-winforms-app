@@ -1,3 +1,4 @@
+
 #include "CheckedLuggage.h"
 
 CheckedLuggage::CheckedLuggage(double weight, const std::vector<int>& size, double dist) : Baggage(weight, size), dist(dist)
@@ -7,7 +8,7 @@ CheckedLuggage::CheckedLuggage(double weight, const std::vector<int>& size, doub
 	price = calculatePrice();
 }
 
-CheckedLuggage::CheckedLuggage() : Baggage(), dist(0), price(-1.0)
+CheckedLuggage::CheckedLuggage() : Baggage(), dist(0), price(-1)
 {
 	setTag();
 }
@@ -29,6 +30,24 @@ std::string CheckedLuggage::display() const
 
 	return result;
 }
+
+std::string CheckedLuggage::getType() const
+{
+	if (isValid) {
+		return "Checked Luggage. The luggage has been approved.";
+	}
+	else {
+		return "Checked Luggage. The luggage  has been rejected.";
+	}
+}
+
+
+int CheckedLuggage::getPrice() const
+{
+	return price;
+}
+
+
 
 CheckedLuggage::~CheckedLuggage()
 {

@@ -8,6 +8,9 @@ public:
 	CheckedLuggage(double weight, const std::vector<int>& size, double dist);
 	CheckedLuggage();
 	std::string display() const override;
+	std::string getType() const override;
+	int getPrice() const override;
+
 	~CheckedLuggage();
 
 private:
