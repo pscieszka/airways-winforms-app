@@ -3,6 +3,7 @@
 #include "Edit1.h"
 #include "vector"
 namespace airways {
+    static bool isOpen = false;
 
     using namespace System;
     using namespace System::Windows::Forms;
@@ -238,9 +239,12 @@ namespace airways {
 #pragma endregion
 
     private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
-       Edit1^ edit1 = gcnew  Edit1();
-
-       edit1->Show();
+        if (!isOpen) {
+            isOpen = true;
+            Edit1^ edit1 = gcnew  Edit1();
+            edit1->ShowDialog();
+            isOpen = false;
+        }
     }
 };
 }
