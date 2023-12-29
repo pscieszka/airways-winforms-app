@@ -1,4 +1,7 @@
 #pragma once
+#include <msclr/marshal_cppstd.h>
+#include "Form1.h"
+#include "flightsList.h"
 namespace airways {
 
 	using namespace System;
@@ -19,8 +22,12 @@ namespace airways {
 		{
 			InitializeComponent();
 			this->idx = idx;
-			
+			std::vector<std::string> str = (*flights)[idx].getData();
+			this->textBoxDD->Text = msclr::interop::marshal_as<System::String^>(str[4]);
+			this->textBoxMinutes->Text = msclr::interop::marshal_as<System::String^>(str[7]);
+			this->textBoxGate->Text = msclr::interop::marshal_as<System::String^>(str[5]);
 			//
+
 
 
 			//TODO: Add the constructor code here
