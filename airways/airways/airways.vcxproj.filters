@@ -95,5 +95,8 @@
     <ClInclude Include="Edit2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PassengerItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
