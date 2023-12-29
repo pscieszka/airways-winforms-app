@@ -3,12 +3,8 @@
 #include <msclr/marshal_cppstd.h>
 #include "string"
 #include "vector"
+#include "Passenger.h"
 
-enum EditType {
-	EDIT_TIME,
-	EDIT_DATE,
-	EDIT_GATE
-};
 
 class Flight
 {
@@ -20,16 +16,17 @@ class Flight
 	int distance;
 	std::string flightDuration;
 	std::string gate;
-	//std::vector<Passenger> passengers;
+    std::vector<Passenger> passengers;
 public:
 	Flight(std::string departure, std::string destination, int distance);
 	Flight(std::string departure, std::string destination,int distance, int time, std::string date, std::string gate, std::string aircraft, std::string flightDuration);
 
-	void edit(int value, EditType editType);
-
 	void edit(int time, std::string date, std::string gate);
 
 	std::vector<std::string> getData();
+
+	
+	std::vector<Passenger> getPassengers();
 
 private:
 

@@ -40,6 +40,14 @@ std::string Passenger::display() const
 	return result;
 }
 
+std::vector<std::string> Passenger::getData()
+{
+	std::vector<std::string > vec;
+	vec.push_back("22");
+	vec.push_back("33");
+	return vec;
+}
+
 Passenger::~Passenger()
 {
 	for (auto& ptr : baggages) {

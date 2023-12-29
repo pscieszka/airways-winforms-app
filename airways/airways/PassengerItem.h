@@ -4,24 +4,31 @@
 #include "Edit2.h"
 #include "vector"
 namespace airways {
-    static bool isOpenEdit1 = false;
-    static bool isOpenEdit2 = false;
 
     using namespace System;
     using namespace System::Windows::Forms;
 
-    public ref class listItem : public UserControl
+    public ref class PassengerItem : public UserControl
     {
     public:
-        listItem(std::vector<std::string> str, int idx)
+        PassengerItem(std::vector<std::string> str)
         {
             InitializeComponent();
-         
+            for (int i = 0; i < str.size() - 1; i++) {
+                switch (i)
+                {
+                case 0:
+                    this->labelName->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                default:
+                    break;
+                }
+            }
 
         }
 
     protected:
-        ~listItem()
+        ~PassengerItem()
         {
             if (components)
             {
@@ -286,6 +293,6 @@ namespace airways {
 #pragma endregion
 
 
-    }
+    
     };
 }

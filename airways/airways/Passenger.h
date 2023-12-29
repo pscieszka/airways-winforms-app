@@ -14,6 +14,8 @@ public:
 	Passenger();
 	void addToTicketPrice(int flightPrice);
 	std::string display() const;
+
+	std::vector<std::string> getData();
 	~Passenger();
 private:
 	void calculateTicketPrice();

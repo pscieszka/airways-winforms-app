@@ -1,7 +1,7 @@
 #pragma once
 #include <msclr/marshal_cppstd.h>
 #include "Form1.h"
-#include "flightsList.h"
+#include "PassengerItem.h"
 namespace airways {
 
 	using namespace System;
@@ -18,12 +18,23 @@ namespace airways {
 	public ref class Edit2 : public System::Windows::Forms::Form
 	{
 	public:
-		Edit2(int aircraft)
+		Edit2(int aircraft,int idx)
 		{
 			InitializeComponent();
 			if (aircraft == 1) {
 				//this->checkBoxFirstClass->Visible = false;
 			}
+
+			std::vector<Passenger> pass = (*flights)[idx].getPassengers();
+				for (int i = 0; i < pass.size(); i++)
+				{
+					PassengerItem^ passengerList = gcnew PassengerItem(pass[i].getData());
+					passengerList->BackColor = Color::FromArgb(41, 41, 41);
+					passengerList->Size = System::Drawing::Size(900, 75);
+					flowLayoutPanel1->Controls->Add(passengerList);
+				}
+			
+
 			//
 
 

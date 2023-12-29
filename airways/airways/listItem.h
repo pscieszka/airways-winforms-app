@@ -272,7 +272,7 @@ namespace airways {
 private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
     if (!isOpenEdit2) {
         isOpenEdit2 = true;
-        Edit2^ edit2 = gcnew  Edit2(aircraftType);
+        Edit2^ edit2 = gcnew  Edit2(aircraftType,idx);
         edit2->ShowDialog();
         isOpenEdit2 = false;
     }

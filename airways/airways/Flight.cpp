@@ -35,6 +35,11 @@ std::vector<std::string> Flight::getData()
 }
 
 
+std::vector<Passenger> Flight::getPassengers()
+{
+    return passengers;
+
+}
 
 std::string Flight::addTime(int timeInt, std::string timeStr)
 {
@@ -93,17 +98,5 @@ std::string Flight::convertDate(std::string date)
     return  date;
 }
 
-void Flight::edit(int value, EditType editType)
-{
-    switch (editType) {
-    case EDIT_TIME:
-        time = value;
-            break;
-    case EDIT_DATE:
-        date = value;
-            break;
-    case EDIT_GATE:
-        gate = std::to_string(value);
-        break;
-    }
-}
+
+
