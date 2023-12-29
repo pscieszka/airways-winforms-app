@@ -175,6 +175,9 @@
     <EmbeddedResource Include="Edit1.resx">
       <DependentUpon>Edit1.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Edit2.resx">
+      <DependentUpon>Edit2.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>

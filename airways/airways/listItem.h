@@ -1,6 +1,7 @@
 
 #pragma once
 #include "Edit1.h"
+#include "Edit2.h"
 #include "vector"
 namespace airways {
     static bool isOpenEdit1 = false;
@@ -26,6 +27,12 @@ namespace airways {
                     this->labelDestination->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 2:
+                    if (str[i][0] == 'b') {
+                        aircraftType = 0;
+                    }
+                    else {
+                        aircraftType = 1;
+                    }
                     this->labelAircraft->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 3:
@@ -72,7 +79,9 @@ namespace airways {
 
     private:
         int idx;
-    private: System::Windows::Forms::Button^ button1;
+        int aircraftType; //0 - boeing, 1 - airbus
+    private: System::Windows::Forms::Button^ buttonAdd;
+
            System::ComponentModel::Container^ components;
 #pragma region components
 
@@ -88,7 +97,7 @@ namespace airways {
             this->labelHours = (gcnew System::Windows::Forms::Label());
             this->labelGate = (gcnew System::Windows::Forms::Label());
             this->buttonEdit = (gcnew System::Windows::Forms::Button());
-            this->button1 = (gcnew System::Windows::Forms::Button());
+            this->buttonAdd = (gcnew System::Windows::Forms::Button());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
             // 
@@ -210,29 +219,29 @@ namespace airways {
             this->buttonEdit->UseVisualStyleBackColor = false;
             this->buttonEdit->Click += gcnew System::EventHandler(this, &listItem::buttonEdit_Click);
             // 
-            // button1
+            // buttonAdd
             // 
-            this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+            this->buttonAdd->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
                 static_cast<System::Int32>(static_cast<System::Byte>(51)));
-            this->button1->FlatAppearance->BorderSize = 0;
-            this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->buttonAdd->FlatAppearance->BorderSize = 0;
+            this->buttonAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->buttonAdd->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(238)));
-            this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+            this->buttonAdd->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
                 static_cast<System::Int32>(static_cast<System::Byte>(153)));
-            this->button1->Location = System::Drawing::Point(649, 16);
-            this->button1->Name = L"button1";
-            this->button1->Size = System::Drawing::Size(136, 30);
-            this->button1->TabIndex = 11;
-            this->button1->Text = L"Add passengers";
-            this->button1->UseVisualStyleBackColor = false;
-            this->button1->Click += gcnew System::EventHandler(this, &listItem::button1_Click);
+            this->buttonAdd->Location = System::Drawing::Point(649, 16);
+            this->buttonAdd->Name = L"buttonAdd";
+            this->buttonAdd->Size = System::Drawing::Size(136, 30);
+            this->buttonAdd->TabIndex = 11;
+            this->buttonAdd->Text = L"Add passengers";
+            this->buttonAdd->UseVisualStyleBackColor = false;
+            this->buttonAdd->Click += gcnew System::EventHandler(this, &listItem::buttonAdd_Click);
             // 
             // listItem
             // 
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(41)),
                 static_cast<System::Int32>(static_cast<System::Byte>(41)));
-            this->Controls->Add(this->button1);
+            this->Controls->Add(this->buttonAdd);
             this->Controls->Add(this->buttonEdit);
             this->Controls->Add(this->labelGate);
             this->Controls->Add(this->labelHours);
@@ -259,8 +268,14 @@ namespace airways {
             isOpenEdit1 = false;
         }
     }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 
+private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+    if (!isOpenEdit2) {
+        isOpenEdit2 = true;
+        Edit2^ edit2 = gcnew  Edit2(aircraftType);
+        edit2->ShowDialog();
+        isOpenEdit2 = false;
+    }
 }
 };
 }
