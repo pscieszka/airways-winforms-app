@@ -32,10 +32,10 @@ std::string HandLuggage::display() const
 std::string HandLuggage::getType() const
 {
 	if (isValid) {
-		return "Hand Luggage. The luggage has been approved.";
+		return "Hand Luggage";
 	}
 	else {
-		return "Hand Luggage. The luggage  has been rejected.";
+		return "Hand Luggage";
 	}
 
 }

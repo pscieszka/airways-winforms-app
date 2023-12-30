@@ -140,7 +140,7 @@ namespace airways {
 
 
 	private: System::ComponentModel::IContainer^ components;
-private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+
 private: System::Windows::Forms::Label^ labelSurname;
 private: System::Windows::Forms::TextBox^ textBoxSurname;
 private: System::Windows::Forms::CheckBox^ checkBoxEconomic;
@@ -151,6 +151,21 @@ private: System::Windows::Forms::CheckBox^ checkBoxHand;
 private: System::Windows::Forms::CheckBox^ checkBoxSmall;
 private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 private: System::Windows::Forms::Label^ infoLabel;
+private: System::Windows::Forms::Label^ labelWeight;
+private: System::Windows::Forms::Label^ labelSize;
+
+
+private: System::Windows::Forms::TextBox^ textBoxSizeX;
+private: System::Windows::Forms::TextBox^ textBoxSizeY;
+private: System::Windows::Forms::TextBox^ textBoxSizeZ;
+private: System::Windows::Forms::Label^ labelSeprator;
+private: System::Windows::Forms::Label^ labelSeparator2;
+private: System::Windows::Forms::TextBox^ textBoxWeight;
+private: System::Windows::Forms::Label^ labelBackpack;
+private: System::Windows::Forms::CheckBox^ checkBoxYes;
+private: System::Windows::Forms::CheckBox^ checkBoxNo;
+private: System::Windows::Forms::Label^ labelWeightInfo;
+private: System::Windows::Forms::Label^ labelSizeInfo;
 
 
 
@@ -185,7 +200,6 @@ private: System::Windows::Forms::Label^ infoLabel;
 			this->infoLabelDD = (gcnew System::Windows::Forms::Label());
 			this->infoLabelHH = (gcnew System::Windows::Forms::Label());
 			this->infoLabelGate = (gcnew System::Windows::Forms::Label());
-			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->labelSurname = (gcnew System::Windows::Forms::Label());
 			this->textBoxSurname = (gcnew System::Windows::Forms::TextBox());
 			this->checkBoxEconomic = (gcnew System::Windows::Forms::CheckBox());
@@ -195,6 +209,19 @@ private: System::Windows::Forms::Label^ infoLabel;
 			this->checkBoxSmall = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxChecked = (gcnew System::Windows::Forms::CheckBox());
 			this->infoLabel = (gcnew System::Windows::Forms::Label());
+			this->labelWeight = (gcnew System::Windows::Forms::Label());
+			this->labelSize = (gcnew System::Windows::Forms::Label());
+			this->textBoxSizeX = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxSizeY = (gcnew System::Windows::Forms::TextBox());
+			this->textBoxSizeZ = (gcnew System::Windows::Forms::TextBox());
+			this->labelSeprator = (gcnew System::Windows::Forms::Label());
+			this->labelSeparator2 = (gcnew System::Windows::Forms::Label());
+			this->textBoxWeight = (gcnew System::Windows::Forms::TextBox());
+			this->labelBackpack = (gcnew System::Windows::Forms::Label());
+			this->checkBoxYes = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxNo = (gcnew System::Windows::Forms::CheckBox());
+			this->labelWeightInfo = (gcnew System::Windows::Forms::Label());
+			this->labelSizeInfo = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// labelHeader
@@ -274,7 +301,7 @@ private: System::Windows::Forms::Label^ infoLabel;
 				static_cast<System::Byte>(238)));
 			this->buttonAdd->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->buttonAdd->Location = System::Drawing::Point(775, 221);
+			this->buttonAdd->Location = System::Drawing::Point(750, 567);
 			this->buttonAdd->Name = L"buttonAdd";
 			this->buttonAdd->Size = System::Drawing::Size(225, 55);
 			this->buttonAdd->TabIndex = 9;
@@ -308,13 +335,6 @@ private: System::Windows::Forms::Label^ infoLabel;
 			this->infoLabelGate->Name = L"infoLabelGate";
 			this->infoLabelGate->Size = System::Drawing::Size(0, 13);
 			this->infoLabelGate->TabIndex = 14;
-			// 
-			// flowLayoutPanel1
-			// 
-			this->flowLayoutPanel1->Location = System::Drawing::Point(12, 324);
-			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(1020, 364);
-			this->flowLayoutPanel1->TabIndex = 15;
 			// 
 			// labelSurname
 			// 
@@ -395,7 +415,7 @@ private: System::Windows::Forms::Label^ infoLabel;
 				static_cast<System::Byte>(238)));
 			this->checkBoxHand->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->checkBoxHand->Location = System::Drawing::Point(294, 252);
+			this->checkBoxHand->Location = System::Drawing::Point(447, 252);
 			this->checkBoxHand->Name = L"checkBoxHand";
 			this->checkBoxHand->Size = System::Drawing::Size(71, 24);
 			this->checkBoxHand->TabIndex = 21;
@@ -410,7 +430,7 @@ private: System::Windows::Forms::Label^ infoLabel;
 				static_cast<System::Byte>(238)));
 			this->checkBoxSmall->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->checkBoxSmall->Location = System::Drawing::Point(447, 252);
+			this->checkBoxSmall->Location = System::Drawing::Point(294, 252);
 			this->checkBoxSmall->Name = L"checkBoxSmall";
 			this->checkBoxSmall->Size = System::Drawing::Size(72, 24);
 			this->checkBoxSmall->TabIndex = 22;
@@ -437,10 +457,196 @@ private: System::Windows::Forms::Label^ infoLabel;
 			// 
 			this->infoLabel->AutoSize = true;
 			this->infoLabel->ForeColor = System::Drawing::Color::Red;
-			this->infoLabel->Location = System::Drawing::Point(772, 290);
+			this->infoLabel->Location = System::Drawing::Point(774, 649);
 			this->infoLabel->Name = L"infoLabel";
 			this->infoLabel->Size = System::Drawing::Size(0, 13);
 			this->infoLabel->TabIndex = 24;
+			// 
+			// labelWeight
+			// 
+			this->labelWeight->AutoSize = true;
+			this->labelWeight->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelWeight->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelWeight->Location = System::Drawing::Point(65, 357);
+			this->labelWeight->Name = L"labelWeight";
+			this->labelWeight->Size = System::Drawing::Size(133, 37);
+			this->labelWeight->TabIndex = 25;
+			this->labelWeight->Text = L"Weight:";
+			this->labelWeight->Visible = false;
+			// 
+			// labelSize
+			// 
+			this->labelSize->AutoSize = true;
+			this->labelSize->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelSize->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelSize->Location = System::Drawing::Point(65, 426);
+			this->labelSize->Name = L"labelSize";
+			this->labelSize->Size = System::Drawing::Size(92, 37);
+			this->labelSize->TabIndex = 26;
+			this->labelSize->Text = L"Size:";
+			this->labelSize->Visible = false;
+			// 
+			// textBoxSizeX
+			// 
+			this->textBoxSizeX->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxSizeX->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxSizeX->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxSizeX->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxSizeX->Location = System::Drawing::Point(164, 427);
+			this->textBoxSizeX->Name = L"textBoxSizeX";
+			this->textBoxSizeX->Size = System::Drawing::Size(38, 38);
+			this->textBoxSizeX->TabIndex = 28;
+			this->textBoxSizeX->Visible = false;
+			// 
+			// textBoxSizeY
+			// 
+			this->textBoxSizeY->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxSizeY->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxSizeY->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxSizeY->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxSizeY->Location = System::Drawing::Point(244, 427);
+			this->textBoxSizeY->Name = L"textBoxSizeY";
+			this->textBoxSizeY->Size = System::Drawing::Size(38, 38);
+			this->textBoxSizeY->TabIndex = 29;
+			this->textBoxSizeY->Visible = false;
+			// 
+			// textBoxSizeZ
+			// 
+			this->textBoxSizeZ->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxSizeZ->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxSizeZ->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxSizeZ->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxSizeZ->Location = System::Drawing::Point(324, 427);
+			this->textBoxSizeZ->Name = L"textBoxSizeZ";
+			this->textBoxSizeZ->Size = System::Drawing::Size(38, 38);
+			this->textBoxSizeZ->TabIndex = 30;
+			this->textBoxSizeZ->Visible = false;
+			// 
+			// labelSeprator
+			// 
+			this->labelSeprator->AutoSize = true;
+			this->labelSeprator->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelSeprator->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelSeprator->Location = System::Drawing::Point(208, 432);
+			this->labelSeprator->Name = L"labelSeprator";
+			this->labelSeprator->Size = System::Drawing::Size(30, 33);
+			this->labelSeprator->TabIndex = 31;
+			this->labelSeprator->Text = L"x";
+			this->labelSeprator->Visible = false;
+			// 
+			// labelSeparator2
+			// 
+			this->labelSeparator2->AutoSize = true;
+			this->labelSeparator2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->labelSeparator2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelSeparator2->Location = System::Drawing::Point(288, 432);
+			this->labelSeparator2->Name = L"labelSeparator2";
+			this->labelSeparator2->Size = System::Drawing::Size(30, 33);
+			this->labelSeparator2->TabIndex = 32;
+			this->labelSeparator2->Text = L"x";
+			this->labelSeparator2->Visible = false;
+			// 
+			// textBoxWeight
+			// 
+			this->textBoxWeight->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxWeight->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxWeight->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxWeight->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxWeight->Location = System::Drawing::Point(212, 358);
+			this->textBoxWeight->Name = L"textBoxWeight";
+			this->textBoxWeight->Size = System::Drawing::Size(70, 38);
+			this->textBoxWeight->TabIndex = 27;
+			this->textBoxWeight->Visible = false;
+			// 
+			// labelBackpack
+			// 
+			this->labelBackpack->AutoSize = true;
+			this->labelBackpack->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelBackpack->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelBackpack->Location = System::Drawing::Point(65, 494);
+			this->labelBackpack->Name = L"labelBackpack";
+			this->labelBackpack->Size = System::Drawing::Size(174, 37);
+			this->labelBackpack->TabIndex = 33;
+			this->labelBackpack->Text = L"Backpack:";
+			this->labelBackpack->Visible = false;
+			// 
+			// checkBoxYes
+			// 
+			this->checkBoxYes->AutoSize = true;
+			this->checkBoxYes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->checkBoxYes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->checkBoxYes->Location = System::Drawing::Point(264, 506);
+			this->checkBoxYes->Name = L"checkBoxYes";
+			this->checkBoxYes->Size = System::Drawing::Size(59, 24);
+			this->checkBoxYes->TabIndex = 34;
+			this->checkBoxYes->Text = L"Yes";
+			this->checkBoxYes->UseVisualStyleBackColor = true;
+			this->checkBoxYes->Visible = false;
+			this->checkBoxYes->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxYes_CheckedChanged);
+			// 
+			// checkBoxNo
+			// 
+			this->checkBoxNo->AutoSize = true;
+			this->checkBoxNo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->checkBoxNo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->checkBoxNo->Location = System::Drawing::Point(400, 506);
+			this->checkBoxNo->Name = L"checkBoxNo";
+			this->checkBoxNo->Size = System::Drawing::Size(50, 24);
+			this->checkBoxNo->TabIndex = 35;
+			this->checkBoxNo->Text = L"No";
+			this->checkBoxNo->UseVisualStyleBackColor = true;
+			this->checkBoxNo->Visible = false;
+			this->checkBoxNo->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxNo_CheckedChanged);
+			// 
+			// labelWeightInfo
+			// 
+			this->labelWeightInfo->AutoSize = true;
+			this->labelWeightInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelWeightInfo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelWeightInfo->Location = System::Drawing::Point(302, 374);
+			this->labelWeightInfo->Name = L"labelWeightInfo";
+			this->labelWeightInfo->Size = System::Drawing::Size(0, 20);
+			this->labelWeightInfo->TabIndex = 36;
+			// 
+			// labelSizeInfo
+			// 
+			this->labelSizeInfo->AutoSize = true;
+			this->labelSizeInfo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelSizeInfo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelSizeInfo->Location = System::Drawing::Point(381, 445);
+			this->labelSizeInfo->Name = L"labelSizeInfo";
+			this->labelSizeInfo->Size = System::Drawing::Size(0, 20);
+			this->labelSizeInfo->TabIndex = 37;
 			// 
 			// Edit2
 			// 
@@ -449,6 +655,19 @@ private: System::Windows::Forms::Label^ infoLabel;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1040, 700);
+			this->Controls->Add(this->labelSizeInfo);
+			this->Controls->Add(this->labelWeightInfo);
+			this->Controls->Add(this->checkBoxNo);
+			this->Controls->Add(this->checkBoxYes);
+			this->Controls->Add(this->labelBackpack);
+			this->Controls->Add(this->labelSeparator2);
+			this->Controls->Add(this->labelSeprator);
+			this->Controls->Add(this->textBoxSizeZ);
+			this->Controls->Add(this->textBoxSizeY);
+			this->Controls->Add(this->textBoxSizeX);
+			this->Controls->Add(this->textBoxWeight);
+			this->Controls->Add(this->labelSize);
+			this->Controls->Add(this->labelWeight);
 			this->Controls->Add(this->infoLabel);
 			this->Controls->Add(this->checkBoxChecked);
 			this->Controls->Add(this->checkBoxSmall);
@@ -458,7 +677,6 @@ private: System::Windows::Forms::Label^ infoLabel;
 			this->Controls->Add(this->checkBoxEconomic);
 			this->Controls->Add(this->textBoxSurname);
 			this->Controls->Add(this->labelSurname);
-			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->infoLabelGate);
 			this->Controls->Add(this->infoLabelHH);
 			this->Controls->Add(this->infoLabelDD);
@@ -476,7 +694,9 @@ private: System::Windows::Forms::Label^ infoLabel;
 		}
 #pragma endregion
 private: bool validTextBoxes();
-private: System::Void UpdateTextColor(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
+private: System::Void updateTextColor(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
+private: System::Void displayBaggageBoxes(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
+
 
 
 
@@ -491,6 +711,10 @@ private: System::Void checkBoxFirstClass_CheckedChanged(System::Object^ sender, 
 private: System::Void checkBoxHand_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void checkBoxSmall_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void checkBoxChecked_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+
+
+private: System::Void checkBoxYes_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void checkBoxNo_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

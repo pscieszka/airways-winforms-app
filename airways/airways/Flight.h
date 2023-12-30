@@ -25,9 +25,11 @@ public:
 
 	std::vector<std::string> getData();
 
+	int getPrice();
+
 	void addPassenger(Passenger pass);
 	std::vector<Passenger> getPassengers();
-
+	~Flight();
 private:
 
 	std::string addTime(int timeInt,std::string timeStr); // minutes + mm::hh, returns mm::hh

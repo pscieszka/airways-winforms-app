@@ -49,7 +49,7 @@ SmallBag::~SmallBag()
 
 void SmallBag::validCheck()
 {
-	if ((size[0] > 40 || size[1] > 20 || size[2] > 25) || backpack==false) {
+	if ((size[0] > 40 || size[1] > 20 || size[2] > 25) ) {
 		isValid = false;
 	}
 	else {

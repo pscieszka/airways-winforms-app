@@ -15,11 +15,29 @@ namespace airways {
         {
             InitializeComponent();
             this->idx = idx;
-            for (int i = 0; i < str.size() - 1; i++) {
+            for (int i = 0; i < str.size() ; i++) {
                 switch (i)
                 {
                 case 0:
                     this->labelName->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 1:
+                    this->labelSurname->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 2:
+                    this->labelSeat->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 3:
+                    this->labelSeatType->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 4:
+                    this->labelPrice->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 5:
+                    this->labelBaggages->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    break;
+                case 6:
+                    this->labelBaggagesId->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 default:
                     break;
@@ -161,7 +179,7 @@ namespace airways {
                    static_cast<System::Byte>(238)));
                this->buttonEdit->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
                    static_cast<System::Int32>(static_cast<System::Byte>(153)));
-               this->buttonEdit->Location = System::Drawing::Point(808, 16);
+               this->buttonEdit->Location = System::Drawing::Point(665, 15);
                this->buttonEdit->Name = L"buttonEdit";
                this->buttonEdit->Size = System::Drawing::Size(74, 30);
                this->buttonEdit->TabIndex = 9;
@@ -253,7 +271,7 @@ namespace airways {
                    static_cast<System::Byte>(238)));
                this->labelBaggages->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                    static_cast<System::Int32>(static_cast<System::Byte>(15)));
-               this->labelBaggages->Location = System::Drawing::Point(571, 17);
+               this->labelBaggages->Location = System::Drawing::Point(18, 96);
                this->labelBaggages->Name = L"labelBaggages";
                this->labelBaggages->Size = System::Drawing::Size(109, 24);
                this->labelBaggages->TabIndex = 15;
@@ -266,7 +284,7 @@ namespace airways {
                    static_cast<System::Byte>(238)));
                this->infoLabelBaggages->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
                    static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
-               this->infoLabelBaggages->Location = System::Drawing::Point(572, 49);
+               this->infoLabelBaggages->Location = System::Drawing::Point(19, 128);
                this->infoLabelBaggages->Name = L"infoLabelBaggages";
                this->infoLabelBaggages->Size = System::Drawing::Size(71, 15);
                this->infoLabelBaggages->TabIndex = 16;
@@ -279,7 +297,7 @@ namespace airways {
                    static_cast<System::Byte>(238)));
                this->labelBaggagesId->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                    static_cast<System::Int32>(static_cast<System::Byte>(15)));
-               this->labelBaggagesId->Location = System::Drawing::Point(686, 17);
+               this->labelBaggagesId->Location = System::Drawing::Point(257, 100);
                this->labelBaggagesId->Name = L"labelBaggagesId";
                this->labelBaggagesId->Size = System::Drawing::Size(27, 24);
                this->labelBaggagesId->TabIndex = 17;
@@ -292,7 +310,7 @@ namespace airways {
                    static_cast<System::Byte>(238)));
                this->infoLabelBaggagesId->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
                    static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
-               this->infoLabelBaggagesId->Location = System::Drawing::Point(687, 49);
+               this->infoLabelBaggagesId->Location = System::Drawing::Point(258, 124);
                this->infoLabelBaggagesId->Name = L"infoLabelBaggagesId";
                this->infoLabelBaggagesId->Size = System::Drawing::Size(87, 15);
                this->infoLabelBaggagesId->TabIndex = 18;
@@ -318,7 +336,7 @@ namespace airways {
                this->Controls->Add(this->labelSurname);
                this->Controls->Add(this->labelName);
                this->Name = L"PassengerItem";
-               this->Size = System::Drawing::Size(910, 75);
+               this->Size = System::Drawing::Size(828, 167);
                this->ResumeLayout(false);
                this->PerformLayout();
 

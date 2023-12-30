@@ -34,10 +34,10 @@ std::string CheckedLuggage::display() const
 std::string CheckedLuggage::getType() const
 {
 	if (isValid) {
-		return "Checked Luggage. The luggage has been approved.";
+		return "Checked Luggage.";
 	}
 	else {
-		return "Checked Luggage. The luggage  has been rejected.";
+		return "Checked Luggage.";
 	}
 }
 

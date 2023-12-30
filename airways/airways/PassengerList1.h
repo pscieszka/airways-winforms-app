@@ -23,7 +23,7 @@ namespace airways {
 			{
 				PassengerItem^ passengerItem = gcnew PassengerItem(pass[i].getData(),idx);
 				passengerItem->BackColor = Color::FromArgb(41, 41, 41);
-				passengerItem->Size = System::Drawing::Size(900, 75);
+				passengerItem->Size = System::Drawing::Size(828, 167);
 				flowLayoutPanel1->Controls->Add(passengerItem);
 			}
 			//
@@ -136,7 +136,7 @@ namespace airways {
 			// 
 			this->flowLayoutPanel1->Location = System::Drawing::Point(38, 25);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(970, 533);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(969, 533);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// PassengerList1

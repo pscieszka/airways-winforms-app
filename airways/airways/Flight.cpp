@@ -34,6 +34,11 @@ std::vector<std::string> Flight::getData()
     return vec;
 }
 
+int Flight::getPrice()
+{
+    return distance * 0.05;
+}
+
 
 void Flight::addPassenger(Passenger pass)
 {
@@ -44,6 +49,13 @@ std::vector<Passenger> Flight::getPassengers()
 {
     return passengers;
 
+}
+
+Flight::~Flight()
+{
+    for (int i = 0; i < passengers.size(); i++) {
+        delete passengers[i].baggage;
+    }
 }
 
 std::string Flight::addTime(int timeInt, std::string timeStr)
