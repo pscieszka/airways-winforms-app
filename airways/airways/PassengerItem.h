@@ -318,7 +318,7 @@ namespace airways {
                this->Controls->Add(this->labelSurname);
                this->Controls->Add(this->labelName);
                this->Name = L"PassengerItem";
-               this->Size = System::Drawing::Size(900, 75);
+               this->Size = System::Drawing::Size(910, 75);
                this->ResumeLayout(false);
                this->PerformLayout();
 

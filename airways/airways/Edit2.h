@@ -152,12 +152,14 @@ namespace airways {
 private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 private: System::Windows::Forms::Label^ labelSurname;
 private: System::Windows::Forms::TextBox^ textBoxSurname;
-private: System::Windows::Forms::CheckBox^ checkBoxEconmic;
+private: System::Windows::Forms::CheckBox^ checkBoxEconomic;
+
 private: System::Windows::Forms::CheckBox^ checkBoxBusiness;
 private: System::Windows::Forms::CheckBox^ checkBoxFirstClass;
 private: System::Windows::Forms::CheckBox^ checkBoxHand;
 private: System::Windows::Forms::CheckBox^ checkBoxSmall;
 private: System::Windows::Forms::CheckBox^ checkBoxChecked;
+private: System::Windows::Forms::Label^ infoLabel;
 
 
 
@@ -195,12 +197,13 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->labelSurname = (gcnew System::Windows::Forms::Label());
 			this->textBoxSurname = (gcnew System::Windows::Forms::TextBox());
-			this->checkBoxEconmic = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxEconomic = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxBusiness = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxFirstClass = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxHand = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxSmall = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBoxChecked = (gcnew System::Windows::Forms::CheckBox());
+			this->infoLabel = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// labelHeader
@@ -280,7 +283,7 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 				static_cast<System::Byte>(238)));
 			this->buttonAdd->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->buttonAdd->Location = System::Drawing::Point(784, 248);
+			this->buttonAdd->Location = System::Drawing::Point(775, 221);
 			this->buttonAdd->Name = L"buttonAdd";
 			this->buttonAdd->Size = System::Drawing::Size(225, 55);
 			this->buttonAdd->TabIndex = 9;
@@ -349,19 +352,20 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->textBoxSurname->Size = System::Drawing::Size(179, 38);
 			this->textBoxSurname->TabIndex = 17;
 			// 
-			// checkBoxEconmic
+			// checkBoxEconomic
 			// 
-			this->checkBoxEconmic->AutoSize = true;
-			this->checkBoxEconmic->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->checkBoxEconomic->AutoSize = true;
+			this->checkBoxEconomic->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->checkBoxEconmic->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
-				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->checkBoxEconmic->Location = System::Drawing::Point(294, 165);
-			this->checkBoxEconmic->Name = L"checkBoxEconmic";
-			this->checkBoxEconmic->Size = System::Drawing::Size(106, 24);
-			this->checkBoxEconmic->TabIndex = 18;
-			this->checkBoxEconmic->Text = L"Economic";
-			this->checkBoxEconmic->UseVisualStyleBackColor = true;
+			this->checkBoxEconomic->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->checkBoxEconomic->Location = System::Drawing::Point(294, 165);
+			this->checkBoxEconomic->Name = L"checkBoxEconomic";
+			this->checkBoxEconomic->Size = System::Drawing::Size(106, 24);
+			this->checkBoxEconomic->TabIndex = 18;
+			this->checkBoxEconomic->Text = L"Economic";
+			this->checkBoxEconomic->UseVisualStyleBackColor = true;
+			this->checkBoxEconomic->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxEconomic_CheckedChanged);
 			// 
 			// checkBoxBusiness
 			// 
@@ -376,6 +380,7 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->checkBoxBusiness->TabIndex = 19;
 			this->checkBoxBusiness->Text = L"Business";
 			this->checkBoxBusiness->UseVisualStyleBackColor = true;
+			this->checkBoxBusiness->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxBusiness_CheckedChanged);
 			// 
 			// checkBoxFirstClass
 			// 
@@ -390,6 +395,7 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->checkBoxFirstClass->TabIndex = 20;
 			this->checkBoxFirstClass->Text = L"First Class";
 			this->checkBoxFirstClass->UseVisualStyleBackColor = true;
+			this->checkBoxFirstClass->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxFirstClass_CheckedChanged);
 			// 
 			// checkBoxHand
 			// 
@@ -404,6 +410,7 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->checkBoxHand->TabIndex = 21;
 			this->checkBoxHand->Text = L"Hand";
 			this->checkBoxHand->UseVisualStyleBackColor = true;
+			this->checkBoxHand->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxHand_CheckedChanged);
 			// 
 			// checkBoxSmall
 			// 
@@ -418,6 +425,7 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->checkBoxSmall->TabIndex = 22;
 			this->checkBoxSmall->Text = L"Small";
 			this->checkBoxSmall->UseVisualStyleBackColor = true;
+			this->checkBoxSmall->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxSmall_CheckedChanged);
 			// 
 			// checkBoxChecked
 			// 
@@ -432,6 +440,16 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->checkBoxChecked->TabIndex = 23;
 			this->checkBoxChecked->Text = L"Checked";
 			this->checkBoxChecked->UseVisualStyleBackColor = true;
+			this->checkBoxChecked->CheckedChanged += gcnew System::EventHandler(this, &Edit2::checkBoxChecked_CheckedChanged);
+			// 
+			// infoLabel
+			// 
+			this->infoLabel->AutoSize = true;
+			this->infoLabel->ForeColor = System::Drawing::Color::Red;
+			this->infoLabel->Location = System::Drawing::Point(772, 290);
+			this->infoLabel->Name = L"infoLabel";
+			this->infoLabel->Size = System::Drawing::Size(0, 13);
+			this->infoLabel->TabIndex = 24;
 			// 
 			// Edit2
 			// 
@@ -440,12 +458,13 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1040, 700);
+			this->Controls->Add(this->infoLabel);
 			this->Controls->Add(this->checkBoxChecked);
 			this->Controls->Add(this->checkBoxSmall);
 			this->Controls->Add(this->checkBoxHand);
 			this->Controls->Add(this->checkBoxFirstClass);
 			this->Controls->Add(this->checkBoxBusiness);
-			this->Controls->Add(this->checkBoxEconmic);
+			this->Controls->Add(this->checkBoxEconomic);
 			this->Controls->Add(this->textBoxSurname);
 			this->Controls->Add(this->labelSurname);
 			this->Controls->Add(this->flowLayoutPanel1);
@@ -465,13 +484,22 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 
 		}
 #pragma endregion
-	private:
+private: bool validTextBoxes();
+private: System::Void UpdateTextColor(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
 
 
 
-	private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		Passenger pass(msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text), "test");
-		(*flights)[idx].addPassenger(pass);
-	}
+private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
+
+	
+private: System::Void checkBoxEconomic_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void checkBoxBusiness_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void checkBoxFirstClass_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+
+
+private: System::Void checkBoxHand_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void checkBoxSmall_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+private: System::Void checkBoxChecked_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

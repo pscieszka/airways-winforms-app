@@ -43,8 +43,8 @@ std::string Passenger::display() const
 std::vector<std::string> Passenger::getData()
 {
 	std::vector<std::string > vec;
-	vec.push_back("22");
-	vec.push_back("33");
+	vec.push_back(name);
+	vec.push_back(surname);
 	return vec;
 }
 

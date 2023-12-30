@@ -129,6 +129,7 @@
     <ClCompile Include="Baggage.cpp" />
     <ClCompile Include="CheckedLuggage.cpp" />
     <ClCompile Include="Edit1.cpp" />
+    <ClCompile Include="Edit2.cpp" />
     <ClCompile Include="Flight.cpp" />
     <ClCompile Include="flightsList.cpp" />
     <ClCompile Include="HandLuggage.cpp" />
