@@ -21,6 +21,8 @@ namespace airways {
 		Edit2(int aircraft,int idx)
 		{
 			InitializeComponent();
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+
 			this->idx = idx;
 			if (aircraft == 1) {
 				//this->checkBoxFirstClass->Visible = false;
