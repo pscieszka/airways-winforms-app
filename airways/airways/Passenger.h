@@ -6,10 +6,12 @@ class Passenger
 	std::vector<Baggage*> baggages;
 	std::string baggagesId;
 	std::string name;
+	std::string surname;
+	std::string ticketType;
 	int ticketPrice;
 	int seatNumber;
 public:
-	Passenger(Baggage* bag, std::string name, int seatNumber);
+	Passenger(std::string name, std::string surname, std::string ticketType);
 	Passenger(std::vector<Baggage*> bags, std::string name, int seatNumber);
 	Passenger();
 	void addToTicketPrice(int flightPrice);

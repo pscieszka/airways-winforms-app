@@ -35,6 +35,11 @@ std::vector<std::string> Flight::getData()
 }
 
 
+void Flight::addPassenger(Passenger& pass)
+{
+    passengers.push_back(pass);
+}
+
 std::vector<Passenger> Flight::getPassengers()
 {
     return passengers;

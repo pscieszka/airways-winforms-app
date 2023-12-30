@@ -1,17 +1,17 @@
 #include "Passenger.h"
 #include "Passenger.h"
 
-Passenger::Passenger(Baggage* bag, std::string name, int seatNumber) : name(name), ticketPrice(-1), seatNumber(seatNumber)
-{
-	calculateTicketPrice();
-	baggages.push_back(bag);
-	setBaggagesId();
-}
+//Passenger::Passenger(Baggage* bag, std::string name, int seatNumber) : name(name), ticketPrice(-1), seatNumber(seatNumber)
+//{
+	//calculateTicketPrice();
+	//baggages.push_back(bag);
+	//setBaggagesId();
+//}
 
-Passenger::Passenger(std::vector<Baggage*> bags, std::string name, int seatNumber) : baggages(bags), name(name), ticketPrice(-1), seatNumber(seatNumber)
+Passenger::Passenger(std::string name, std::string surname,std::string ticketType) : name(name), surname(surname), ticketType(ticketType)
 {
 	calculateTicketPrice();
-	setBaggagesId();
+	//setBaggagesId();
 }
 
 

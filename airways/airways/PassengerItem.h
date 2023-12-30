@@ -3,6 +3,7 @@
 #include "Edit1.h"
 #include "Edit2.h"
 #include "vector"
+
 namespace airways {
 
     using namespace System;
@@ -59,6 +60,8 @@ namespace airways {
 
     private: System::Windows::Forms::Label^ labelBaggages;
     private: System::Windows::Forms::Label^ infoLabelBaggages;
+    private: System::Windows::Forms::Label^ labelBaggagesId;
+    private: System::Windows::Forms::Label^ infoLabelBaggagesId;
 
 
 
@@ -92,6 +95,8 @@ namespace airways {
                this->infoLabelTicketPrice = (gcnew System::Windows::Forms::Label());
                this->labelBaggages = (gcnew System::Windows::Forms::Label());
                this->infoLabelBaggages = (gcnew System::Windows::Forms::Label());
+               this->labelBaggagesId = (gcnew System::Windows::Forms::Label());
+               this->infoLabelBaggagesId = (gcnew System::Windows::Forms::Label());
                this->SuspendLayout();
                // 
                // labelName
@@ -267,10 +272,38 @@ namespace airways {
                this->infoLabelBaggages->TabIndex = 16;
                this->infoLabelBaggages->Text = L"Baggages";
                // 
-               // listItem
+               // labelBaggagesId
+               // 
+               this->labelBaggagesId->AutoSize = true;
+               this->labelBaggagesId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                   static_cast<System::Byte>(238)));
+               this->labelBaggagesId->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+                   static_cast<System::Int32>(static_cast<System::Byte>(15)));
+               this->labelBaggagesId->Location = System::Drawing::Point(686, 17);
+               this->labelBaggagesId->Name = L"labelBaggagesId";
+               this->labelBaggagesId->Size = System::Drawing::Size(27, 24);
+               this->labelBaggagesId->TabIndex = 17;
+               this->labelBaggagesId->Text = L"id";
+               // 
+               // infoLabelBaggagesId
+               // 
+               this->infoLabelBaggagesId->AutoSize = true;
+               this->infoLabelBaggagesId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                   static_cast<System::Byte>(238)));
+               this->infoLabelBaggagesId->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+                   static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+               this->infoLabelBaggagesId->Location = System::Drawing::Point(687, 49);
+               this->infoLabelBaggagesId->Name = L"infoLabelBaggagesId";
+               this->infoLabelBaggagesId->Size = System::Drawing::Size(87, 15);
+               this->infoLabelBaggagesId->TabIndex = 18;
+               this->infoLabelBaggagesId->Text = L"Baggages Id";
+               // 
+               // PassengerItem
                // 
                this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(41)),
                    static_cast<System::Int32>(static_cast<System::Byte>(41)));
+               this->Controls->Add(this->infoLabelBaggagesId);
+               this->Controls->Add(this->labelBaggagesId);
                this->Controls->Add(this->infoLabelBaggages);
                this->Controls->Add(this->labelBaggages);
                this->Controls->Add(this->infoLabelTicketPrice);
@@ -284,7 +317,7 @@ namespace airways {
                this->Controls->Add(this->infoLabelName);
                this->Controls->Add(this->labelSurname);
                this->Controls->Add(this->labelName);
-               this->Name = L"listItem";
+               this->Name = L"PassengerItem";
                this->Size = System::Drawing::Size(900, 75);
                this->ResumeLayout(false);
                this->PerformLayout();

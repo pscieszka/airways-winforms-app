@@ -286,6 +286,7 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 			this->buttonAdd->TabIndex = 9;
 			this->buttonAdd->Text = L"Add passenger";
 			this->buttonAdd->UseVisualStyleBackColor = false;
+			this->buttonAdd->Click += gcnew System::EventHandler(this, &Edit2::buttonAdd_Click);
 			// 
 			// infoLabelDD
 			// 
@@ -468,5 +469,9 @@ private: System::Windows::Forms::CheckBox^ checkBoxChecked;
 
 
 
+	private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+		Passenger pass(msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text), "test");
+		(*flights)[idx].addPassenger(pass);
+	}
 };
 }
