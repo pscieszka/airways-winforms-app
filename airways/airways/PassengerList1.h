@@ -23,7 +23,7 @@ namespace airways {
 			{
 				PassengerItem^ passengerItem = gcnew PassengerItem(pass[i].getData(),idx);
 				passengerItem->BackColor = Color::FromArgb(41, 41, 41);
-				passengerItem->Size = System::Drawing::Size(828, 167);
+				passengerItem->Size = System::Drawing::Size(675, 129);
 				flowLayoutPanel1->Controls->Add(passengerItem);
 			}
 			//

@@ -28,10 +28,10 @@ std::string SmallBag::display() const
 std::string SmallBag::getType() const
 {
 	if (isValid) {
-		return "Small Bag.";
+		return "Small Bag";
 	}
 	else {
-		return "Small Bag.";
+		return "Small Bag";
 	}
 }
 

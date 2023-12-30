@@ -47,7 +47,7 @@ std::vector<std::string> Passenger::getData()
 	vec.push_back(surname);
 	vec.push_back("temp");
 	vec.push_back(ticketType);
-	vec.push_back(std::to_string(ticketPrice)+"EUR");
+	vec.push_back(std::to_string(ticketPrice)+" EUR");
 	vec.push_back(baggage->getType());
 	vec.push_back(baggage->tag);
 

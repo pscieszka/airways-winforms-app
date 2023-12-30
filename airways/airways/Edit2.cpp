@@ -11,18 +11,141 @@ bool airways::Edit2::validTextBoxes()
 
     if (String::IsNullOrWhiteSpace(textBoxName->Text) || String::IsNullOrWhiteSpace(textBoxSurname->Text))
     {
-        infoLabel->Text = "Please fill in all date fields.";
+        infoLabel->Text = "Please fill name and surname.";
         isValid = false;
+    }
+    else
+    {
+        try
+        {
+            if (textBoxName->Text->Length > 16 || textBoxSurname->Text->Length > 16) {
+                infoLabel->Text = "Name and surname can contain max 16 characters.";
+
+           }
+        }
+        catch (FormatException^)
+        {
+            infoLabel->Text = "The entered time is not a valid integer.";
+            isValid = false;
+        }
+        catch (OverflowException^)
+        {
+            infoLabel->Text = "The entered time exceeds the range of integers.";
+            isValid = false;
+        }
     }
 
     if (this->checkBoxEconomic->Checked == false && this->checkBoxBusiness->Checked == false && this->checkBoxFirstClass->Checked == false) {
         isValid = false;
         infoLabel->Text += "\nPlease pick ticket type.";
     }
+
     if (this->checkBoxHand->Checked == false && this->checkBoxSmall->Checked == false && this->checkBoxChecked->Checked == false) {
         isValid = false;
         infoLabel->Text += "\nPlease pick baggage type.";
     }
+
+    if (checkBoxChecked->Checked || checkBoxSmall->Checked || checkBoxHand->Checked) {
+        if (String::IsNullOrWhiteSpace(textBoxWeight->Text)) {
+            infoLabelWeight->Text = "Please fill field.";
+            isValid = false;
+        }
+        else
+        {
+            try
+            {
+                int weight = Int32::Parse(textBoxWeight->Text);
+                if (checkBoxHand->Checked)
+                {
+                    if (weight < 0 || weight>10) {
+                        infoLabelWeight->Text = "Invalid weight.";
+                        isValid = false;
+                    }
+                }
+                else if (checkBoxChecked->Checked) {
+                    if (weight < 0 || weight>20) {
+
+
+                        infoLabelWeight->Text = "Invalid weight.";
+                        isValid = false;
+                    }
+                }
+                else {
+                    if (weight < 0 || weight>100) {
+
+
+                        infoLabelWeight->Text = "Invalid weight";
+                        isValid = false;
+                    }
+                }
+            }
+            catch (FormatException^)
+            {
+                infoLabelWeight->Text = "The entered time is not a valid integer.";
+                isValid = false;
+            }
+            catch (OverflowException^)
+            {
+                infoLabelWeight->Text = "The entered time exceeds the range of integers.";
+                isValid = false;
+            }
+        }
+
+        if (String::IsNullOrWhiteSpace(textBoxSizeX->Text) || String::IsNullOrWhiteSpace(textBoxSizeY->Text) || String::IsNullOrWhiteSpace(textBoxSizeZ->Text)) {
+            infoLabelSize->Text = "Please fill field.";
+            isValid = false;
+        }
+        else
+        {
+
+            try
+            {
+                int x = Int32::Parse(textBoxSizeX->Text);
+                int y = Int32::Parse(textBoxSizeY->Text);
+                int z = Int32::Parse(textBoxSizeZ->Text);
+                if (checkBoxHand->Checked)
+                {
+                    if (x <= 0 || x > 55 || y <= 0 || y > 40 || z <= 0 || z > 20) {
+                        infoLabelSize->Text = "Invalid size.";
+                        isValid = false;
+                    }
+                }
+                else if (checkBoxChecked->Checked) {
+                    if (x <= 0 || x > 350 || y <= 0 || y > 350 || z <= 0 || z > 350) {
+
+
+                        infoLabelSize->Text = "Invalid size.";
+                        isValid = false;
+                    }
+                }
+                else {
+                    if (x < 0 || x > 40 || y <= 0 || y > 20 || z <= 0 || z > 25) {
+
+                        infoLabelSize->Text = "Invalid size.";
+                        isValid = false;
+                    }
+                }
+            }
+            catch (FormatException^)
+            {
+                infoLabelSize->Text = "The entered time is not a valid integer.";
+                isValid = false;
+            }
+            catch (OverflowException^)
+            {
+                infoLabelSize->Text = "The entered time exceeds the range of integers.";
+                isValid = false;
+            }
+        }
+    }
+    
+    if (checkBoxSmall->Checked) {
+        if (this->checkBoxYes->Checked == false && this->checkBoxNo->Checked == false) {
+            isValid = false;
+            infoLabelBackpack->Text = "Please choose one.";
+        }
+    }
+    
     return isValid;
 }
 

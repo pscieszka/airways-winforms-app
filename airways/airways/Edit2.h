@@ -166,6 +166,9 @@ private: System::Windows::Forms::CheckBox^ checkBoxYes;
 private: System::Windows::Forms::CheckBox^ checkBoxNo;
 private: System::Windows::Forms::Label^ labelWeightInfo;
 private: System::Windows::Forms::Label^ labelSizeInfo;
+private: System::Windows::Forms::Label^ infoLabelWeight;
+private: System::Windows::Forms::Label^ infoLabelSize;
+private: System::Windows::Forms::Label^ infoLabelBackpack;
 
 
 
@@ -222,6 +225,9 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 			this->checkBoxNo = (gcnew System::Windows::Forms::CheckBox());
 			this->labelWeightInfo = (gcnew System::Windows::Forms::Label());
 			this->labelSizeInfo = (gcnew System::Windows::Forms::Label());
+			this->infoLabelWeight = (gcnew System::Windows::Forms::Label());
+			this->infoLabelSize = (gcnew System::Windows::Forms::Label());
+			this->infoLabelBackpack = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// labelHeader
@@ -469,7 +475,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->labelWeight->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelWeight->Location = System::Drawing::Point(65, 357);
+			this->labelWeight->Location = System::Drawing::Point(65, 402);
 			this->labelWeight->Name = L"labelWeight";
 			this->labelWeight->Size = System::Drawing::Size(133, 37);
 			this->labelWeight->TabIndex = 25;
@@ -483,7 +489,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->labelSize->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelSize->Location = System::Drawing::Point(65, 426);
+			this->labelSize->Location = System::Drawing::Point(65, 471);
 			this->labelSize->Name = L"labelSize";
 			this->labelSize->Size = System::Drawing::Size(92, 37);
 			this->labelSize->TabIndex = 26;
@@ -499,7 +505,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->textBoxSizeX->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBoxSizeX->Location = System::Drawing::Point(164, 427);
+			this->textBoxSizeX->Location = System::Drawing::Point(164, 472);
 			this->textBoxSizeX->Name = L"textBoxSizeX";
 			this->textBoxSizeX->Size = System::Drawing::Size(38, 38);
 			this->textBoxSizeX->TabIndex = 28;
@@ -514,7 +520,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->textBoxSizeY->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBoxSizeY->Location = System::Drawing::Point(244, 427);
+			this->textBoxSizeY->Location = System::Drawing::Point(244, 472);
 			this->textBoxSizeY->Name = L"textBoxSizeY";
 			this->textBoxSizeY->Size = System::Drawing::Size(38, 38);
 			this->textBoxSizeY->TabIndex = 29;
@@ -529,7 +535,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->textBoxSizeZ->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBoxSizeZ->Location = System::Drawing::Point(324, 427);
+			this->textBoxSizeZ->Location = System::Drawing::Point(324, 472);
 			this->textBoxSizeZ->Name = L"textBoxSizeZ";
 			this->textBoxSizeZ->Size = System::Drawing::Size(38, 38);
 			this->textBoxSizeZ->TabIndex = 30;
@@ -542,7 +548,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->labelSeprator->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelSeprator->Location = System::Drawing::Point(208, 432);
+			this->labelSeprator->Location = System::Drawing::Point(208, 477);
 			this->labelSeprator->Name = L"labelSeprator";
 			this->labelSeprator->Size = System::Drawing::Size(30, 33);
 			this->labelSeprator->TabIndex = 31;
@@ -556,7 +562,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
 			this->labelSeparator2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelSeparator2->Location = System::Drawing::Point(288, 432);
+			this->labelSeparator2->Location = System::Drawing::Point(288, 477);
 			this->labelSeparator2->Name = L"labelSeparator2";
 			this->labelSeparator2->Size = System::Drawing::Size(30, 33);
 			this->labelSeparator2->TabIndex = 32;
@@ -572,7 +578,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->textBoxWeight->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(15)));
-			this->textBoxWeight->Location = System::Drawing::Point(212, 358);
+			this->textBoxWeight->Location = System::Drawing::Point(212, 403);
 			this->textBoxWeight->Name = L"textBoxWeight";
 			this->textBoxWeight->Size = System::Drawing::Size(70, 38);
 			this->textBoxWeight->TabIndex = 27;
@@ -585,7 +591,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->labelBackpack->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelBackpack->Location = System::Drawing::Point(65, 494);
+			this->labelBackpack->Location = System::Drawing::Point(65, 539);
 			this->labelBackpack->Name = L"labelBackpack";
 			this->labelBackpack->Size = System::Drawing::Size(174, 37);
 			this->labelBackpack->TabIndex = 33;
@@ -599,7 +605,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->checkBoxYes->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->checkBoxYes->Location = System::Drawing::Point(264, 506);
+			this->checkBoxYes->Location = System::Drawing::Point(264, 551);
 			this->checkBoxYes->Name = L"checkBoxYes";
 			this->checkBoxYes->Size = System::Drawing::Size(59, 24);
 			this->checkBoxYes->TabIndex = 34;
@@ -615,7 +621,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->checkBoxNo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->checkBoxNo->Location = System::Drawing::Point(400, 506);
+			this->checkBoxNo->Location = System::Drawing::Point(400, 551);
 			this->checkBoxNo->Name = L"checkBoxNo";
 			this->checkBoxNo->Size = System::Drawing::Size(50, 24);
 			this->checkBoxNo->TabIndex = 35;
@@ -631,7 +637,7 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->labelWeightInfo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelWeightInfo->Location = System::Drawing::Point(302, 374);
+			this->labelWeightInfo->Location = System::Drawing::Point(302, 419);
 			this->labelWeightInfo->Name = L"labelWeightInfo";
 			this->labelWeightInfo->Size = System::Drawing::Size(0, 20);
 			this->labelWeightInfo->TabIndex = 36;
@@ -643,10 +649,37 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 				static_cast<System::Byte>(238)));
 			this->labelSizeInfo->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelSizeInfo->Location = System::Drawing::Point(381, 445);
+			this->labelSizeInfo->Location = System::Drawing::Point(381, 490);
 			this->labelSizeInfo->Name = L"labelSizeInfo";
 			this->labelSizeInfo->Size = System::Drawing::Size(0, 20);
 			this->labelSizeInfo->TabIndex = 37;
+			// 
+			// infoLabelWeight
+			// 
+			this->infoLabelWeight->AutoSize = true;
+			this->infoLabelWeight->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelWeight->Location = System::Drawing::Point(83, 445);
+			this->infoLabelWeight->Name = L"infoLabelWeight";
+			this->infoLabelWeight->Size = System::Drawing::Size(0, 13);
+			this->infoLabelWeight->TabIndex = 38;
+			// 
+			// infoLabelSize
+			// 
+			this->infoLabelSize->AutoSize = true;
+			this->infoLabelSize->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelSize->Location = System::Drawing::Point(69, 517);
+			this->infoLabelSize->Name = L"infoLabelSize";
+			this->infoLabelSize->Size = System::Drawing::Size(0, 13);
+			this->infoLabelSize->TabIndex = 39;
+			// 
+			// infoLabelBackpack
+			// 
+			this->infoLabelBackpack->AutoSize = true;
+			this->infoLabelBackpack->ForeColor = System::Drawing::Color::Red;
+			this->infoLabelBackpack->Location = System::Drawing::Point(69, 591);
+			this->infoLabelBackpack->Name = L"infoLabelBackpack";
+			this->infoLabelBackpack->Size = System::Drawing::Size(0, 13);
+			this->infoLabelBackpack->TabIndex = 40;
 			// 
 			// Edit2
 			// 
@@ -655,6 +688,9 @@ private: System::Windows::Forms::Label^ labelSizeInfo;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1040, 700);
+			this->Controls->Add(this->infoLabelBackpack);
+			this->Controls->Add(this->infoLabelSize);
+			this->Controls->Add(this->infoLabelWeight);
 			this->Controls->Add(this->labelSizeInfo);
 			this->Controls->Add(this->labelWeightInfo);
 			this->Controls->Add(this->checkBoxNo);
