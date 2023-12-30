@@ -1,4 +1,3 @@
-
 #pragma once
 #include "Edit1.h"
 #include "Edit2.h"
@@ -12,9 +11,10 @@ namespace airways {
     public ref class PassengerItem : public UserControl
     {
     public:
-        PassengerItem(std::vector<std::string> str)
+        PassengerItem(std::vector<std::string> str,int idx)
         {
             InitializeComponent();
+            this->idx = idx;
             for (int i = 0; i < str.size() - 1; i++) {
                 switch (i)
                 {
@@ -74,7 +74,7 @@ namespace airways {
     protected:
 
     private:
-
+        int idx;
 
 
            System::ComponentModel::Container^ components;
@@ -161,11 +161,11 @@ namespace airways {
                    static_cast<System::Byte>(238)));
                this->buttonEdit->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
                    static_cast<System::Int32>(static_cast<System::Byte>(153)));
-               this->buttonEdit->Location = System::Drawing::Point(828, 16);
+               this->buttonEdit->Location = System::Drawing::Point(808, 16);
                this->buttonEdit->Name = L"buttonEdit";
-               this->buttonEdit->Size = System::Drawing::Size(54, 30);
+               this->buttonEdit->Size = System::Drawing::Size(74, 30);
                this->buttonEdit->TabIndex = 9;
-               this->buttonEdit->Text = L"edit";
+               this->buttonEdit->Text = L"delete";
                this->buttonEdit->UseVisualStyleBackColor = false;
                // 
                // infoLabelName
@@ -326,6 +326,6 @@ namespace airways {
 #pragma endregion
 
 
-    
-    };
+
+};
 }

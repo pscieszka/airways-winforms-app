@@ -168,25 +168,24 @@ bool airways::Map2::validTextBoxes()
         try
         {
             String^ gateText = textBoxGate->Text;
+            std::string gateStdString = msclr::interop::marshal_as<std::string>(gateText);
 
-            // SprawdŸ, czy pierwszy znak to du¿a litera od A do Z
+           if (gateText->Length != 3)
+           {
+           infoLabelGate->Text = "Invalid gate number format. The number must contain 3 characters.";
+           isValid = false;
+           }
             if (!(gateText[0] >= 'A' && gateText[0] <= 'Z'))
             {
                 infoLabelGate->Text = "The first character must be a capital letter (A-Z).";
                 isValid = false;
             }
-            // SprawdŸ, czy drugi znak to cyfra od 1 do 9
             else if (!(gateText[1] >= '0' && gateText[1] <= '9') || !(gateText[2] >= '0' && gateText[2] <= '9'))
             {
                 infoLabelGate->Text = "The second character must be a digit (1-9).";
                 isValid = false;
             }
-            // SprawdŸ, czy trzeci znak (jeœli istnieje) to cyfra od 0 do 9
-            else if (gateText->Length > 3)
-            {
-                infoLabelGate->Text = "Invalid gate number format. The number is too long.";
-                isValid = false;
-            }
+            
             else
             {
                 infoLabelGate->Text = "";

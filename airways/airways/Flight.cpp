@@ -35,7 +35,7 @@ std::vector<std::string> Flight::getData()
 }
 
 
-void Flight::addPassenger(Passenger& pass)
+void Flight::addPassenger(Passenger pass)
 {
     passengers.push_back(pass);
 }

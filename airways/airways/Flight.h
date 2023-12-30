@@ -25,7 +25,7 @@ public:
 
 	std::vector<std::string> getData();
 
-	void addPassenger(Passenger& pass);
+	void addPassenger(Passenger pass);
 	std::vector<Passenger> getPassengers();
 
 private:

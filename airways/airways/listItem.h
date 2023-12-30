@@ -1,11 +1,12 @@
-
 #pragma once
 #include "Edit1.h"
 #include "Edit2.h"
 #include "vector"
+#include "PassengerList1.h"
 namespace airways {
     static bool isOpenEdit1 = false;
     static bool isOpenEdit2 = false;
+    static bool isOpenPassengersList1 = false;
 
     using namespace System;
     using namespace System::Windows::Forms;
@@ -81,6 +82,7 @@ namespace airways {
         int idx;
         int aircraftType; //0 - boeing, 1 - airbus
     private: System::Windows::Forms::Button^ buttonAdd;
+    private: System::Windows::Forms::Button^ buttonPassengersList;
 
            System::ComponentModel::Container^ components;
 #pragma region components
@@ -98,6 +100,7 @@ namespace airways {
             this->labelGate = (gcnew System::Windows::Forms::Label());
             this->buttonEdit = (gcnew System::Windows::Forms::Button());
             this->buttonAdd = (gcnew System::Windows::Forms::Button());
+            this->buttonPassengersList = (gcnew System::Windows::Forms::Button());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
             this->SuspendLayout();
             // 
@@ -182,7 +185,7 @@ namespace airways {
                 static_cast<System::Byte>(238)));
             this->labelHours->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(15)));
-            this->labelHours->Location = System::Drawing::Point(346, 22);
+            this->labelHours->Location = System::Drawing::Point(315, 22);
             this->labelHours->Name = L"labelHours";
             this->labelHours->Size = System::Drawing::Size(129, 24);
             this->labelHours->TabIndex = 7;
@@ -195,7 +198,7 @@ namespace airways {
                 static_cast<System::Byte>(238)));
             this->labelGate->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
                 static_cast<System::Int32>(static_cast<System::Byte>(15)));
-            this->labelGate->Location = System::Drawing::Point(497, 22);
+            this->labelGate->Location = System::Drawing::Point(462, 22);
             this->labelGate->Name = L"labelGate";
             this->labelGate->Size = System::Drawing::Size(46, 24);
             this->labelGate->TabIndex = 8;
@@ -229,18 +232,37 @@ namespace airways {
                 static_cast<System::Byte>(238)));
             this->buttonAdd->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
                 static_cast<System::Int32>(static_cast<System::Byte>(153)));
-            this->buttonAdd->Location = System::Drawing::Point(649, 16);
+            this->buttonAdd->Location = System::Drawing::Point(683, 16);
             this->buttonAdd->Name = L"buttonAdd";
-            this->buttonAdd->Size = System::Drawing::Size(136, 30);
+            this->buttonAdd->Size = System::Drawing::Size(129, 30);
             this->buttonAdd->TabIndex = 11;
             this->buttonAdd->Text = L"Add passengers";
             this->buttonAdd->UseVisualStyleBackColor = false;
             this->buttonAdd->Click += gcnew System::EventHandler(this, &listItem::buttonAdd_Click);
             // 
+            // buttonPassengersList
+            // 
+            this->buttonPassengersList->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)),
+                static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)));
+            this->buttonPassengersList->FlatAppearance->BorderSize = 0;
+            this->buttonPassengersList->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->buttonPassengersList->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold,
+                System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+            this->buttonPassengersList->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),
+                static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)));
+            this->buttonPassengersList->Location = System::Drawing::Point(534, 16);
+            this->buttonPassengersList->Name = L"buttonPassengersList";
+            this->buttonPassengersList->Size = System::Drawing::Size(129, 30);
+            this->buttonPassengersList->TabIndex = 12;
+            this->buttonPassengersList->Text = L"Passengers list";
+            this->buttonPassengersList->UseVisualStyleBackColor = false;
+            this->buttonPassengersList->Click += gcnew System::EventHandler(this, &listItem::buttonPassengersList_Click);
+            // 
             // listItem
             // 
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(41)),
                 static_cast<System::Int32>(static_cast<System::Byte>(41)));
+            this->Controls->Add(this->buttonPassengersList);
             this->Controls->Add(this->buttonAdd);
             this->Controls->Add(this->buttonEdit);
             this->Controls->Add(this->labelGate);
@@ -272,10 +294,19 @@ namespace airways {
 private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
     if (!isOpenEdit2) {
         isOpenEdit2 = true;
-        Edit2^ edit2 = gcnew  Edit2(aircraftType,idx);
+        Edit2^ edit2 = gcnew  Edit2(aircraftType, idx);
         edit2->ShowDialog();
         isOpenEdit2 = false;
     }
 }
+private: System::Void buttonPassengersList_Click(System::Object^ sender, System::EventArgs^ e) {
+    if (!isOpenPassengersList1) {
+        isOpenPassengersList1 = true;
+        PassengerList1^ passengerList = gcnew PassengerList1(idx);
+        passengerList->ShowDialog();
+        isOpenPassengersList1 = false;
+    }
+}
+
 };
 }

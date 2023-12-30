@@ -177,6 +177,9 @@
     <ClInclude Include="PassengerItem.h">
       <FileType>CppHeader</FileType>
     </ClInclude>
+    <ClInclude Include="PassengerList1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SmallBag.h" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PassengerItem.resx">
       <DependentUpon>PassengerItem.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassengerList1.resx">
+      <DependentUpon>PassengerList1.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

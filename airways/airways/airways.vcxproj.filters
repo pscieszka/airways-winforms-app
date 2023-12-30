@@ -113,5 +113,8 @@
     <ClInclude Include="MixedBaggage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PassengerList1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

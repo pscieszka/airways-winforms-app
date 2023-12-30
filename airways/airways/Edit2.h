@@ -21,19 +21,10 @@ namespace airways {
 		Edit2(int aircraft,int idx)
 		{
 			InitializeComponent();
+			this->idx = idx;
 			if (aircraft == 1) {
 				//this->checkBoxFirstClass->Visible = false;
 			}
-
-			std::vector<Passenger> pass = (*flights)[idx].getPassengers();
-				for (int i = 0; i < pass.size(); i++)
-				{
-					PassengerItem^ passengerList = gcnew PassengerItem(pass[i].getData());
-					passengerList->BackColor = Color::FromArgb(41, 41, 41);
-					passengerList->Size = System::Drawing::Size(900, 75);
-					flowLayoutPanel1->Controls->Add(passengerList);
-				}
-			
 
 			//
 
@@ -478,7 +469,7 @@ private: System::Windows::Forms::Label^ infoLabel;
 			this->Controls->Add(this->labelName);
 			this->Controls->Add(this->labelHeader);
 			this->Name = L"Edit2";
-			this->Text = L"Home1";
+			this->Text = L"Edit2";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

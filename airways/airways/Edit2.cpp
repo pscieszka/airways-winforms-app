@@ -1,4 +1,7 @@
 #include "Edit2.h"
+#include "Baggage.h"
+#include "SmallBag.h"
+#include "HandLuggage.h"
 
 bool airways::Edit2::validTextBoxes()
 {
@@ -16,7 +19,7 @@ bool airways::Edit2::validTextBoxes()
     }
     if (this->checkBoxHand->Checked == false && this->checkBoxSmall->Checked == false && this->checkBoxChecked->Checked == false) {
         isValid = false;
-        infoLabel->Text += "\nPlease pick ticket type.";
+        infoLabel->Text += "\nPlease pick baggage type.";
     }
     return isValid;
 }
@@ -25,7 +28,10 @@ System::Void airways::Edit2::buttonAdd_Click(System::Object^ sender, System::Eve
 {
     if(validTextBoxes()){
 
-        Passenger pass(msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text), "test");
+        
+
+        Passenger pass(
+            msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text), "test");
         (*flights)[idx].addPassenger(pass);
 
         this->Close();
