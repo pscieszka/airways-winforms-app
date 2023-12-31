@@ -28,7 +28,7 @@ public:
 	int getPrice();
 
 	void addPassenger(Passenger pass);
-	std::vector<Passenger> getPassengers();
+	std::vector<Passenger>& getPassengers();
 	~Flight();
 private:
 
