@@ -59,7 +59,8 @@ namespace airways {
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Label^ labelEmpty;
 	private: System::Windows::Forms::Label^ labelHeader;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ buttonRefresh;
+
 
 	protected:
 
@@ -152,10 +153,10 @@ namespace airways {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->labelHeader = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->labelEmpty = (gcnew System::Windows::Forms::Label());
-			this->labelHeader = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->buttonRefresh = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->flowLayoutPanel1->SuspendLayout();
 			this->SuspendLayout();
@@ -170,6 +171,19 @@ namespace airways {
 			this->panel1->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->panel1->Size = System::Drawing::Size(1040, 100);
 			this->panel1->TabIndex = 0;
+			// 
+			// labelHeader
+			// 
+			this->labelHeader->AutoSize = true;
+			this->labelHeader->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelHeader->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelHeader->Location = System::Drawing::Point(399, 21);
+			this->labelHeader->Name = L"labelHeader";
+			this->labelHeader->Size = System::Drawing::Size(246, 55);
+			this->labelHeader->TabIndex = 3;
+			this->labelHeader->Text = L"Flights list";
 			// 
 			// flowLayoutPanel1
 			// 
@@ -193,36 +207,23 @@ namespace airways {
 			this->labelEmpty->TabIndex = 2;
 			this->labelEmpty->Text = L"List is empty.";
 			// 
-			// labelHeader
+			// buttonRefresh
 			// 
-			this->labelHeader->AutoSize = true;
-			this->labelHeader->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->labelHeader->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
-				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->labelHeader->Location = System::Drawing::Point(399, 21);
-			this->labelHeader->Name = L"labelHeader";
-			this->labelHeader->Size = System::Drawing::Size(246, 55);
-			this->labelHeader->TabIndex = 3;
-			this->labelHeader->Text = L"Flights list";
-			// 
-			// button1
-			// 
-			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+			this->buttonRefresh->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			this->button1->FlatAppearance->BorderSize = 0;
-			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->buttonRefresh->FlatAppearance->BorderSize = 0;
+			this->buttonRefresh->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonRefresh->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+			this->buttonRefresh->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->button1->Location = System::Drawing::Point(47, 628);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(186, 43);
-			this->button1->TabIndex = 2;
-			this->button1->Text = L"Refresh";
-			this->button1->UseVisualStyleBackColor = false;
-			this->button1->Click += gcnew System::EventHandler(this, &List1::button1_Click);
+			this->buttonRefresh->Location = System::Drawing::Point(53, 620);
+			this->buttonRefresh->Name = L"buttonRefresh";
+			this->buttonRefresh->Size = System::Drawing::Size(189, 49);
+			this->buttonRefresh->TabIndex = 2;
+			this->buttonRefresh->Text = L"Refresh";
+			this->buttonRefresh->UseVisualStyleBackColor = false;
+			this->buttonRefresh->Click += gcnew System::EventHandler(this, &List1::buttonRefresh_Click);
 			// 
 			// List1
 			// 
@@ -231,7 +232,7 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->buttonRefresh);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->panel1);
 			this->Name = L"List1";
@@ -247,8 +248,28 @@ namespace airways {
 
 
 
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//to do
+public: 
+	void refreshList() {
+			flowLayoutPanel1->Controls->Clear();
+
+			if (flights->size() == 0) {
+				this->labelEmpty->Visible = true;
+			}
+			else {
+				this->labelEmpty->Visible = false;
+				for (int i = 0; i < flights->size(); i++) {
+					listItem^ flightList = gcnew listItem((*flights)[i].getData(), i);
+					flightList->BackColor = Color::FromArgb(41, 41, 41);
+					flightList->Size = System::Drawing::Size(900, 75);
+					flowLayoutPanel1->Controls->Add(flightList);
+				}
+			}
+		}
+
+
+
+private: System::Void buttonRefresh_Click(System::Object^ sender, System::EventArgs^ e) {
+	refreshList();
 }
 };
 }

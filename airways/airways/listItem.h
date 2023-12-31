@@ -1,5 +1,6 @@
 #pragma once
 #include "Edit1.h"
+#include "List1.h"
 #include "Edit2.h"
 #include "vector"
 #include "PassengerList1.h"
@@ -14,6 +15,8 @@ namespace airways {
     public ref class listItem : public UserControl
     {
     public:
+
+
         listItem(std::vector<std::string> str,int idx)
         {
             InitializeComponent();
