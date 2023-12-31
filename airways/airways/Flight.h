@@ -18,6 +18,7 @@ class Flight
 	std::string gate;
     std::vector<Passenger> passengers;
 public:
+	Flight() = default;
 	Flight(std::string departure, std::string destination, int distance);
 	Flight(std::string departure, std::string destination,int distance, int time, std::string date, std::string gate, std::string aircraft, std::string flightDuration);
 

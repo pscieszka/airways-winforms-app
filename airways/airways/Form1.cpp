@@ -6,6 +6,7 @@
 #include "Map1.h"
 #include "Home1.h"
 #include "List1.h"
+#include "SaveLoad1.h"
 
 
 
@@ -70,5 +71,11 @@ System::Void airways::Form1::buttonShowFlights_Click(System::Object^ sender, Sys
 
     OpenChildForm(list1, sender);
 
+}
+
+System::Void airways::Form1::buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    SaveLoad1^ saveLoad1 = gcnew SaveLoad1();
+    OpenChildForm(saveLoad1, nullptr);
 }
 

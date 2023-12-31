@@ -21,10 +21,14 @@ public:
 	std::string display() const;
 
 	std::vector<std::string> getData();
+
+	Baggage* getBaggage() const { return baggage; }
+
 	~Passenger();
 private:
 	void calculateTicketPrice();
 	void setBaggagesId();
+
 public:
 	Baggage* baggage;
 };

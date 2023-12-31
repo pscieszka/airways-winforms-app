@@ -50,7 +50,8 @@ namespace airways {
 	private: System::Windows::Forms::Panel^ panelProjName;
 
 	private: System::Windows::Forms::Button^ buttonNewFlight;
-	private: System::Windows::Forms::Button^ buttonTbd;
+	private: System::Windows::Forms::Button^ buttonSaveLoad;
+
 	private: System::Windows::Forms::Button^ buttonShowFlights;
 
 
@@ -117,7 +118,7 @@ namespace airways {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->panelMenu = (gcnew System::Windows::Forms::Panel());
-			this->buttonTbd = (gcnew System::Windows::Forms::Button());
+			this->buttonSaveLoad = (gcnew System::Windows::Forms::Button());
 			this->buttonShowFlights = (gcnew System::Windows::Forms::Button());
 			this->buttonNewFlight = (gcnew System::Windows::Forms::Button());
 			this->panelProjName = (gcnew System::Windows::Forms::Panel());
@@ -131,7 +132,7 @@ namespace airways {
 			// 
 			this->panelMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
-			this->panelMenu->Controls->Add(this->buttonTbd);
+			this->panelMenu->Controls->Add(this->buttonSaveLoad);
 			this->panelMenu->Controls->Add(this->buttonShowFlights);
 			this->panelMenu->Controls->Add(this->buttonNewFlight);
 			this->panelMenu->Controls->Add(this->panelProjName);
@@ -141,20 +142,21 @@ namespace airways {
 			this->panelMenu->Size = System::Drawing::Size(230, 679);
 			this->panelMenu->TabIndex = 0;
 			// 
-			// buttonTbd
+			// buttonSaveLoad
 			// 
-			this->buttonTbd->FlatAppearance->BorderSize = 0;
-			this->buttonTbd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->buttonTbd->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->buttonSaveLoad->FlatAppearance->BorderSize = 0;
+			this->buttonSaveLoad->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonSaveLoad->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->buttonTbd->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+			this->buttonSaveLoad->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->buttonTbd->Location = System::Drawing::Point(0, 258);
-			this->buttonTbd->Name = L"buttonTbd";
-			this->buttonTbd->Size = System::Drawing::Size(230, 79);
-			this->buttonTbd->TabIndex = 3;
-			this->buttonTbd->Text = L"tbd";
-			this->buttonTbd->UseVisualStyleBackColor = true;
+			this->buttonSaveLoad->Location = System::Drawing::Point(0, 258);
+			this->buttonSaveLoad->Name = L"buttonSaveLoad";
+			this->buttonSaveLoad->Size = System::Drawing::Size(230, 79);
+			this->buttonSaveLoad->TabIndex = 3;
+			this->buttonSaveLoad->Text = L"Save/Load";
+			this->buttonSaveLoad->UseVisualStyleBackColor = true;
+			this->buttonSaveLoad->Click += gcnew System::EventHandler(this, &Form1::buttonSaveLoad_Click);
 			// 
 			// buttonShowFlights
 			// 
@@ -252,6 +254,8 @@ private: System::Void buttonHome_Click(System::Object^ sender, System::EventArgs
 private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

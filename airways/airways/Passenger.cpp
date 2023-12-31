@@ -55,6 +55,8 @@ std::vector<std::string> Passenger::getData()
 
 	return vec;
 }
+
+
 /*
 Passenger::~Passenger()
 {

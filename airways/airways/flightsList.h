@@ -32,6 +32,10 @@ public:
         }
         return flights[0];
     }
+    void clear() {
+        flights.clear();
+
+    }
 };
 
 // Inicjalizacja statycznej zmiennej klasy
