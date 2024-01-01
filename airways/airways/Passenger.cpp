@@ -54,6 +54,19 @@ std::vector<std::string> Passenger::getData()
 	return vec;
 }
 
+std::vector<std::string> Passenger::getDataRaw()
+{
+	std::vector<std::string > vec;
+	vec.push_back(name);
+	vec.push_back(surname);
+	vec.push_back(ticketType);
+	vec.push_back(std::to_string(ticketPrice));
+	vec.push_back(baggage->getType());
+	vec.push_back(baggage->tag);
+
+	return vec;
+}
+
 
 /*
 Passenger::~Passenger()
@@ -94,7 +107,7 @@ void Passenger::setBaggagesId()
 
 Passenger::~Passenger()
 {
-	//delete baggage;
+	delete baggage;
 }
 void Passenger::setBaggagesId()
 {

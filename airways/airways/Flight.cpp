@@ -67,8 +67,9 @@ std::vector<Passenger>& Flight::getPassengers()
 
 Flight::~Flight()
 {
-    for (int i = 0; i < passengers.size(); i++) {
-        delete passengers[i].baggage;
+    for (auto& passenger : passengers) {
+        delete passenger.baggage;
+        passenger.baggage = nullptr;
     }
 }
 

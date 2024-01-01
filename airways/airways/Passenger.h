@@ -21,7 +21,7 @@ public:
 	std::string display() const;
 
 	std::vector<std::string> getData();
-
+	std::vector<std::string> getDataRaw();
 	Baggage* getBaggage() const { return baggage; }
 
 	~Passenger();

@@ -1,6 +1,9 @@
 #include "SaveLoad1.h"
 #include "HandLuggage.h"
 #include "Form1.h"
+#include "SmallBag.h"
+#include "CheckedLuggage.h"
+#include "HandLuggage.h"
 #include "Map2.h"
 #include <fstream>
 
@@ -30,21 +33,24 @@ System::Void airways::SaveLoad1::buttonSave_Click(System::Object^ sender, System
             file.write(reinterpret_cast<char*>(&stringSize), sizeof(int));
             file.write(data.c_str(), stringSize); //const char*
         }
-        /*
-        passengers
+        
+        // passengers
         std::vector<Passenger> passengerData = (*flights)[i].getPassengers();
         int passengerSize = passengerData.size();
         file.write(reinterpret_cast<char*>(&passengerSize), sizeof(int));
 
         for (int j = 0; j < passengerSize; j++) {
-            std::vector<std::string> passdata = passengerData[j].getData();
+            std::vector<std::string> passdata = passengerData[j].getDataRaw();
+            int passDataSize = passdata.size();
+            file.write(reinterpret_cast<char*>(&passDataSize), sizeof(int));
+
             for (const auto& data : passdata) {
                 int stringSize = data.size();
                 file.write(reinterpret_cast<char*>(&stringSize), sizeof(int));
                 file.write(data.c_str(), stringSize); 
             }
         }
-        */
+        
 
 
     }
@@ -86,26 +92,45 @@ System::Void airways::SaveLoad1::buttonLoad_Click(System::Object^ sender, System
             flightData.push_back(data);
         }
 
-        if (flightData.size() >= 8) {
-            Flight newFlight(
-                flightData[0],  // departure
-                flightData[1],  // destination
-                std::stoi(flightData[2]),  // distance
-                std::stoi(flightData[3]),  // time
-                flightData[4],  // date
-                flightData[5],  // gate
-                flightData[6],  // aircraft
-                flightData[7]   // flightDuration
-            );
+       
+        Flight newFlight(flightData[0], flightData[1], std::stoi(flightData[2]), std::stoi(flightData[3]), flightData[4], flightData[5], flightData[6], flightData[7]);
 
-            flights->add(newFlight);
-        }
-        else {
-            // Handle the case where the loaded data does not match the expected format
-            // Display an error message or log the issue
-            MessageBox::Show("Invalid data format in the file.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-            flights->clear();  // Clear the flights vector as it might be in an inconsistent state
-            break;  // Exit the loop to avoid further issues
+        flights->add(newFlight);
+
+       
+        int passSize;
+        file.read(reinterpret_cast<char*>(&passSize), sizeof(int));
+        for (int j = 0; j < passSize; j++) {
+           
+            std::vector<std::string> passData;
+            int passDataSize;
+            file.read(reinterpret_cast<char*>(&passDataSize), sizeof(int));
+
+            for (int k = 0; k < passDataSize; k++) {
+                int stringSize;
+                file.read(reinterpret_cast<char*>(&stringSize), sizeof(int));
+
+                std::string data(stringSize, ' ');
+                file.read(&data[0], stringSize);
+
+                passData.push_back(data);
+            }
+            Baggage* bag = nullptr;
+            //dodac wymiary i wage
+            if (passData[4] == "Small Bag") {
+                bag = new SmallBag(1, { 1,1,1 }, true);
+            }
+            else if (passData[4] == "Hand Luggage") {
+                bag = new HandLuggage(1, { 1,1,1 });
+
+            }
+            else {
+                bag = new CheckedLuggage(10, { 1,1,1 }, std::stoi(flightData[2]));
+            }
+            Passenger newPassenger(passData[0], passData[1], passData[2], bag, 12);//stoi(passData[3])
+            (*flights)[i].addPassenger(newPassenger);
+
+            
         }
     }
     
