@@ -161,3 +161,21 @@ System::Void airways::SaveLoad1::buttonLoad_Click(System::Object^ sender, System
     }
     
 }
+
+System::Void airways::SaveLoad1::buttonExplorerSave_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (openFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+    {
+        String^ filePath = openFileDialog->FileName;
+        this->textBoxSave->Text = filePath;
+    }
+}
+
+System::Void airways::SaveLoad1::buttonExplorerLoad_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (openFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+    {
+        String^ filePath = openFileDialog->FileName;
+        this->textBoxLoad->Text = filePath;
+    }
+}

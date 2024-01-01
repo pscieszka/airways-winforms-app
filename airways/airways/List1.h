@@ -250,9 +250,12 @@ namespace airways {
 
 public: 
 	void refreshList() {
+
 			flowLayoutPanel1->Controls->Clear();
 
 			if (flights->size() == 0) {
+				this->flowLayoutPanel1->Controls->Add(this->labelEmpty);
+
 				this->labelEmpty->Visible = true;
 			}
 			else {
