@@ -51,8 +51,6 @@ std::vector<std::string> Passenger::getData()
 	vec.push_back(baggage->getType());
 	vec.push_back(baggage->tag);
 
-
-
 	return vec;
 }
 

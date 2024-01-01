@@ -672,8 +672,8 @@ namespace airways {
 
 		}
 #pragma endregion
-		private:
-			std::string calculateTime(int dist);
+		public:
+			static std::string calculateTime(int dist);
 
 			
 

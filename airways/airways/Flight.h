@@ -25,7 +25,7 @@ public:
 	void edit(int time, std::string date, std::string gate);
 
 	std::vector<std::string> getData();
-
+	std::vector<std::string> getDataRaw();
 	int getPrice();
 
 	void addPassenger(Passenger pass);
