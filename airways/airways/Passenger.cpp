@@ -107,7 +107,7 @@ void Passenger::setBaggagesId()
 
 Passenger::~Passenger()
 {
-	delete baggage;
+	//delete baggage;
 }
 void Passenger::setBaggagesId()
 {
