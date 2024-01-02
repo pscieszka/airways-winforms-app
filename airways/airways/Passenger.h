@@ -13,6 +13,8 @@ class Passenger
 	int ticketPrice;
 	std::string seatNumber;
 	
+	std::string bagType;
+	
 public:
 	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice);
 	//Passenger(std::vector<Baggage*> bags, std::string name, int seatNumber);

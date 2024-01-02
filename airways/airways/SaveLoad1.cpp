@@ -42,8 +42,9 @@ System::Void airways::SaveLoad1::buttonSave_Click(System::Object^ sender, System
             return;
         }
         if (!file.good()) {
-            return;
+            
             file.close();
+            return;
         }
         int flightsSize = flights->size();
         file.write(reinterpret_cast<char*>(&flightsSize), sizeof(int));
@@ -148,7 +149,7 @@ System::Void airways::SaveLoad1::buttonLoad_Click(System::Object^ sender, System
 
                 }
                 else {
-                    bag = new CheckedLuggage(10, { 1, 1, 1 }, std::stoi(flightData[2]));
+                    bag = new CheckedLuggage(10, { 1, 1, 1 }, 99);//std::stoi(passData[2])
                 }
                 Passenger newPassenger(passData[0], passData[1], passData[2], bag, stoi(passData[3]));
                 (*flights)[i].addPassenger(newPassenger);

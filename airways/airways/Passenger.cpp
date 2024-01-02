@@ -12,6 +12,7 @@ Passenger::Passenger(std::string name, std::string surname,std::string ticketTyp
 {
 	calculateTicketPrice();
 	setBaggagesId();
+	bagType = baggage->getType();
 }
 
 
@@ -61,7 +62,7 @@ std::vector<std::string> Passenger::getDataRaw()
 	vec.push_back(surname);
 	vec.push_back(ticketType);
 	vec.push_back(std::to_string(ticketPrice));
-	vec.push_back(baggage->getType());
+	vec.push_back(bagType);
 	vec.push_back(baggage->tag);
 
 	return vec;

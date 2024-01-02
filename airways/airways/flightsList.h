@@ -36,6 +36,17 @@ public:
         flights.clear();
 
     }
+    ~flightsList() {
+        for (int i = 0; i < flights.size(); i++) {
+            std::vector<Passenger> passengers = flights[i].getPassengers();
+            for (auto& passenger : passengers) {
+                delete passenger.baggage;
+                passenger.baggage = nullptr;
+            }
+        }
+       
+    }
+    
 };
 
 // Inicjalizacja statycznej zmiennej klasy

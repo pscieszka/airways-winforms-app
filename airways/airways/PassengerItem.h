@@ -16,29 +16,30 @@ namespace airways {
             InitializeComponent();
             this->idx = idx;
             this->passIdx = passIdx;
+            std::vector<std::string> str2 = (*flights)[idx].getPassengers()[passIdx].getData();
             for (int i = 0; i < str.size() ; i++) {
                 switch (i)
                 {
                 case 0:
-                    this->labelName->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelName->Text = msclr::interop::marshal_as<System::String^>(str2[i]);
                     break;
                 case 1:
-                    this->labelSurname->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelSurname->Text = msclr::interop::marshal_as<System::String^>(str2[i]);
                     break;
                 case 2:
                     //this->labelSeat->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 3:
-                    this->labelSeatType->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelSeatType->Text = msclr::interop::marshal_as<System::String^>(str2[i]);
                     break;
                 case 4:
-                    this->labelPrice->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelPrice->Text = msclr::interop::marshal_as<System::String^>(str2[i]);
                     break;
                 case 5:
-                    this->labelBaggages->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelBaggages->Text = msclr::interop::marshal_as<System::String^>(str2[i]);
                     break;
                 case 6:
-                    this->labelBaggagesId->Text = msclr::interop::marshal_as<System::String^>(str[i]);
+                    this->labelBaggagesId->Text = msclr::interop::marshal_as<System::String^>(str2[i]);
                     break;
                 default:
                     break;
@@ -320,14 +321,19 @@ namespace airways {
 
 
 
-private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
-    
-    (*flights)[idx].getPassengers().erase((*flights)[idx].getPassengers().begin() + passIdx);
-   
-    this->Parent->Controls->Remove(this);
-    delete this;
+    private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
 
-}
+        if (idx <= flights->size()) {
+            auto& passengers = (*flights)[idx].getPassengers();
+
+            if (passIdx < passengers.size()) {
+                passengers.erase(passengers.begin() + passIdx);
+
+                this->Parent->Controls->Remove(this);
+                delete this;
+            }
+        }
+    }
 
 };
 }

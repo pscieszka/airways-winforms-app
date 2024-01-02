@@ -67,10 +67,7 @@ std::vector<Passenger>& Flight::getPassengers()
 
 Flight::~Flight()
 {
-    for (auto& passenger : passengers) {
-        delete passenger.baggage;
-        passenger.baggage = nullptr;
-    }
+
 }
 
 std::string Flight::addTime(int timeInt, std::string timeStr)

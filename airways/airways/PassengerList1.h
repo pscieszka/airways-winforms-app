@@ -19,7 +19,7 @@ namespace airways {
 			InitializeComponent();
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 
-			std::vector<Passenger> &pass = (*flights)[idx].getPassengers();
+			std::vector<Passenger> pass = (*flights)[idx].getPassengers();
 			for (int i = 0; i < pass.size(); i++)
 			{
 				PassengerItem^ passengerItem = gcnew PassengerItem(pass[i].getData(),idx,i);
@@ -138,7 +138,7 @@ namespace airways {
 			this->flowLayoutPanel1->AutoScroll = true;
 			this->flowLayoutPanel1->Location = System::Drawing::Point(38, 25);
 			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size(761, 533);
+			this->flowLayoutPanel1->Size = System::Drawing::Size(761, 644);
 			this->flowLayoutPanel1->TabIndex = 0;
 			// 
 			// PassengerList1
@@ -147,7 +147,7 @@ namespace airways {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
-			this->ClientSize = System::Drawing::Size(780, 681);
+			this->ClientSize = System::Drawing::Size(845, 681);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Name = L"PassengerList1";
 			this->Text = L"Passenger List";
