@@ -7,6 +7,7 @@
 #include "Home1.h"
 #include "List1.h"
 #include "SaveLoad1.h"
+#include "CalculateCosts1.h"
 
 
 
@@ -62,7 +63,7 @@ System::Void airways::Form1::Form1_Load(System::Object^ sender, System::EventArg
 {
    
     Home1^ home1 = gcnew Home1();
-    OpenChildForm(home1, nullptr);
+    OpenChildForm(home1, sender);
 }
 
 System::Void airways::Form1::buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e)
@@ -76,6 +77,12 @@ System::Void airways::Form1::buttonShowFlights_Click(System::Object^ sender, Sys
 System::Void airways::Form1::buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e)
 {
     SaveLoad1^ saveLoad1 = gcnew SaveLoad1();
-    OpenChildForm(saveLoad1, nullptr);
+    OpenChildForm(saveLoad1, sender);
+}
+
+System::Void airways::Form1::buttonCalculate_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    CalculateCosts1^ calculateCosts1 = gcnew CalculateCosts1;
+    OpenChildForm(calculateCosts1, sender);
 }
 

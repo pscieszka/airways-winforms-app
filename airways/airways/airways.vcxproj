@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Baggage.cpp" />
+    <ClCompile Include="CalculateCostsClasses.cpp" />
     <ClCompile Include="CheckedLuggage.cpp" />
     <ClCompile Include="Edit1.cpp" />
     <ClCompile Include="Edit2.cpp" />
@@ -145,6 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baggage.h" />
+    <ClInclude Include="CalculateCosts1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CalculateCostsClasses.h" />
     <ClInclude Include="CheckedLuggage.h" />
     <ClInclude Include="Edit1.h">
       <FileType>CppForm</FileType>
@@ -187,6 +192,9 @@
     <ClInclude Include="SmallBag.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CalculateCosts1.resx">
+      <DependentUpon>CalculateCosts1.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Edit1.resx">
       <DependentUpon>Edit1.h</DependentUpon>
     </EmbeddedResource>

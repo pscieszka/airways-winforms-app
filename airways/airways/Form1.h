@@ -58,6 +58,7 @@ namespace airways {
 
 	private: System::Windows::Forms::Button^ buttonHome;
 	private: System::Windows::Forms::Panel^ panelMain;
+	private: System::Windows::Forms::Button^ buttonCalculate;
 
 
 
@@ -124,6 +125,7 @@ namespace airways {
 			this->panelProjName = (gcnew System::Windows::Forms::Panel());
 			this->buttonHome = (gcnew System::Windows::Forms::Button());
 			this->panelMain = (gcnew System::Windows::Forms::Panel());
+			this->buttonCalculate = (gcnew System::Windows::Forms::Button());
 			this->panelMenu->SuspendLayout();
 			this->panelProjName->SuspendLayout();
 			this->SuspendLayout();
@@ -132,6 +134,7 @@ namespace airways {
 			// 
 			this->panelMenu->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
 				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->panelMenu->Controls->Add(this->buttonCalculate);
 			this->panelMenu->Controls->Add(this->buttonSaveLoad);
 			this->panelMenu->Controls->Add(this->buttonShowFlights);
 			this->panelMenu->Controls->Add(this->buttonNewFlight);
@@ -221,6 +224,22 @@ namespace airways {
 			this->panelMain->Size = System::Drawing::Size(1035, 680);
 			this->panelMain->TabIndex = 1;
 			// 
+			// buttonCalculate
+			// 
+			this->buttonCalculate->FlatAppearance->BorderSize = 0;
+			this->buttonCalculate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buttonCalculate->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->buttonCalculate->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->buttonCalculate->Location = System::Drawing::Point(0, 343);
+			this->buttonCalculate->Name = L"buttonCalculate";
+			this->buttonCalculate->Size = System::Drawing::Size(230, 79);
+			this->buttonCalculate->TabIndex = 4;
+			this->buttonCalculate->Text = L"Calculate costs";
+			this->buttonCalculate->UseVisualStyleBackColor = true;
+			this->buttonCalculate->Click += gcnew System::EventHandler(this, &Form1::buttonCalculate_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -256,6 +275,8 @@ private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
 private: System::Void buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e);
+
+private: System::Void buttonCalculate_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }
