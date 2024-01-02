@@ -150,8 +150,7 @@ System::Void airways::SaveLoad1::buttonLoad_Click(System::Object^ sender, System
                 else {
                     bag = new CheckedLuggage(10, { 1, 1, 1 }, std::stoi(flightData[2]));
                 }
-                Passenger newPassenger(passData[0], passData[1], passData[2], bag,
-                    12);  // stoi(passData[3])
+                Passenger newPassenger(passData[0], passData[1], passData[2], bag, stoi(passData[3]));
                 (*flights)[i].addPassenger(newPassenger);
             }
         }
