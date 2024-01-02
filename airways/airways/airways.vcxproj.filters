@@ -63,7 +63,7 @@
     <ClCompile Include="SaveLoad1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalculateCostsClasses.cpp">
+    <ClCompile Include="CalculateCosts1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

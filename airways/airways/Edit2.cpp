@@ -21,7 +21,7 @@ bool airways::Edit2::validTextBoxes()
             if (textBoxName->Text->Length > 16 || textBoxSurname->Text->Length > 16) {
                 infoLabel->Text = "Name and surname can contain max 16 characters.";
 
-           }
+            }
         }
         catch (FormatException^)
         {

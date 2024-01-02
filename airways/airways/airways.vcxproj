@@ -127,7 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Baggage.cpp" />
-    <ClCompile Include="CalculateCostsClasses.cpp" />
+    <ClCompile Include="CalculateCosts1.cpp" />
     <ClCompile Include="CheckedLuggage.cpp" />
     <ClCompile Include="Edit1.cpp" />
     <ClCompile Include="Edit2.cpp" />
