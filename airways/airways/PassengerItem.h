@@ -1,6 +1,7 @@
 #pragma once
 #include "Edit1.h"
 #include "Edit2.h"
+
 #include "vector"
 
 namespace airways {
@@ -323,7 +324,7 @@ namespace airways {
 
     private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
 
-        if (idx <= flights->size()) {
+        if (idx < flights->size()) {
             auto& passengers = (*flights)[idx].getPassengers();
 
             if (passIdx < passengers.size()) {
@@ -333,6 +334,7 @@ namespace airways {
                 delete this;
             }
         }
+
     }
 
 };

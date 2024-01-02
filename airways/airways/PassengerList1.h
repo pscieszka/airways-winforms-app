@@ -18,11 +18,11 @@ namespace airways {
 		{
 			InitializeComponent();
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-
+			this->idx = idx;
 			std::vector<Passenger> pass = (*flights)[idx].getPassengers();
 			for (int i = 0; i < pass.size(); i++)
 			{
-				PassengerItem^ passengerItem = gcnew PassengerItem(pass[i].getData(),idx,i);
+				PassengerItem^ passengerItem = gcnew PassengerItem(pass[i].getData(), idx, i);
 				passengerItem->BackColor = Color::FromArgb(41, 41, 41);
 				passengerItem->Size = System::Drawing::Size(675, 129);
 				flowLayoutPanel1->Controls->Add(passengerItem);
@@ -115,7 +115,7 @@ namespace airways {
 	protected:
 
 	private:
-
+		int idx;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -155,6 +155,7 @@ namespace airways {
 
 		}
 #pragma endregion
+		
 
 
 
