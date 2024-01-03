@@ -57,6 +57,10 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelErr4;
 	private: System::Windows::Forms::Label^ labelErr0;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ labelDistance;
+	private: System::Windows::Forms::TextBox^ textBoxDistance;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ labelErr5;
 
 
 
@@ -164,6 +168,10 @@ namespace airways {
 			this->labelErr4 = (gcnew System::Windows::Forms::Label());
 			this->labelErr0 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->labelDistance = (gcnew System::Windows::Forms::Label());
+			this->textBoxDistance = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->labelErr5 = (gcnew System::Windows::Forms::Label());
 			this->panelHeader->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -412,13 +420,70 @@ namespace airways {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(771, 344);
+			this->button1->Location = System::Drawing::Point(765, 552);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(192, 97);
 			this->button1->TabIndex = 17;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &CalculateCosts1::button1_Click);
+			// 
+			// labelDistance
+			// 
+			this->labelDistance->AutoSize = true;
+			this->labelDistance->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(31)));
+			this->labelDistance->CausesValidation = false;
+			this->labelDistance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDistance->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDistance->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->labelDistance->Location = System::Drawing::Point(506, 258);
+			this->labelDistance->Name = L"labelDistance";
+			this->labelDistance->Size = System::Drawing::Size(121, 29);
+			this->labelDistance->TabIndex = 18;
+			this->labelDistance->Text = L"Distance:";
+			// 
+			// textBoxDistance
+			// 
+			this->textBoxDistance->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->textBoxDistance->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->textBoxDistance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->textBoxDistance->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
+			this->textBoxDistance->Location = System::Drawing::Point(511, 302);
+			this->textBoxDistance->Name = L"textBoxDistance";
+			this->textBoxDistance->Size = System::Drawing::Size(140, 35);
+			this->textBoxDistance->TabIndex = 19;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(31)));
+			this->label1->CausesValidation = false;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->label1->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->label1->Location = System::Drawing::Point(506, 417);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(121, 29);
+			this->label1->TabIndex = 20;
+			this->label1->Text = L"Distance:";
+			// 
+			// labelErr5
+			// 
+			this->labelErr5->AutoSize = true;
+			this->labelErr5->ForeColor = System::Drawing::Color::Red;
+			this->labelErr5->Location = System::Drawing::Point(508, 351);
+			this->labelErr5->Name = L"labelErr5";
+			this->labelErr5->Size = System::Drawing::Size(0, 13);
+			this->labelErr5->TabIndex = 21;
 			// 
 			// CalculateCosts1
 			// 
@@ -427,6 +492,10 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->labelErr5);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->textBoxDistance);
+			this->Controls->Add(this->labelDistance);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->labelErr0);
 			this->Controls->Add(this->labelErr4);

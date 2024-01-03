@@ -142,6 +142,35 @@ bool airways::CalculateCosts1::validBoxes()
             }
         }
 
+        if (String::IsNullOrWhiteSpace(textBoxDistance->Text))
+        {
+            labelErr5->Text = "Please fill text box.";
+            isValid = false;
+        }
+        else {
+            try {
+                int val = Int32::Parse(textBoxDistance->Text);
+                if ( val > 15000 || val < 0) {
+                    labelErr5->Text = "Distance  can not be higher than 15 000km or lower than 0km.";
+                    isValid = false;
+                }
+                else {
+                    labelErr5->Text = "";
+
+                }
+            }
+            catch (FormatException^)
+            {
+                labelErr5->Text = "The entered number is not a valid integer.";
+                isValid = false;
+            }
+            catch (OverflowException^)
+            {
+                labelErr5->Text = "The entered number exceeds the range of integers.";
+                isValid = false;
+            }
+        }
+
     return isValid;
 
 }
