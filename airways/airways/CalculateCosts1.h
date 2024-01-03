@@ -1,4 +1,6 @@
 #pragma once
+#include "CalculateCostsClasses.h"
+
 namespace airways {
 
 	using namespace System;
@@ -59,7 +61,8 @@ namespace airways {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ labelDistance;
 	private: System::Windows::Forms::TextBox^ textBoxDistance;
-	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ labelResult;
+
 	private: System::Windows::Forms::Label^ labelErr5;
 
 
@@ -170,7 +173,7 @@ namespace airways {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->labelDistance = (gcnew System::Windows::Forms::Label());
 			this->textBoxDistance = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->labelResult = (gcnew System::Windows::Forms::Label());
 			this->labelErr5 = (gcnew System::Windows::Forms::Label());
 			this->panelHeader->SuspendLayout();
 			this->SuspendLayout();
@@ -459,22 +462,21 @@ namespace airways {
 			this->textBoxDistance->Size = System::Drawing::Size(140, 35);
 			this->textBoxDistance->TabIndex = 19;
 			// 
-			// label1
+			// labelResult
 			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+			this->labelResult->AutoSize = true;
+			this->labelResult->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
-			this->label1->CausesValidation = false;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->labelResult->CausesValidation = false;
+			this->labelResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+			this->labelResult->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
 				static_cast<System::Int32>(static_cast<System::Byte>(153)));
-			this->label1->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
-			this->label1->Location = System::Drawing::Point(506, 417);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(121, 29);
-			this->label1->TabIndex = 20;
-			this->label1->Text = L"Distance:";
+			this->labelResult->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->labelResult->Location = System::Drawing::Point(506, 417);
+			this->labelResult->Name = L"labelResult";
+			this->labelResult->Size = System::Drawing::Size(0, 29);
+			this->labelResult->TabIndex = 20;
 			// 
 			// labelErr5
 			// 
@@ -493,7 +495,7 @@ namespace airways {
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
 			this->Controls->Add(this->labelErr5);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->labelResult);
 			this->Controls->Add(this->textBoxDistance);
 			this->Controls->Add(this->labelDistance);
 			this->Controls->Add(this->button1);
@@ -534,7 +536,15 @@ namespace airways {
 	private: System::Void checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	validBoxes();
+	if (validBoxes()) {
+		if (checkBoxAirbus->Checked) {
+			Airbus a1;
+			//a1 += 21;//Int32::Parse(textBoxAdditional->Text);
+			double costs = calculateCost(a1, Int32::Parse(textBoxDistance->Text));
+			this->labelResult->Text = costs.ToString();
+
+		}
+	}
 }
 };
 }
