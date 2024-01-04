@@ -18,10 +18,20 @@ namespace airways {
 	public:
 		CalculateCosts1(void)
 		{
+
 			InitializeComponent();
-			comboBox1->Items->Add("Opcja 1");
-			comboBox1->Items->Add("Opcja 2");
-			comboBox1->Items->Add("Opcja 3");
+			comboBox1->Items->Add("Ankara");
+			comboBox1->Items->Add("Berlin");
+			comboBox1->Items->Add("Budapest");
+			comboBox1->Items->Add("London");
+			comboBox1->Items->Add("Madrid");
+			comboBox1->Items->Add("Milan");
+			comboBox1->Items->Add("Paris");
+			comboBox1->Items->Add("Prague");
+			comboBox1->Items->Add("Tallinn");
+			comboBox1->Items->Add("Warsaw");
+
+
 		
 			//
 
@@ -494,10 +504,17 @@ namespace airways {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(51)), static_cast<System::Int32>(static_cast<System::Byte>(51)),
+				static_cast<System::Int32>(static_cast<System::Byte>(51)));
+			this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->comboBox1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(229)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(15)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(529, 442);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->Size = System::Drawing::Size(121, 26);
 			this->comboBox1->TabIndex = 23;
 			// 
 			// CalculateCosts1
