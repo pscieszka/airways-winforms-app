@@ -39,11 +39,21 @@ template<typename T>
 class CityCoords {
 	T x;
 	T y;
-	T distance;
+	
 public:
+	CityCoords(T x, T y) : x(x), y(y) {}
+
 	T operator+(const CityCoords& rhs) const {
 		return calculateDistance(rhs);
 	}
-	cityCoords(T x, T y) : x(x), y(y),distance(0) {};
+	bool operator==(const CityCoords& rhs) const {
+		return x == rhs.x && y == rhs.y;
+	}
+	
 	T getDistance() { return distance; }
+private:
+	T calculateDistance(const CityCoords& rhs) const {
+		return sqrt(pow(x - rhs.x, 2) + pow(y - rhs.y, 2));
+	}
 };
+

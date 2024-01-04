@@ -19,7 +19,9 @@ namespace airways {
 		CalculateCosts1(void)
 		{
 			InitializeComponent();
-			
+			comboBox1->Items->Add("Opcja 1");
+			comboBox1->Items->Add("Opcja 2");
+			comboBox1->Items->Add("Opcja 3");
 		
 			//
 
@@ -64,6 +66,8 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelResult;
 
 	private: System::Windows::Forms::Label^ labelErr5;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+
 
 
 
@@ -175,6 +179,7 @@ namespace airways {
 			this->textBoxDistance = (gcnew System::Windows::Forms::TextBox());
 			this->labelResult = (gcnew System::Windows::Forms::Label());
 			this->labelErr5 = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->panelHeader->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -487,6 +492,14 @@ namespace airways {
 			this->labelErr5->Size = System::Drawing::Size(0, 13);
 			this->labelErr5->TabIndex = 21;
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(529, 442);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->TabIndex = 23;
+			// 
 			// CalculateCosts1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -494,6 +507,7 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->labelErr5);
 			this->Controls->Add(this->labelResult);
 			this->Controls->Add(this->textBoxDistance);
@@ -546,5 +560,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		}
 	}
 }
+
+
 };
 }
