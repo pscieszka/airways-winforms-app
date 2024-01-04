@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 
 struct Airbus {
 	int normalSeats = 90;
@@ -8,8 +9,6 @@ struct Airbus {
 	double fuelConsumption = 4200.0;
 	int additionalCosts = 0;
 	double multiplier = 0.97;
-
-	//Airbus& operator+=(int value);
 
 };
 
@@ -21,7 +20,6 @@ struct Boeing {
 	double fuelConsumption = 5000.0;
 	int additionalCosts = 0;
 	double multiplier = 1.11;
-	//Boeing& operator+=(int value);
 
 };
 
@@ -37,19 +35,15 @@ double calculateCost(const T& plane, double distance) {
 }
 
 
-
-/*
-
-
-Airbus& Airbus::operator+=(int value)
-{
-	additionalCosts += value;
-	return *this;
-}
-
-Boeing& Boeing::operator+=(int value)
-{
-	additionalCosts += value;
-	return *this;
-}
-*/
+template<typename T>
+class CityCoords {
+	T x;
+	T y;
+	T distance;
+public:
+	T operator+(const CityCoords& rhs) const {
+		return calculateDistance(rhs);
+	}
+	cityCoords(T x, T y) : x(x), y(y),distance(0) {};
+	T getDistance() { return distance; }
+};
