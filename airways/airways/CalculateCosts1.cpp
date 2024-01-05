@@ -112,3 +112,25 @@ System::Void airways::CalculateCosts1::checkBoxNo_CheckedChanged(System::Object^
 
     }
 }
+
+System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (validBoxes()) {
+        if (comboBox1->SelectedIndex != -1)
+        {
+            System::String^ city = dynamic_cast<System::String^>(comboBox1->SelectedItem);
+            std::string cityStd = msclr::interop::marshal_as<std::string>(city);
+
+            auto it = cityMap.find(cityStd);
+            
+            int x = it->second.second;
+            int y = it->second.first;
+
+            CityItem^ cityItem = gcnew CityItem(city, x, y, checkBoxYes->Checked);
+            cityItem->BackColor = Color::FromArgb(41, 41, 41);
+            cityItem->Size = System::Drawing::Size(378, 35);
+            flowLayoutPanel1->Controls->Add(cityItem);
+        }
+    }
+   
+}

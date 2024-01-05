@@ -151,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="CalculateCostsClasses.h" />
     <ClInclude Include="CheckedLuggage.h" />
+    <ClInclude Include="CityItem.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="Edit1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -181,7 +184,7 @@
     <ClInclude Include="MixedBaggage.h" />
     <ClInclude Include="Passenger.h" />
     <ClInclude Include="PassengerItem.h">
-      <FileType>CppForm</FileType>
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="PassengerList1.h">
       <FileType>CppForm</FileType>
@@ -194,6 +197,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CalculateCosts1.resx">
       <DependentUpon>CalculateCosts1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CityItem.resx">
+      <DependentUpon>CityItem.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit1.resx">
       <DependentUpon>Edit1.h</DependentUpon>
