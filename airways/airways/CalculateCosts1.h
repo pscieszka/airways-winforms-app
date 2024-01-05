@@ -5,6 +5,8 @@
 #include "CityItem.h"
 #include "unordered_map"
 #include "string"
+#include <random>
+
 
 namespace airways {
 
@@ -32,6 +34,7 @@ namespace airways {
 	};
 	public ref class CalculateCosts1 : public System::Windows::Forms::Form
 	{
+
 	public:
 		CalculateCosts1(void)
 		{
@@ -95,6 +98,7 @@ namespace airways {
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private: System::Windows::Forms::Label^ labelErr1;
 	private: System::Windows::Forms::Button^ buttonAdd;
+	private: System::Windows::Forms::Label^ labelErr2;
 
 
 
@@ -203,6 +207,7 @@ namespace airways {
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->labelErr1 = (gcnew System::Windows::Forms::Label());
 			this->buttonAdd = (gcnew System::Windows::Forms::Button());
+			this->labelErr2 = (gcnew System::Windows::Forms::Label());
 			this->panelHeader->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -445,6 +450,15 @@ namespace airways {
 			this->buttonAdd->UseVisualStyleBackColor = false;
 			this->buttonAdd->Click += gcnew System::EventHandler(this, &CalculateCosts1::buttonAdd_Click);
 			// 
+			// labelErr2
+			// 
+			this->labelErr2->AutoSize = true;
+			this->labelErr2->ForeColor = System::Drawing::Color::Red;
+			this->labelErr2->Location = System::Drawing::Point(237, 394);
+			this->labelErr2->Name = L"labelErr2";
+			this->labelErr2->Size = System::Drawing::Size(0, 13);
+			this->labelErr2->TabIndex = 31;
+			// 
 			// CalculateCosts1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -452,6 +466,7 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->labelErr2);
 			this->Controls->Add(this->buttonAdd);
 			this->Controls->Add(this->labelErr1);
 			this->Controls->Add(this->flowLayoutPanel1);
@@ -506,6 +521,7 @@ private: System::Void checkBoxYes_CheckedChanged(System::Object^ sender, System:
 private: System::Void checkBoxNo_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
+
 
 };
 }

@@ -1,5 +1,8 @@
 #include "CalculateCosts1.h"
 
+
+CityCoords<int> lastCoords;
+
 bool airways::CalculateCosts1::validBoxes()
 {
     bool isValid = true;
@@ -115,22 +118,74 @@ System::Void airways::CalculateCosts1::checkBoxNo_CheckedChanged(System::Object^
 
 System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    if (validBoxes()) {
-        if (comboBox1->SelectedIndex != -1)
-        {
-            System::String^ city = dynamic_cast<System::String^>(comboBox1->SelectedItem);
-            std::string cityStd = msclr::interop::marshal_as<std::string>(city);
+    try {
+        if (validBoxes() && comboBox1->SelectedIndex != -1) {
+            checkBoxNo->Enabled = false;
+            checkBoxYes->Enabled = false;
+            checkBoxAirbus->Enabled = false;
+            checkBoxBoeing->Enabled = false;
 
-            auto it = cityMap.find(cityStd);
-            
-            int x = it->second.second;
-            int y = it->second.first;
+            if (comboBox1->SelectedIndex != -1)
+            {
+                this->labelErr2->Text = "";
+                System::String^ city = dynamic_cast<System::String^>(comboBox1->SelectedItem);
+                std::string cityStd = msclr::interop::marshal_as<std::string>(city);
 
-            CityItem^ cityItem = gcnew CityItem(city, x, y, checkBoxYes->Checked);
-            cityItem->BackColor = Color::FromArgb(41, 41, 41);
-            cityItem->Size = System::Drawing::Size(378, 35);
-            flowLayoutPanel1->Controls->Add(cityItem);
+                auto it = cityMap.find(cityStd);
+
+                int x = it->second.second;
+                int y = it->second.first;
+                if ( (lastCoords.getX() != 0 && lastCoords.getY() != 0) && (lastCoords.getX()==x && lastCoords.getY()==y) ) {
+                    this->labelErr2->Text = "You cant add two the same cities in row.";
+                    return;
+                }
+
+                lastCoords = CityCoords<int>(x,y);
+
+                if (checkBoxYes->Checked) {
+                    //Random decimal expansion to simulate better precision of calculations.
+                    //Coordinates of cities are pixels of screen so I cant get better approximates than ints.
+                    std::random_device rd;
+
+                    std::uniform_real_distribution<double> unif(0.001, 0.999);
+                    std::default_random_engine re(rd());
+                    double randomX = unif(re);
+                    double randomY = unif(re);
+
+                    //Round to 0-999 int than divide by 1000 to get 0.xxx value
+                    randomX = std::round(randomX * 1000.0) / 1000.0;
+                    randomY = std::round(randomY * 1000.0) / 1000.0;
+
+                    CityCoords<double> coords(x + randomX, y + randomY);
+
+                    CityItem^ cityItem = gcnew CityItem(city, coords.getX(), coords.getY());
+                    cityItem->BackColor = Color::FromArgb(41, 41, 41);
+                    cityItem->Size = System::Drawing::Size(378, 35);
+                    flowLayoutPanel1->Controls->Add(cityItem);
+
+                }
+                else {
+
+                    CityCoords<int> coords(x, y);
+                    CityItem^ cityItem = gcnew CityItem(city, coords.getX(), coords.getY());
+                    cityItem->BackColor = Color::FromArgb(41, 41, 41);
+                    cityItem->Size = System::Drawing::Size(378, 35);
+                    flowLayoutPanel1->Controls->Add(cityItem);
+
+                }
+            }
+
         }
+        else {
+            this->labelErr2->Text = "Invalid city name.";
+        }
+
     }
+    catch (OverflowException^)
+    {
+        labelErr2->Text = "The name is too long.";
+        
+    }
+   
    
 }

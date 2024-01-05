@@ -42,6 +42,7 @@ class CityCoords {
 	
 public:
 	CityCoords(T x, T y) : x(x), y(y) {}
+	CityCoords() : x(T()), y(T()) {}
 
 	T operator+(const CityCoords& rhs) const {
 		return calculateDistance(rhs);
@@ -51,6 +52,14 @@ public:
 	}
 	
 	T getDistance() { return distance; }
+
+	T getX() const {
+		return x;
+	}
+
+	T getY() const{
+		return y;
+	}
 private:
 	T calculateDistance(const CityCoords& rhs) const {
 		return sqrt(pow(x - rhs.x, 2) + pow(y - rhs.y, 2));
