@@ -1,7 +1,10 @@
 #include "CalculateCosts1.h"
 
 
-CityCoords<int> lastCoords;
+CityCoords<int> lastCoordsInt;
+CityCoords<double> lastCoordsDouble;
+int distanceInt = 0;
+double distanceDouble = 0;
 
 bool airways::CalculateCosts1::validBoxes()
 {
@@ -135,12 +138,11 @@ System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, S
 
                 int x = it->second.second;
                 int y = it->second.first;
-                if ( (lastCoords.getX() != 0 && lastCoords.getY() != 0) && (lastCoords.getX()==x && lastCoords.getY()==y) ) {
+                if ( (lastCoordsInt.getX() != 0 && lastCoordsInt.getY() != 0) && (lastCoordsInt.getX()==x && lastCoordsInt.getY()==y) ) {
                     this->labelErr2->Text = "You cant add two the same cities in row.";
                     return;
                 }
 
-                lastCoords = CityCoords<int>(x,y);
 
                 if (checkBoxYes->Checked) {
                     //Random decimal expansion to simulate better precision of calculations.
@@ -153,15 +155,24 @@ System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, S
                     double randomY = unif(re);
 
                     //Round to 0-999 int than divide by 1000 to get 0.xxx value
-                    randomX = std::round(randomX * 1000.0) / 1000.0;
-                    randomY = std::round(randomY * 1000.0) / 1000.0;
+                    randomX = std::round(randomX * 1000.0) / 1000.0 + x;
+                    randomY = std::round(randomY * 1000.0) / 1000.0 + y;
 
-                    CityCoords<double> coords(x + randomX, y + randomY);
+                    CityCoords<double> coords(randomX, randomY);
 
                     CityItem^ cityItem = gcnew CityItem(city, coords.getX(), coords.getY());
                     cityItem->BackColor = Color::FromArgb(41, 41, 41);
                     cityItem->Size = System::Drawing::Size(378, 35);
                     flowLayoutPanel1->Controls->Add(cityItem);
+
+                    if (lastCoordsDouble.getX() != 0 && lastCoordsDouble.getY() != 0) {
+                        distanceDouble += coords + lastCoordsDouble;
+                    }
+
+
+                    this->labelDistance->Text = distanceDouble.ToString("F3") + " km";
+                    lastCoordsDouble = coords;
+
 
                 }
                 else {
@@ -172,13 +183,23 @@ System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, S
                     cityItem->Size = System::Drawing::Size(378, 35);
                     flowLayoutPanel1->Controls->Add(cityItem);
 
+                    if (lastCoordsInt.getX() != 0 && lastCoordsInt.getY() != 0) {
+                        distanceInt += (coords + lastCoordsInt);
+                    }
+
+                    this->labelDistance->Text = Convert::ToString(distanceInt) + " km";
+
                 }
+                lastCoordsInt = CityCoords<int>(x, y);
+
             }
+
 
         }
         else {
             this->labelErr2->Text = "Invalid city name.";
         }
+
 
     }
     catch (OverflowException^)

@@ -44,15 +44,14 @@ public:
 	CityCoords(T x, T y) : x(x), y(y) {}
 	CityCoords() : x(T()), y(T()) {}
 
-	T operator+(const CityCoords& rhs) const {
+	 T operator+(const CityCoords& rhs) const {
 		return calculateDistance(rhs);
-	}
+	 }
+	
 	bool operator==(const CityCoords& rhs) const {
 		return x == rhs.x && y == rhs.y;
 	}
 	
-	T getDistance() { return distance; }
-
 	T getX() const {
 		return x;
 	}

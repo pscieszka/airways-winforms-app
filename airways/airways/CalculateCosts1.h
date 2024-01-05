@@ -99,6 +99,7 @@ namespace airways {
 	private: System::Windows::Forms::Label^ labelErr1;
 	private: System::Windows::Forms::Button^ buttonAdd;
 	private: System::Windows::Forms::Label^ labelErr2;
+	private: System::Windows::Forms::Label^ labelDistance;
 
 
 
@@ -208,6 +209,7 @@ namespace airways {
 			this->labelErr1 = (gcnew System::Windows::Forms::Label());
 			this->buttonAdd = (gcnew System::Windows::Forms::Button());
 			this->labelErr2 = (gcnew System::Windows::Forms::Label());
+			this->labelDistance = (gcnew System::Windows::Forms::Label());
 			this->panelHeader->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -459,6 +461,23 @@ namespace airways {
 			this->labelErr2->Size = System::Drawing::Size(0, 13);
 			this->labelErr2->TabIndex = 31;
 			// 
+			// labelDistance
+			// 
+			this->labelDistance->AutoSize = true;
+			this->labelDistance->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
+				static_cast<System::Int32>(static_cast<System::Byte>(31)));
+			this->labelDistance->CausesValidation = false;
+			this->labelDistance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->labelDistance->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)), static_cast<System::Int32>(static_cast<System::Byte>(153)),
+				static_cast<System::Int32>(static_cast<System::Byte>(153)));
+			this->labelDistance->ImageAlign = System::Drawing::ContentAlignment::TopLeft;
+			this->labelDistance->Location = System::Drawing::Point(611, 207);
+			this->labelDistance->Name = L"labelDistance";
+			this->labelDistance->Size = System::Drawing::Size(114, 29);
+			this->labelDistance->TabIndex = 32;
+			this->labelDistance->Text = L"Distance";
+			// 
 			// CalculateCosts1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -466,6 +485,7 @@ namespace airways {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(31)), static_cast<System::Int32>(static_cast<System::Byte>(31)),
 				static_cast<System::Int32>(static_cast<System::Byte>(31)));
 			this->ClientSize = System::Drawing::Size(1039, 681);
+			this->Controls->Add(this->labelDistance);
 			this->Controls->Add(this->labelErr2);
 			this->Controls->Add(this->buttonAdd);
 			this->Controls->Add(this->labelErr1);
