@@ -25,10 +25,10 @@ namespace airways {
 
 			this->idx = idx;
 			if (aircraft == 1) {
-				//this->checkBoxFirstClass->Visible = false;
+				this->checkBoxFirstClass->Visible = false;
 			}
 
-			//
+			
 
 
 

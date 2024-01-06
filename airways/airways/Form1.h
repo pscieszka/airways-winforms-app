@@ -27,6 +27,7 @@ namespace airways {
 		{
 			InitializeComponent();
 		
+			activeForm = gcnew Form();
 
 			//
 			
@@ -249,8 +250,8 @@ namespace airways {
 			this->ClientSize = System::Drawing::Size(1264, 679);
 			this->Controls->Add(this->panelMain);
 			this->Controls->Add(this->panelMenu);
-			this->Name = L"Form1";
-			this->Text = L"Form1";
+			this->Name = L"Airways";
+			this->Text = L"Airways";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->panelMenu->ResumeLayout(false);
 			this->panelProjName->ResumeLayout(false);

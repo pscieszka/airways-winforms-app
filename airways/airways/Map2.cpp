@@ -126,6 +126,7 @@ bool airways::Map2::validTextBoxes()
             infoLabelDD->Text = "The entered day exceeds the range of integers.";
             isValid = false;
         }
+        infoLabelDD->Text = "";
     }
 
     //godzina
@@ -157,6 +158,7 @@ bool airways::Map2::validTextBoxes()
             infoLabelHH->Text = "The entered time exceeds the range of integers.";
             isValid = false;
         }
+        infoLabelHH->Text = "";
     }
     if (String::IsNullOrWhiteSpace(textBoxGate->Text))
     {
@@ -170,11 +172,13 @@ bool airways::Map2::validTextBoxes()
             String^ gateText = textBoxGate->Text;
             std::string gateStdString = msclr::interop::marshal_as<std::string>(gateText);
 
-           if (gateText->Length != 3)
+           if (gateText->Length != 3 || gateText->Length > 3)
            {
            infoLabelGate->Text = "Invalid gate number format. The number must contain 3 characters.";
            isValid = false;
            }
+           else {
+
             if (!(gateText[0] >= 'A' && gateText[0] <= 'Z'))
             {
                 infoLabelGate->Text = "The first character must be a capital letter (A-Z).";
@@ -190,6 +194,9 @@ bool airways::Map2::validTextBoxes()
             {
                 infoLabelGate->Text = "";
             }
+            infoLabelGate->Text = "";
+           }
+
         }
         catch (FormatException^)
         {
@@ -207,6 +214,9 @@ bool airways::Map2::validTextBoxes()
     if (this->checkBoxBoeing->Checked == false && this->checkBoxAirbus->Checked == false) {
         isValid = false;
         infoLabelModel->Text = "Choose one option.";
+    }
+    else{
+        infoLabelModel->Text = "";
     }
     return isValid;
 }
