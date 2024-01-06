@@ -28,7 +28,7 @@ namespace airways {
 			InitializeComponent();
 		
 			activeForm = gcnew Form();
-
+			
 			//
 			
 

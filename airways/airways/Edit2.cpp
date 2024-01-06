@@ -163,7 +163,6 @@ System::Void airways::Edit2::buttonAdd_Click(System::Object^ sender, System::Eve
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) },this->checkBoxYes->Checked);
         }
         else {
-            //distance 3 dziala?
             bag = new CheckedLuggage(Double::Parse(this->textBoxWeight->Text),
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) }, std::stod((*flights)[idx].getData()[3]));
         }

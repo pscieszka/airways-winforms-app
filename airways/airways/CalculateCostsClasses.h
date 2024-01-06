@@ -1,6 +1,8 @@
 #pragma once
 #include <cmath>
-
+/**
+ * @brief Struktura reprezentujaca stale wartosci samolotu Airbus.
+ */
 struct Airbus {
 	int normalSeats = 90;
 	int buisnessSeats = 24;
@@ -11,7 +13,9 @@ struct Airbus {
 	double multiplier = 0.97;
 
 };
-
+/**
+ * @brief Struktura reprezentujacastale wartosci samolotu Boeing.
+ */
 struct Boeing {
 	int normalSeats = 126;
 	int buisnessSeats = 0;
@@ -23,6 +27,14 @@ struct Boeing {
 
 };
 
+/**
+ * @brief Funkcja obliczajaca koszt lotu.
+ * @tparam T - Typ struktury reprezentujacej samolot (Airbus lub Boeing).
+ * @tparam T2 - Typ danych dla odleglosc podrozy.
+ * @param plane - Struktura reprezentujaca samolot.
+ * @param distance - Dystans lotu.
+ * @return Koszt lotu.
+ */
 template <typename T,typename T2>
 T2 calculateCost(const T& plane, T2 distance) {
 	int base = 3254;
@@ -34,7 +46,10 @@ T2 calculateCost(const T& plane, T2 distance) {
 
 }
 
-
+/**
+ * @brief Klasa reprezentujaca wspolrzedne miasta.
+ * @tparam T - Typ danych dla wspolrzednych.
+ */
 template<typename T>
 class CityCoords {
 	T x;
@@ -43,7 +58,11 @@ class CityCoords {
 public:
 	CityCoords(T x, T y) : x(x), y(y) {}
 	CityCoords() : x(T()), y(T()) {}
-
+	/**
+* @brief Operator + oblicza odleglosc miedzy dwoma miastami (nie dodaje wspolrzednych)
+* @param rhs - Druga para wspolrzednych miasta.
+* @return Odleglosc miedzy miastami.
+*/
 	 T operator+(const CityCoords& rhs) const {
 		return calculateDistance(rhs);
 	 }
@@ -60,6 +79,11 @@ public:
 		return y;
 	}
 private:
+	/**
+ * @brief Funkcja obliczajaca odleglosc miedzy dwoma miastami na podstawie wspolrzêdnych.
+ * @param rhs - Druga para wspolrzednych miasta.
+ * @return Odleglosc miedzy miastami.
+ */
 	T calculateDistance(const CityCoords& rhs) const {
 		return sqrt(pow(x - rhs.x, 2) + pow(y - rhs.y, 2))*3.98;
 	}
