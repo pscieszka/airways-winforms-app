@@ -1,10 +1,7 @@
 #include "CalculateCosts1.h"
 
 
-CityCoords<int> lastCoordsInt;
-CityCoords<double> lastCoordsDouble;
-int distanceInt = 0;
-double distanceDouble = 0;
+
 
 bool airways::CalculateCosts1::validBoxes()
 {
@@ -91,6 +88,44 @@ System::Void airways::CalculateCosts1::checkBoxBoeing_CheckedChanged(System::Obj
     }
 }
 
+void airways::CalculateCosts1::resetForm()
+{
+    flowLayoutPanel1->Controls->Clear();
+    flowLayoutPanel1 = flowLayoutPanel1;
+ 
+
+
+    distanceInt = 0;
+    distanceDouble = 0;
+    costInt = 0;
+    costDouble = 0;
+    lastCoordsInt = CityCoords<int>(0, 0);
+    lastCoordsDouble = CityCoords<double>(0.0, 0.0);
+    
+    labelDistance->Text = "";
+    labelCost->Text = "";
+
+    checkBoxBoeing->Checked = false;
+    checkBoxAirbus->Checked = false;
+
+    checkBoxBoeing->Enabled = true;
+    checkBoxAirbus->Enabled = true;
+
+    checkBoxYes->Checked = false;
+    checkBoxNo->Checked = false;
+
+    checkBoxYes->Enabled = true;
+    checkBoxNo->Enabled = true;
+    labelErr0->Text = "";
+    labelErr1->Text = "";
+    labelErr2->Text = "";
+    labelErr4->Text = "";
+    labelErr5->Text = "";
+   
+    comboBox1->SelectedIndex = -1;
+
+}
+
 System::Void airways::CalculateCosts1::checkBoxYes_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
 {
     if (checkBoxYes->Checked == true) {
@@ -162,15 +197,24 @@ System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, S
 
                     CityItem^ cityItem = gcnew CityItem(city, coords.getX(), coords.getY());
                     cityItem->BackColor = Color::FromArgb(41, 41, 41);
-                    cityItem->Size = System::Drawing::Size(378, 35);
+                    cityItem->Size = System::Drawing::Size(378, 44);
                     flowLayoutPanel1->Controls->Add(cityItem);
 
                     if (lastCoordsDouble.getX() != 0 && lastCoordsDouble.getY() != 0) {
                         distanceDouble += coords + lastCoordsDouble;
+                        if (checkBoxAirbus->Checked) {
+                            Airbus airbus;
+                            costDouble += calculateCost(airbus, distanceDouble);
+                        }
+                        else {
+                            Boeing boeing;
+                            costDouble += calculateCost(boeing, distanceDouble);
+                        }
                     }
 
+                    this->labelCost->Text = costDouble.ToString("F2") + " EUR";
 
-                    this->labelDistance->Text = distanceDouble.ToString("F3") + " km";
+                    this->labelDistance->Text = distanceDouble.ToString("F3")->Replace(',','.') + " km";
                     lastCoordsDouble = coords;
 
 
@@ -180,13 +224,22 @@ System::Void airways::CalculateCosts1::buttonAdd_Click(System::Object^ sender, S
                     CityCoords<int> coords(x, y);
                     CityItem^ cityItem = gcnew CityItem(city, coords.getX(), coords.getY());
                     cityItem->BackColor = Color::FromArgb(41, 41, 41);
-                    cityItem->Size = System::Drawing::Size(378, 35);
+                    cityItem->Size = System::Drawing::Size(378, 44);
                     flowLayoutPanel1->Controls->Add(cityItem);
+                    
 
                     if (lastCoordsInt.getX() != 0 && lastCoordsInt.getY() != 0) {
                         distanceInt += (coords + lastCoordsInt);
+                        if (checkBoxAirbus->Checked) {
+                            Airbus airbus;
+                            costInt += calculateCost(airbus, distanceInt);
+                        }
+                        else {
+                            Boeing boeing;
+                            costInt += calculateCost(boeing, distanceInt);
+                        }
                     }
-
+                    this->labelCost->Text = Convert::ToString(costInt) + " EUR";
                     this->labelDistance->Text = Convert::ToString(distanceInt) + " km";
 
                 }
