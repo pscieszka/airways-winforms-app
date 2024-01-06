@@ -90,9 +90,21 @@ System::Void airways::CalculateCosts1::checkBoxBoeing_CheckedChanged(System::Obj
 
 void airways::CalculateCosts1::resetForm()
 {
+    //raczej da sie prosciej 
     flowLayoutPanel1->Controls->Clear();
-    flowLayoutPanel1 = flowLayoutPanel1;
- 
+    FlowLayoutPanel^ newFlowLayoutPanel = gcnew FlowLayoutPanel();
+
+    newFlowLayoutPanel->AutoScroll = flowLayoutPanel1->AutoScroll;
+    newFlowLayoutPanel->BorderStyle = flowLayoutPanel1->BorderStyle;
+    newFlowLayoutPanel->Location = flowLayoutPanel1->Location;
+    newFlowLayoutPanel->Name = flowLayoutPanel1->Name;
+    newFlowLayoutPanel->Size = flowLayoutPanel1->Size;
+
+    this->Controls->Remove(flowLayoutPanel1);
+    this->Controls->Add(newFlowLayoutPanel);
+
+    flowLayoutPanel1 = newFlowLayoutPanel; 
+   //
 
 
     distanceInt = 0;
