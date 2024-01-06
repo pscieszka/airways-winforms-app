@@ -27,6 +27,7 @@ namespace airways {
 			buttonArray = gcnew array<System::Windows::Forms::Button^>{nullptr, nullptr};
 
 			InitializeComponent();
+			activeForm = gcnew Form();
 		}
 
 	protected:
@@ -645,7 +646,7 @@ namespace airways {
 	private:
 		System::Void calculateDistance(Button^ button1, Button^ button2);
 		System::Void circleButton(System::Windows::Forms::Control^ control);
-		System::Void DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth);
+		System::Void drawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, float lineWidth);
 		System::Void Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		System::Void Berlin_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		System::Void Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);

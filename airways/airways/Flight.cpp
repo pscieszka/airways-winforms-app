@@ -50,7 +50,7 @@ std::vector<std::string> Flight::getData()
 
 int Flight::getPrice()
 {
-    return distance * 0.05;
+    return static_cast<int>(distance * 0.05);
 }
 
 

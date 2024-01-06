@@ -54,9 +54,6 @@
     <ClCompile Include="Passenger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MixedBaggage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Edit2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -114,9 +111,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Passenger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MixedBaggage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PassengerList1.h">

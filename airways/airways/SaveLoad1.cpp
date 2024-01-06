@@ -52,27 +52,27 @@ System::Void airways::SaveLoad1::buttonSave_Click(System::Object^ sender, System
             // flight
             std::vector<std::string> flightData = (*flights)[i].getDataRaw();
 
-            int dataSize = flightData.size();
+            int dataSize = static_cast<int>(flightData.size());
             file.write(reinterpret_cast<char*>(&dataSize), sizeof(int));
 
             for (const auto& data : flightData) {
-                int stringSize = data.size();
+                int stringSize = static_cast<int>(data.size());
                 file.write(reinterpret_cast<char*>(&stringSize), sizeof(int));
                 file.write(data.c_str(), stringSize);  // const char*
             }
 
             // passengers
             std::vector<Passenger> passengerData = (*flights)[i].getPassengers();
-            int passengerSize = passengerData.size();
+            int passengerSize = static_cast<int>(passengerData.size());
             file.write(reinterpret_cast<char*>(&passengerSize), sizeof(int));
 
             for (int j = 0; j < passengerSize; j++) {
                 std::vector<std::string> passdata = passengerData[j].getDataRaw();
-                int passDataSize = passdata.size();
+                int passDataSize = static_cast<int>(passdata.size());
                 file.write(reinterpret_cast<char*>(&passDataSize), sizeof(int));
 
                 for (const auto& data : passdata) {
-                    int stringSize = data.size();
+                    int stringSize = static_cast<int>(data.size());
                     file.write(reinterpret_cast<char*>(&stringSize), sizeof(int));
                     file.write(data.c_str(), stringSize);
                 }

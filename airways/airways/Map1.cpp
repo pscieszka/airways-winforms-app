@@ -30,7 +30,7 @@ System::Void airways::Map1::calculateDistance(Button^ button1, Button^ button2)
 
 	Point center1 = Point(button1->Left + button1->Width / 2, button1->Top + button1->Height / 2);
 	Point center2 = Point(button2->Left + button2->Width / 2, button2->Top + button2->Height / 2);
-	int distance = sqrt((center1.X - center2.X) * (center1.X - center2.X) + (center1.Y - center2.Y) * (center1.Y - center2.Y))*3.98;
+	int distance = static_cast<int>(sqrt((center1.X - center2.X) * (center1.X - center2.X) + (center1.Y - center2.Y) * (center1.Y - center2.Y))*3.98);
 	distanceRem = distance;
 	this->Distance->Text = System::Convert::ToString(distance) + " km";
 }
@@ -42,7 +42,7 @@ System::Void airways::Map1::circleButton(System::Windows::Forms::Control^ contro
 	control->Region = gcnew System::Drawing::Region(path);
 }
 
-System::Void airways::Map1::DrawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, int lineWidth)
+System::Void airways::Map1::drawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, float lineWidth)
 {
 	System::Drawing::Pen^ pen = gcnew System::Drawing::Pen(lineColor, lineWidth);
 	pen->StartCap = Drawing2D::LineCap::Round;
@@ -51,7 +51,7 @@ System::Void airways::Map1::DrawCurvedLine(Graphics^ g, Point startPoint, Point 
 	// Narysowanie zaokr¹glonej linii ³¹cz¹cej punkty
 	g->DrawBezier(pen, startPoint, controlPoint1, controlPoint2, endPoint);
 
-	// Zwolnienie zasobów
+	// Zwolnienie zasobow
 	delete pen;
 }
 

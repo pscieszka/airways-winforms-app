@@ -20,41 +20,6 @@ bool airways::CalculateCosts1::validBoxes()
     else {
         labelErr1->Text = "";
     }
-    /*
-   
-    if (String::IsNullOrWhiteSpace(textBoxFirstClass->Text))
-    {
-        labelErr3->Text = "Please fill text box.";
-        isValid = false;
-    }
-    else {
-        try {
-            int val = Int32::Parse(textBoxFirstClass->Text);
-            if ( val > 12 || val < 0) {
-                labelErr3->Text = "First class seats number can not be higher than 12 or lower than 0.";
-                isValid = false;
-            }
-            else {
-                labelErr3->Text = "";
-
-            }
-        }
-        catch (FormatException^)
-        {
-            labelErr3->Text = "The entered number is not a valid integer.";
-            isValid = false;
-        }
-        catch (OverflowException^)
-        {
-            labelErr3->Text = "The entered number exceeds the range of integers.";
-            isValid = false;
-        }
-    }
-
-       
-        */
-       
-
     return isValid;
 
 }

@@ -1,23 +1,25 @@
-#pragma once
 #include "Baggage.h"
 #include "string"
-
+/**
+ * @brief Klasa reprezentujaca pasazera
+ *
+ * Klasa przechowuje  imiê, nazwisko, typ biletu, cene biletu, typ bagazu.
+ * 
+ * 
+ */
 class Passenger
 {
-	//std::vector<Baggage*> baggages;
 	
 	std::string baggagesId;
 	std::string name;
 	std::string surname;
 	std::string ticketType;
 	int ticketPrice;
-	std::string seatNumber;
 	
 	std::string bagType;
 	
 public:
 	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice);
-	//Passenger(std::vector<Baggage*> bags, std::string name, int seatNumber);
 	Passenger();
 	void addToTicketPrice(int flightPrice);
 	std::string display() const;

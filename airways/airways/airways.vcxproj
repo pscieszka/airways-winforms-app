@@ -73,7 +73,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -139,7 +146,6 @@
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="Map1.cpp" />
     <ClCompile Include="Map2.cpp" />
-    <ClCompile Include="MixedBaggage.cpp" />
     <ClCompile Include="Passenger.cpp" />
     <ClCompile Include="SaveLoad1.cpp" />
     <ClCompile Include="SmallBag.cpp" />
@@ -181,7 +187,6 @@
     <ClInclude Include="Map2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MixedBaggage.h" />
     <ClInclude Include="Passenger.h" />
     <ClInclude Include="PassengerItem.h">
       <FileType>CppControl</FileType>

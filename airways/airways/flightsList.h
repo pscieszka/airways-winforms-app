@@ -9,9 +9,10 @@ private:
 
     std::vector<Flight> flights;
 
-    flightsList() = default;  // Prywatny konstruktor, aby uniemo¿liwiæ tworzenie instancji z zewn¹trz
+    flightsList() = default;  // prywatny konstruktor aby zapewnic tylko jedna instacje klasy
 
 public:
+    // Mozliwosc dostania sie do instacji, w kazdym miejscu w kodzie
     static flightsList* getInstance() {
         if (!instance) {
             instance = new flightsList();
@@ -24,7 +25,7 @@ public:
     }
 
     int size() {
-        return flights.size();
+        return static_cast<int>(flights.size());
     }
     Flight& operator[](int idx) {
         if (idx >= 0 && idx < flights.size()) {
@@ -49,5 +50,5 @@ public:
     
 };
 
-// Inicjalizacja statycznej zmiennej klasy
+// przekazanie do kompilatora, ze istnieje ten obiekt
 extern flightsList* flights;
