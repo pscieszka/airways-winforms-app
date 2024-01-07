@@ -264,20 +264,25 @@ namespace airways {
 
 
 
-private:  System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
+private:  
+	/**
+* @brief Funkcja tworzy nowy obiekt forma wewnatrz panelu
+
+*/
+	System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
 
 
 
-private: System::Void buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void buttonHome_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
+	System::Void buttonHome_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void buttonCalculate_Click(System::Object^ sender, System::EventArgs^ e);
+	System::Void buttonCalculate_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

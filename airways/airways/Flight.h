@@ -7,6 +7,7 @@
 	/**
 * @brief Klasa przechowuje dane lotu, miasto odlotu i przyloty, rodzaj samolotu,
 * godzine, date, dystans, gate, czas lotu oraz wektor pasazerow.
+* 
 */
 class Flight
 {
@@ -28,18 +29,22 @@ public:
 	void edit(int time, std::string date, std::string gate);
 	/**
 * @brief Dostep do wszystkich danych lotu.
+* 
 */
 	std::vector<std::string> getData();
 	/**
 * @brief Dostep do wszystkich danych lotu, zmodyfikowany do latwiejszego zapisu do pliku binarnego
+* 
 */
 	std::vector<std::string> getDataRaw();
 	/**
 * @brief Zwraca cene lotu na podstawie dystansu.
+* 
 */
 	int getPrice();
 	/**
 * @brief Dodaje nowego pasezera do wektora.
+* 
 */
 	void addPassenger(const Passenger pass);
 	/**
@@ -52,16 +57,19 @@ private:
 * @brief Funkcja do dodawnia czasu miedzy 2 roznymi formatmi.
 * @param timeInt - ilosc minut
 * @param timeStr - czas w formacie mm::hh
+* 
 */
 	std::string addTime(int timeInt,std::string timeStr); 
 	/**
 * @brief Funkcja zamienia czas z formatu minut do mm::hh.
 * @param time - ilosc minut
+* 
 */
 	std::string convertTime(int time);
 	/**
 * @brief Funkcja poprawia format daty np. 1.1 -> 01.01
 * @param date - data w formacie dzien.miesiac
+* 
 */
 	std::string convertDate(std::string date);
 

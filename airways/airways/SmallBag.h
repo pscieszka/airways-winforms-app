@@ -1,7 +1,7 @@
 #include "Baggage.h"
 /**
- * @brief Definicja klasy SmallBag
- * Plik zawiera definicjê klasy SmallBag, ktora dziedziczy po klasie Baggage.
+ * @brief Klasa przechowuje obiekt malego bagazu.
+ * 
 */
 class SmallBag : public Baggage
 {
