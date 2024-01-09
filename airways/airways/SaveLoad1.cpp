@@ -39,10 +39,12 @@ System::Void airways::SaveLoad1::buttonSave_Click(System::Object^ sender, System
     if (validSave()) {
         std::ofstream file(msclr::interop::marshal_as < std::string>(this->textBoxSave->Text), std::ios::binary);
         if (!file.is_open()) {
+            labelErrorSave->Text = "File is not open.";
             return;
         }
         if (!file.good()) {
-            
+            labelErrorSave->Text = "File is not good.";
+
             file.close();
             return;
         }
@@ -90,12 +92,14 @@ System::Void airways::SaveLoad1::buttonLoad_Click(System::Object^ sender, System
         std::ifstream file(msclr::interop::marshal_as < std::string>(this->textBoxLoad->Text), std::ios::binary);
 
         if (!file.is_open()) {
+            labelErrorLoad->Text = "File is not open.";
+
             return;
         }
         if (!file.good()) {
-            return;
-
+            labelErrorLoad->Text = "File is not good.";
             file.close();
+            return;
         }
         flights->clear();
         int flightsSize;
