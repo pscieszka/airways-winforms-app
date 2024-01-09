@@ -2,6 +2,15 @@
 
 # To do
 
+- Dokonczyc doxygen
+
+- Dodac dane bagazu do zapisu do pliku
+
+- Zmienic input wagi bagazu z int na double
+
+
+
+
 - [X] wskaźniki i alokacja pamięci  -> obiekt globalny flights do obslugi danych, obiekt bagazu pasazera
 - [X] klasy (minimum 3) 
 - [X] dziedziczenie -> wszystkie klasy bagazy dziedzicza po Baggage, kazdy forms dziedziczy z klasy System::Windows::Forms::Form

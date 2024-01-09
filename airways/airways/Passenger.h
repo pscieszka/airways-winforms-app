@@ -47,6 +47,7 @@ public:
 * @brief Dostep do obiektu baggagze. (Rowniez mozna uzyc Passenger.baggage)
 */
 	Baggage* getBaggage() const { return baggage; }
+	std::vector<int> getDataBaggage();
 
 	~Passenger();
 private:
