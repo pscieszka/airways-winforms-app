@@ -22,6 +22,7 @@ public:
 	   * @return Typ bagazu jako string.
 	   */
 	std::string getType() const override;
+	
 	/**
    * @brief Funkcja zwracaja cene bagazu.
    * @return Cena bagazu jako int.

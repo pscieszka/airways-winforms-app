@@ -167,7 +167,7 @@ System::Void airways::Edit2::buttonAdd_Click(System::Object^ sender, System::Eve
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) }, std::stod((*flights)[idx].getData()[3]));
         }
         Passenger pass(
-            msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text),ticketType ,bag,(*flights)[idx].getPrice());
+            msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text),ticketType ,bag,(*flights)[idx].getPrice(),true);
 
         (*flights)[idx].addPassenger(pass);
         this->Close();

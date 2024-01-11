@@ -99,6 +99,7 @@ namespace airways {
         int passIdx;
 
 
+
            System::ComponentModel::Container^ components;
 #pragma region components
 

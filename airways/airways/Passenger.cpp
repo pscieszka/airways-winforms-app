@@ -2,10 +2,13 @@
 
 
 
-Passenger::Passenger(std::string name, std::string surname,std::string ticketType, Baggage* baggage,int ticketPrice) : name(name), surname(surname), ticketType(ticketType), baggage(baggage), ticketPrice(ticketPrice)
+Passenger::Passenger(std::string name, std::string surname,std::string ticketType, Baggage* baggage,int ticketPrice,bool flag) : name(name), surname(surname), ticketType(ticketType), baggage(baggage), ticketPrice(ticketPrice)
 {
-	calculateTicketPrice();
-	setBaggagesId();
+	if (flag) {
+		calculateTicketPrice();
+		setBaggagesId();
+	}
+
 	bagType = baggage->getType();
 }
 

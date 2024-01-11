@@ -3,6 +3,7 @@
 
 CheckedLuggage::CheckedLuggage(double weight, const std::vector<int>& size, double dist) : Baggage(weight, size), dist(dist)
 {
+
 	setTag();
 	validCheck();
 	price = calculatePrice();

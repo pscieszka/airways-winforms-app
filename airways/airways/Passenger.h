@@ -27,7 +27,7 @@ public:
  * @param baggage - wskaznik na bagaz.
  * @param ticketPrice - cena biletu, pobierana z obiektu baggage.
  */
-	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice);
+	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice,bool flag);
 	Passenger();
 /**
  * @brief Funkcja dodajaca kwote flightPrice do ceny biletu.

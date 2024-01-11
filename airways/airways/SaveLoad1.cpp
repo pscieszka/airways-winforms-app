@@ -79,6 +79,12 @@ System::Void airways::SaveLoad1::buttonSave_Click(System::Object^ sender, System
                     file.write(data.c_str(), stringSize);
                 }
                 std::vector<double> baggageData = passengerData[j].baggage->getData();
+                int baggageDataSize = baggageData.size();
+                file.write(reinterpret_cast<char*>(&baggageDataSize), sizeof(baggageDataSize));
+                for (int k = 0; k < baggageData.size(); k++) {
+                    file.write(reinterpret_cast<char*>(&baggageData[k]), sizeof(baggageData[k]));
+                
+                }
             }
         }
         file.close();
@@ -144,19 +150,32 @@ System::Void airways::SaveLoad1::buttonLoad_Click(System::Object^ sender, System
 
                     passData.push_back(data);
                 }
+                int baggageDataSize;
+                file.read(reinterpret_cast<char*>(&baggageDataSize), sizeof(baggageDataSize));
+                std::vector<double> baggageSizes(baggageDataSize,0.0);
+                for (int g = 0; g < baggageDataSize; g++) {
+                    file.read(reinterpret_cast<char*>(&baggageSizes[g]), sizeof(double));
+                }
                 Baggage* bag = nullptr;
-                // dodac wymiary i wage
                 if (passData[4] == "Small Bag") {
-                    bag = new SmallBag(1, { 1, 1, 1 }, true);
+                  
+                    bag = new SmallBag(baggageSizes[3], 
+                        { static_cast<int>(baggageSizes[0]), static_cast<int>(baggageSizes[1]), 
+                        static_cast<int>(baggageSizes[2]) }, true);
                 }
                 else if (passData[4] == "Hand Luggage") {
-                    bag = new HandLuggage(1, { 1, 1, 1 });
+                    bag = new HandLuggage(baggageSizes[3],
+                        { static_cast<int>(baggageSizes[0]), static_cast<int>(baggageSizes[1]),
+                        static_cast<int>(baggageSizes[2]) });
 
                 }
                 else {
-                    bag = new CheckedLuggage(10, { 1, 1, 1 }, 99);//std::stoi(passData[2])
+                    
+                    bag = new CheckedLuggage(baggageSizes[3],
+                        { static_cast<int>(baggageSizes[0]), static_cast<int>(baggageSizes[1]),
+                        static_cast<int>(baggageSizes[2]) }, std::stod(flightData[2]));
                 }
-                Passenger newPassenger(passData[0], passData[1], passData[2], bag, stoi(passData[3]));
+                Passenger newPassenger(passData[0], passData[1], passData[2], bag, stoi(passData[3]),false);
                 (*flights)[i].addPassenger(newPassenger);
             }
         }

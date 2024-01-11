@@ -27,7 +27,7 @@ std::string SmallBag::display() const
 
 std::string SmallBag::getType() const
 {
-	if (isValid) {
+	if (backpack) {
 		return "Small Bag";
 	}
 	else {
