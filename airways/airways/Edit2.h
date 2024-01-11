@@ -22,9 +22,12 @@ namespace airways {
 		{
 			InitializeComponent();
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-
+			
 			this->idx = idx;
 			if (aircraft == 1) {
+				this->checkBoxFirstClass->Visible = true;
+			}
+			else {
 				this->checkBoxFirstClass->Visible = false;
 			}
 
@@ -404,6 +407,8 @@ private: System::Windows::Forms::Label^ infoLabelBackpack;
 			// checkBoxFirstClass
 			// 
 			this->checkBoxFirstClass->AutoSize = true;
+			this->checkBoxFirstClass->Visible = true;
+
 			this->checkBoxFirstClass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->checkBoxFirstClass->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(153)),

@@ -31,7 +31,7 @@ namespace airways {
                     this->labelDestination->Text = msclr::interop::marshal_as<System::String^>(str[i]);
                     break;
                 case 2:
-                    if (str[i][0] == 'b') {
+                    if (str[i][0] == 'B') {
                         aircraftType = 0;
                     }
                     else {
@@ -86,6 +86,7 @@ namespace airways {
         int aircraftType; //0 - boeing, 1 - airbus
     private: System::Windows::Forms::Button^ buttonAdd;
     private: System::Windows::Forms::Button^ buttonPassengersList;
+
 
            System::ComponentModel::Container^ components;
 #pragma region components
@@ -310,6 +311,7 @@ private: System::Void buttonPassengersList_Click(System::Object^ sender, System:
         isOpenPassengersList1 = false;
     }
 }
+
 
 };
 }
