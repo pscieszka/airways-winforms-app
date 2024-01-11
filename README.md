@@ -21,23 +21,23 @@
 - [X] SmallBag.h
 - [X] HandLuggage.h
 - [X] CheckedLuggage.h
-- [X]  Passenger.h
-- [X]  Flight.h
-- [X]  FlightList.h
-- [X]  CalculateCostsClasses.h
-- [X]  Form1.h
-- []  Map1.h
-- []  Map2.h
-- []  Home1.h
-- []  List1.h
-- []  Edit1.h
-- []  Edit2.h
-- []  PassengerList1.h
-- []  SaveLoad1.h
-- []  CalculateCosts1.h
-- []  CityItem.h
-- []  listItem.h
-- []  PassengerItem.h
+- [X] Passenger.h
+- [X] Flight.h
+- [X] FlightList.h
+- [X] CalculateCostsClasses.h
+- [X] Form1.h
+- [X] Map1.h
+- [X] Map2.h
+- [X] Home1.h
+- [X] List1.h
+- [X] Edit1.h
+- [X] Edit2.h
+- [X] PassengerList1.h
+- [X] SaveLoad1.h
+- [X] CalculateCosts1.h
+- [X] CityItem.h
+- [X] listItem.h
+- [X] PassengerItem.h
 
 
 
