@@ -2,15 +2,6 @@
 
 # To do
 
-- Dokonczyc doxygen
-
-- Dodac dane bagazu do zapisu do pliku
-
-- Zmienic input wagi bagazu z int na double
-
-
-
-
 - [X] wskaźniki i alokacja pamięci  -> obiekt globalny flights do obslugi danych, obiekt bagazu pasazera
 - [X] klasy (minimum 3) 
 - [X] dziedziczenie -> wszystkie klasy bagazy dziedzicza po Baggage, kazdy forms dziedziczy z klasy System::Windows::Forms::Form
@@ -23,4 +14,33 @@
 - [X] binarna "baza danych" - zapis i odczyt z pliku -> cala zaklada save/load
 - [X] obsługa błędów — wyjątki -> kazdy input uzytkownia to blok try - catch
 - [X] parametry wywołania programu -> brak argumentow = wielkosc okna jest zablokowana, w przeciwnym wypadku nie jest
+
+# Doxygen progress
+
+- [X] Baggage.h
+- [X] SmallBag.h
+- [X] HandLuggage.h
+- [X] CheckedLuggage.h
+- []  Passenger.h
+- []  Flight.h
+- []  FlightList.h
+- []  CalculateCostsClasses.h
+- []  Form1.h
+- []  Map1.h
+- []  Map2.h
+- []  Home1.h
+- []  List1.h
+- []  Edit1.h
+- []  Edit2.h
+- []  PassengerList1.h
+- []  SaveLoad1.h
+- []  CalculateCosts1.h
+- []  CityItem.h
+- []  listItem.h
+- []  PassengerItem.h
+
+
+
+
+
 

@@ -2,10 +2,7 @@
 #include "string"
 /**
  * @brief Klasa reprezentujaca pasazera
- *
  * Klasa przechowuje  imiê, nazwisko, typ biletu, cene biletu, typ bagazu.
- * 
- * 
  */
 class Passenger
 {

@@ -1,3 +1,2 @@
 #include "flightsList.h"
-flightsList* flightsList::instance = nullptr;
-
+flightsList* flightsList::instance = nullptr; 

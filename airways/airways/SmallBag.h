@@ -1,7 +1,6 @@
 #include "Baggage.h"
 /**
  * @brief Klasa przechowuje obiekt malego bagazu.
- * 
 */
 class SmallBag : public Baggage
 {

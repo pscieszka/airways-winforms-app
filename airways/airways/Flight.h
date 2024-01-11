@@ -4,7 +4,7 @@
 #include "vector"
 #include "Passenger.h"
 
-	/**
+/**
 * @brief Klasa przechowuje dane lotu, miasto odlotu i przyloty, rodzaj samolotu,
 * godzine, date, dystans, gate, czas lotu oraz wektor pasazerow.
 * 
@@ -28,8 +28,7 @@ public:
 
 	void edit(int time, std::string date, std::string gate);
 	/**
-* @brief Dostep do wszystkich danych lotu.
-* 
+* @brief Dostep do wszystkich danych lotu. 
 */
 	std::vector<std::string> getData();
 	/**

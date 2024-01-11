@@ -49,7 +49,8 @@ private:
     void setTag() override;
 
     /**
-     * @brief Funkcja przelicza cenê baga¿u na podstawie dystansu.
+     * @brief Funkcja przelicza cenê baga¿u na podstawie dystansu i wagi.
+     * @return cena bagazu
      */
     int calculatePrice();
 };
