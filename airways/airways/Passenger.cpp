@@ -63,14 +63,7 @@ std::vector<std::string> Passenger::getDataRaw()
 
 
 
-std::vector<int> Passenger::getDataBaggage()
-{
-	std::vector<int> data;
-	if (bagType == "Small Bag") {
 
-	}
-	return data;
-}
 
 Passenger::~Passenger()
 {

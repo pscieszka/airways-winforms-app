@@ -16,6 +16,17 @@ void Baggage::setSize(const std::vector<int>& newSize) {
 	size = newSize;
 }
 
+std::vector<double> Baggage::getData()
+{
+	std::vector<double> res;
+	for (auto s : size) {
+		res.push_back(static_cast<double> (s));
+	}
+	res.push_back(weight);
+	return res;
+
+}
+
 std::string Baggage::objsNumToString() {
 	std::string id = std::to_string(Baggage::objsNumber);
 	while (id.size() != 6) {

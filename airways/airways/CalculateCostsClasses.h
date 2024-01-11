@@ -16,7 +16,7 @@ struct Airbus {
 /**
  * @brief Struktura reprezentujaca stale wartosci samolotu Boeing.
  */
-struct Boeing const{
+struct Boeing {
 	int normalSeats = 126;
 	int buisnessSeats = 0;
 	int firstClassSeats = 12;

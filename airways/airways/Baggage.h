@@ -30,6 +30,7 @@ public:
     virtual void setWeight(double newWeight);
     virtual void setSize(const std::vector<int>& newSize);
     virtual std::string getType() const = 0;
+    virtual std::vector<double> getData();
     virtual void validCheck() = 0;
     virtual int getPrice() const = 0;
     virtual std::string display() const = 0;

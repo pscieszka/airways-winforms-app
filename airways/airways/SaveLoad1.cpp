@@ -78,6 +78,7 @@ System::Void airways::SaveLoad1::buttonSave_Click(System::Object^ sender, System
                     file.write(reinterpret_cast<char*>(&stringSize), sizeof(int));
                     file.write(data.c_str(), stringSize);
                 }
+                std::vector<double> baggageData = passengerData[j].baggage->getData();
             }
         }
         file.close();
