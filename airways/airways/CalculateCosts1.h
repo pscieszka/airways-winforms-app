@@ -595,7 +595,9 @@ private: System::Windows::Forms::Button^ buttonReset;
 		}
 #pragma endregion
 
-
+	    /**
+     * @brief Funkcja zatwierdza wszystkie 
+     */
 	private: bool validBoxes();
 		   void resetForm();
 
