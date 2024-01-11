@@ -22,7 +22,8 @@ namespace airways {
 		{
 			InitializeComponent();
 			this->idx = idx;
-			
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+
 			std::vector<std::string> str = (*flights)[idx].getData();
 			this->textBoxDD->Text = msclr::interop::marshal_as<System::String^>(str[4].substr(0,2));
 			this->textBoxMM->Text = msclr::interop::marshal_as<System::String^>(str[4].substr(3));
@@ -393,7 +394,7 @@ namespace airways {
 			this->Controls->Add(this->labelDate);
 			this->Controls->Add(this->labelHeader);
 			this->Name = L"Edit1";
-			this->Text = L"Home1";
+			this->Text = L"Edit data";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

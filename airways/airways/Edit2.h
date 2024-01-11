@@ -730,13 +730,14 @@ private: System::Windows::Forms::Label^ infoLabelBackpack;
 			this->Controls->Add(this->labelName);
 			this->Controls->Add(this->labelHeader);
 			this->Name = L"Edit2";
-			this->Text = L"Edit2";
+			this->Text = L"Add passenger";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 private: bool validTextBoxes();
+private: double parseToDouble(String^ str);
 private: System::Void updateTextColor(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
 private: System::Void displayBaggageBoxes(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
 

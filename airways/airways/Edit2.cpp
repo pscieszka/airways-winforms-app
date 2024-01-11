@@ -5,6 +5,7 @@
 #include "HandLuggage.h"
 
 std::string ticketType;
+double weight;
 bool airways::Edit2::validTextBoxes()
 {
 	bool isValid = true;
@@ -54,16 +55,20 @@ bool airways::Edit2::validTextBoxes()
         {
             try
             {
-                int weight = Int32::Parse(textBoxWeight->Text);
+                weight = parseToDouble(textBoxWeight->Text);
+                if (weight == 0.0) {
+                    throw gcnew FormatException;
+                }
+
                 if (checkBoxHand->Checked)
                 {
-                    if (weight < 0 || weight>10) {
+                    if (weight < 0 || weight>=10) {
                         infoLabelWeight->Text = "Invalid weight.";
                         isValid = false;
                     }
                 }
                 else if (checkBoxChecked->Checked) {
-                    if (weight < 0 || weight>20) {
+                    if (weight < 0 || weight>=21) {
 
 
                         infoLabelWeight->Text = "Invalid weight.";
@@ -71,7 +76,7 @@ bool airways::Edit2::validTextBoxes()
                     }
                 }
                 else {
-                    if (weight < 0 || weight>100) {
+                    if (weight < 0 || weight>=100) {
 
 
                         infoLabelWeight->Text = "Invalid weight";
@@ -81,12 +86,12 @@ bool airways::Edit2::validTextBoxes()
             }
             catch (FormatException^)
             {
-                infoLabelWeight->Text = "The entered time is not a valid integer.";
+                infoLabelWeight->Text = "The entered time is not a valid number.";
                 isValid = false;
             }
             catch (OverflowException^)
             {
-                infoLabelWeight->Text = "The entered time exceeds the range of integers.";
+                infoLabelWeight->Text = "The entered time exceeds the range of variable.";
                 isValid = false;
             }
         }
@@ -149,21 +154,55 @@ bool airways::Edit2::validTextBoxes()
     return isValid;
 }
 
+double airways::Edit2::parseToDouble(String^ str)
+{
+    double result = 0.0; 
+    try {
+        str = str->Replace(",", ".");
+
+        std::string str2 = msclr::interop::marshal_as<std::string>(str);
+        if (str2.size() > 10) {
+            return 0.0;
+        }
+        int dotCounter=0;
+        for (auto ch : str2) {
+            if (ch == '.') {
+                dotCounter++;
+            }
+            if (dotCounter > 1) {
+                return 0.0;
+            }
+            if (!isdigit(ch) && ch != '.') {
+                return 0.0;
+            }
+        }
+        result = std::stod(str2);
+
+
+    }
+    catch (...) {
+        result = 0.0;
+    }
+
+    return result;
+
+}
+
 System::Void airways::Edit2::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if(validTextBoxes()){
         Baggage* bag = nullptr;
         if (checkBoxHand->Checked) {
-            bag = new HandLuggage(Double::Parse(this->textBoxWeight->Text),
+            bag = new HandLuggage(weight,
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) });
 
         }
         else if (checkBoxSmall->Checked) {
-            bag = new SmallBag(Double::Parse(this->textBoxWeight->Text),
+            bag = new SmallBag(weight,
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) },this->checkBoxYes->Checked);
         }
         else {
-            bag = new CheckedLuggage(Double::Parse(this->textBoxWeight->Text),
+            bag = new CheckedLuggage(weight,
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) }, std::stod((*flights)[idx].getData()[3]));
         }
         Passenger pass(

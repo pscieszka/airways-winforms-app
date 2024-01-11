@@ -29,7 +29,6 @@ std::string Passenger::display() const
 	result += "Passenger\n";
 	result += "Name: " + name + "\n";
 	result += "Bag: " + baggagesId + "\n";
-
 	result += "\n";
 	result += "Ticket price: " + std::to_string(ticketPrice) + "\n";
 
@@ -64,13 +63,10 @@ std::vector<std::string> Passenger::getDataRaw()
 	return vec;
 }
 
-
-
-
-
 Passenger::~Passenger()
 {
 }
+
 void Passenger::setBaggagesId()
 {
 	baggagesId = "";

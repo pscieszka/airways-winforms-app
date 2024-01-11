@@ -72,5 +72,5 @@ void CheckedLuggage::setTag()
 
 int CheckedLuggage::calculatePrice()
 {
-	return static_cast<int>(70.0 + 4 * sqrt(dist));
+	return static_cast<int>(weight*3+15 + 4 * sqrt(dist));
 }
