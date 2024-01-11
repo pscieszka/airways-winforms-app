@@ -22,6 +22,8 @@ namespace airways {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
+	/// 
+	//Lista miast i wspolrzednych (po pikselach).
   const std::unordered_map<std::string, std::pair<int, int>> cityMap = {
 	{ "Ankara", { 948, 560 }},
 	{ "Berlin", {497, 284} },
@@ -42,6 +44,7 @@ namespace airways {
 		{
 
 			InitializeComponent();
+			//Dodanie miast do comboBoxa
 			for (const auto& city : cityMap) {
 				comboBox1->Items->Add(gcnew System::String(city.first.c_str()));
 			}
@@ -595,39 +598,39 @@ private: System::Windows::Forms::Button^ buttonReset;
 		}
 #pragma endregion
 
-	    /**
-     * @brief Funkcja zatwierdza wszystkie 
-     */
-	private: bool validBoxes();
-		   void resetForm();
 
-	private: System::Void checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+private: 
 	
-	private: System::Void checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja sprawdza czy checkboxy sa wybrane.
+*/
+	bool validBoxes();
+	/**
+* @brief Funkcja resetuje okno.
+*/
+	void resetForm();
 
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (validBoxes()) {
-		//if (checkBoxAirbus->Checked) {
-			//Airbus a1;
-			//a1 += 21;//Int32::Parse(textBoxAdditional->Text);
-			//double costs = calculateCost(a1, Int32::Parse(textBoxDistance->Text));
-			//this->labelResult->Text = costs.ToString();
+	//Obsluga zmiany kolorow i wybrania tylko 1 checkboxa
+	System::Void checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	
+	System::Void checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
-		//}
+
+
+	System::Void checkBoxYes_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+
+	System::Void checkBoxNo_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja obsluguje dodwania miast, generowanie losowych rozwiniec dziesietnych,
+* tworzy obiekt cityItem, oblicza koszt i dystans.
+*/
+	System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja wywoluje resetForm().
+*/
+	System::Void buttonReset_Click(System::Object^ sender, System::EventArgs^ e) {
+		resetForm();
 	}
-}
-
-
-private: System::Void checkBoxYes_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-
-private: System::Void checkBoxNo_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-
-private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
-
-private: System::Void buttonReset_Click(System::Object^ sender, System::EventArgs^ e) {
-	resetForm();
-	
-}
 	
 
 

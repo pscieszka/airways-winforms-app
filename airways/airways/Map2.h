@@ -673,20 +673,34 @@ namespace airways {
 		}
 #pragma endregion
 		public:
+			/**
+* @brief Funkcja zamienia dystans na czas lotu.
+* @return zwraca string w formacie hh:mm
+*/
 			static std::string calculateTime(int dist);
 
-			
-
-
-
-
-
 		private: 
+			/**
+* @brief Funkcja obsluguje zmiane koloru checkboxow.
+*/
 			System::Void checkBoxBoeing_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+			/**
+* @brief Funkcja obsluguje zmiane koloru checkboxow.
+*/
 			System::Void checkBoxAirbus_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+			/**
+* @brief Funkcja weryfikuje wszystkie inputy uzytkownika.
+* @return zwraca true - jezeli inputy sa poprawne lub false w przeciwnym wypadku.
+*/
 			bool validTextBoxes();
+			/**
+* @brief Funkcja tworzy nowy obiektu lotu i nastepnie otwiera form (List1.h).
+*/
 			System::Void buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e);
-			System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
+			/**
+* @brief Funkcja tworzy nowy obiekt forma wewnatrz panelu.
+*/
+			System::Void openChildForm(Form^ childForm, Object^ btnSender);
 
  
 

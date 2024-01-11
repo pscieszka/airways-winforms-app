@@ -37,8 +37,11 @@ System::Void airways::Map1::calculateDistance(Button^ button1, Button^ button2)
 
 System::Void airways::Map1::circleButton(System::Windows::Forms::Control^ control)
 {
+	//Definuje obiket GraphicsPath do tworzenia ksztaltu
 	System::Drawing::Drawing2D::GraphicsPath^ path = gcnew System::Drawing::Drawing2D::GraphicsPath();
+	//wspolrzedne, wysokosc i szerkosc
 	path->AddEllipse(0, 0, control->Width, control->Height);
+	//Przypisanie kola do kontrolki
 	control->Region = gcnew System::Drawing::Region(path);
 }
 
@@ -48,10 +51,10 @@ System::Void airways::Map1::drawCurvedLine(Graphics^ g, Point startPoint, Point 
 	pen->StartCap = Drawing2D::LineCap::Round;
 	pen->EndCap = Drawing2D::LineCap::Round;
 
-	// Narysowanie zaokr¹glonej linii ³¹cz¹cej punkty
+
 	g->DrawBezier(pen, startPoint, controlPoint1, controlPoint2, endPoint);
 
-	// Zwolnienie zasobow
+
 	delete pen;
 }
 
@@ -113,7 +116,6 @@ System::Void airways::Map1::Tallinn_Paint(System::Object^ sender, System::Window
 
 System::Void airways::Map1::HandleButtonClick(Button^ button, Label^ label)
 {
-	//te buttony nie dzialaja bo zle usuwam je bo np moge usunac z tablicy na odwrot 0 zamiast , fixed?
 	
 	if (buttonsClicked == 2 && button->BackColor != System::Drawing::Color::FromArgb(172,172,172))
 		 {

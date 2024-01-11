@@ -10,7 +10,12 @@ namespace airways {
     {
     public:
 
-
+        /**
+* @brief Konstruktor cityItem dla typow int, wyswietla informacje z parametrow.
+* @param city - nazwa miasta.
+* @param x - wspolrzedna x w int.
+* @param y - wspolrzedna y w int.
+*/
         CityItem(String^ city,int x,int y)
         {
             InitializeComponent();
@@ -21,6 +26,12 @@ namespace airways {
            
 
         }
+        /**
+* @brief Konstruktor cityItem dla typow double, wyswietla informacje z parametrow.
+* @param city - nazwa miasta.
+* @param x - wspolrzedna x w double.
+* @param y - wspolrzedna y w double.
+*/
         CityItem(String^ city, double x, double y)
         {
             InitializeComponent();

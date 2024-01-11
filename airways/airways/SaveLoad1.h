@@ -389,19 +389,39 @@ namespace airways {
 		}
 #pragma endregion
 	
-private: bool validSave();
-private: bool validLoad();
+private: 
+	/**
+* @brief Funkcja sprawdza czy zostala podana nazwa pliku do zapisu.
+*/
+	bool validSave();
+	/**
+* @brief Funkcja sprawdza czy zostala podana nazwa pliku do odczyt oraz czy taki plik istnieje.
+*/
+	bool validLoad();
 
 
+	/**
+* @brief Funkcja sprawdza czy plik jest otwarty i czy nie ma zadnego bledu,
+* nastepnie zapisuje dane lotow binarnie. Po poprawnym zapisie zamyka plik
+* i wyswietla wiadomosc - Succes.
+*/
+	System::Void buttonSave_Click(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja sprawdza czy plik jest otwarty i czy nie ma zadnego bledu,
+* nastepnie odczytuje dane lotow zapisane binarnie. Po poprawnym odczycie zamyka plik
+* i wyswietla wiadomosc - Succes.
+*/
+	System::Void buttonLoad_Click(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void buttonSave_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void buttonLoad_Click(System::Object^ sender, System::EventArgs^ e);
 
-
-
-private: System::Void buttonExplorerSave_Click(System::Object^ sender, System::EventArgs^ e);
-
-private: System::Void buttonExplorerLoad_Click(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja odpowiada za wyswietlenie wyszukiwarki plikow.
+*/
+	System::Void buttonExplorerSave_Click(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja odpowiada za wyswietlenie wyszukiwarki plikow.
+*/
+	System::Void buttonExplorerLoad_Click(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

@@ -32,6 +32,7 @@ namespace airways {
 				this->labelEmpty->Visible = false;
 				for (int i = 0; i < flights->size(); i++)
 				{
+					//generowanie listy lotow
 					listItem^ flightList = gcnew listItem((*flights)[i].getData(),i);
 					flightList->BackColor = Color::FromArgb(41, 41,41);
 					flightList->Size = System::Drawing::Size(900, 75);
@@ -249,6 +250,9 @@ namespace airways {
 
 
 public: 
+	/**
+ * @brief Funkcja odswieza forma aby naniesc zmiany po edycji.
+ */
 	void refreshList() {
 
 			flowLayoutPanel1->Controls->Clear();
@@ -270,7 +274,10 @@ public:
 		}
 
 
-
+	/**
+ * @brief Wywolanie funkcji refreshList().
+ * 
+ */
 private: System::Void buttonRefresh_Click(System::Object^ sender, System::EventArgs^ e) {
 	refreshList();
 }

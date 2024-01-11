@@ -12,7 +12,7 @@
 
 
 
-System::Void airways::Form1::OpenChildForm(Form^ childForm, Object^ btnSender)
+System::Void airways::Form1::openChildForm(Form^ childForm, Object^ btnSender)
 {
     if (activeForm != nullptr)
     {
@@ -49,40 +49,40 @@ System::Void airways::Form1::buttonNewFlight_Click(System::Object^ sender, Syste
    
 
     // Otwórz formularz
-    OpenChildForm(map1, sender);
+    openChildForm(map1, sender);
 }
 
 System::Void airways::Form1::buttonHome_Click(System::Object^ sender, System::EventArgs^ e)
 {
     Home1^ home1 = gcnew Home1();
 
-    OpenChildForm(home1, sender);
+    openChildForm(home1, sender);
 
 }
 System::Void airways::Form1::Form1_Load(System::Object^ sender, System::EventArgs^ e)
 {
    
     Home1^ home1 = gcnew Home1();
-    OpenChildForm(home1, sender);
+    openChildForm(home1, sender);
 }
 
 System::Void airways::Form1::buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e)
 {
    List1^ list1 = gcnew List1();
 
-    OpenChildForm(list1, sender);
+    openChildForm(list1, sender);
 
 }
 
 System::Void airways::Form1::buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e)
 {
     SaveLoad1^ saveLoad1 = gcnew SaveLoad1();
-    OpenChildForm(saveLoad1, sender);
+    openChildForm(saveLoad1, sender);
 }
 
 System::Void airways::Form1::buttonCalculate_Click(System::Object^ sender, System::EventArgs^ e)
 {
     CalculateCosts1^ calculateCosts1 = gcnew CalculateCosts1;
-    OpenChildForm(calculateCosts1, sender);
+    openChildForm(calculateCosts1, sender);
 }
 

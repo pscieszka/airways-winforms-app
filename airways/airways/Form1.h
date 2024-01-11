@@ -20,7 +20,7 @@ namespace airways {
 
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
-		Form^ activeForm;
+		Form^ activeForm; /* Aktualnie otwarty form. */
 		
 	public:
 		Form1(void)
@@ -266,22 +266,32 @@ namespace airways {
 
 private:  
 	/**
-* @brief Funkcja tworzy nowy obiekt forma wewnatrz panelu
-
+* @brief Funkcja tworzy nowy obiekt forma wewnatrz panelu.
 */
-	System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
-
-
-
+	System::Void openChildForm(Form^ childForm, Object^ btnSender);
+	/**
+* @brief Funkcja otwiera nowy formularz w panelu (Map1.h).
+*/
 	System::Void buttonNewFlight_Click(System::Object^ sender, System::EventArgs^ e);
-
+	/**
+* @brief Funkcja otwiera nowy formularz w panelu (Home1.h).
+*/
 	System::Void buttonHome_Click(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funkcja ustawia Home1.h jako pierwszy form po wejsciu do aplikacji.
+*/
 	System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
-
+	/**
+* @brief Funkcja otwiera nowy formularz w panelu (List1.h).
+*/
 	System::Void buttonShowFlights_Click(System::Object^ sender, System::EventArgs^ e);
-
+	/**
+* @brief Funkcja otwiera nowy formularz w panelu (SaveLoad.h).
+*/
 	System::Void buttonSaveLoad_Click(System::Object^ sender, System::EventArgs^ e);
-
+	/**
+* @brief Funkcja otwiera nowy formularz w panelu (CalculateCosts1.h).
+*/
 	System::Void buttonCalculate_Click(System::Object^ sender, System::EventArgs^ e);
 
 };

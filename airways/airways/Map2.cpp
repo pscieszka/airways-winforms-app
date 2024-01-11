@@ -240,11 +240,11 @@ System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::
 
         flights->add(f);
         List1^ list1 = gcnew List1();
-        OpenChildForm(list1, sender);
+        openChildForm(list1, sender);
     }
 }
 
-System::Void airways::Map2::OpenChildForm(Form^ childForm, Object^ btnSender)
+System::Void airways::Map2::openChildForm(Form^ childForm, Object^ btnSender)
 {
     if (activeForm != nullptr)
     {

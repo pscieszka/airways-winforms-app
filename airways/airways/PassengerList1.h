@@ -14,6 +14,10 @@ namespace airways {
 	public ref class PassengerList1 : public System::Windows::Forms::Form
 	{
 	public:
+		/**
+* @brief Konstruktor listy pasazerow, tworzy obiekty PassengerItem.
+* @param idx - indeks lotu
+*/
 		PassengerList1(int idx)
 		{
 			InitializeComponent();
@@ -22,6 +26,7 @@ namespace airways {
 			std::vector<Passenger> pass = (*flights)[idx].getPassengers();
 			for (int i = 0; i < pass.size(); i++)
 			{
+				//tworzenia obiektow pasazerow
 				PassengerItem^ passengerItem = gcnew PassengerItem(pass[i].getData(), idx, i);
 				passengerItem->BackColor = Color::FromArgb(41, 41, 41);
 				passengerItem->Size = System::Drawing::Size(675, 129);

@@ -18,6 +18,11 @@ namespace airways {
 	public ref class Edit2 : public System::Windows::Forms::Form
 	{
 	public:
+		/**
+ * @brief Konstruktor forma Edit2.
+ * @param aircraft - typ samolotu, potrzebny do wyswietlenia opcji First Class.
+ * @param idx - indeks lotu.
+ */
 		Edit2(int aircraft,int idx)
 		{
 			InitializeComponent();
@@ -736,29 +741,49 @@ private: System::Windows::Forms::Label^ infoLabelBackpack;
 
 		}
 #pragma endregion
-private: bool validTextBoxes();
-private: double parseToDouble(String^ str);
-private: System::Void updateTextColor(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
-private: System::Void displayBaggageBoxes(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
+private: 
+	/**
+* @brief Funkcja sprawdza inputy uzytkownika.
+* @returns Zwraca true jezeli wszystkie sie zgadzaja, false w przeciwnym wypadku.
+*/
+	bool validTextBoxes();
+	/**
+* @brief Funkcja zamienia String^ na double.
+* @param str - input uzytkownika w formacie double
+* @returns Zwraca dodatnia wartosc double lub 0.0 gdy podany input jest nieprawidlowy.
+*/
+	double parseToDouble(String^ str);
+	/**
+* @brief Funckja obsluguje wybor 1 z 3 checkBoxow.
+* @param trzy rozne checkBoxy.
+*/
+	System::Void updateTextColor(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
+	/**
+* @brief Funckja wyswietla odpowiednie kontroli wedlug wczesniejszego wyboru uzytkownika.
+* @param trzy rozne checkBoxy.
+*/
+	System::Void displayBaggageBoxes(System::Windows::Forms::CheckBox^ checkBox1, System::Windows::Forms::CheckBox^ checkBox2, System::Windows::Forms::CheckBox^ checkBox3);
 
 
 
-
-private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
-
-	
-private: System::Void checkBoxEconomic_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void checkBoxBusiness_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void checkBoxFirstClass_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	/**
+* @brief Funckja tworzy obiektu bagazu, a nastepnie obiekt pasazera.
+* Nastepnie zamyka okno.
+*/
+	System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e);
 
 
-private: System::Void checkBoxHand_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void checkBoxSmall_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void checkBoxChecked_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	//Obsluga zmiany kolorw podczas zaznaczania checkboxow
+	System::Void checkBoxEconomic_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	System::Void checkBoxBusiness_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	System::Void checkBoxFirstClass_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
+	System::Void checkBoxHand_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	System::Void checkBoxSmall_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	System::Void checkBoxChecked_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
-private: System::Void checkBoxYes_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-private: System::Void checkBoxNo_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	System::Void checkBoxYes_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+	System::Void checkBoxNo_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 
 };
 }

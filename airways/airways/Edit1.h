@@ -18,12 +18,16 @@ namespace airways {
 	public ref class Edit1 : public System::Windows::Forms::Form
 	{
 	public:
+		/**
+ * @brief Konstruktor forma Edit1.h.
+ * @param idx - indeks edytowanego lotu.
+ */
 		Edit1(int idx)
 		{
 			InitializeComponent();
 			this->idx = idx;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-
+			//Pobranie dany konkretnego lodu
 			std::vector<std::string> str = (*flights)[idx].getData();
 			this->textBoxDD->Text = msclr::interop::marshal_as<System::String^>(str[4].substr(0,2));
 			this->textBoxMM->Text = msclr::interop::marshal_as<System::String^>(str[4].substr(3));
@@ -401,7 +405,14 @@ namespace airways {
 		}
 #pragma endregion
 		private:
+			/**
+ * @brief Funkcja zatwierdza edytowane checkboxy.
+ */
 			bool validTextBoxes();
+			/**
+ * @brief Funkcja edytuje obiekt lotu, wedlug zmian uzytkownika.
+ * Nastepnie zamyka forma.
+ */
 			System::Void buttonChangeData_Click(System::Object^ sender, System::EventArgs^ e);
 
 };

@@ -16,7 +16,11 @@ namespace airways {
     {
     public:
 
-
+        /**
+* @brief Konstruktor ListItem wyswietla dane lotu.
+* @param str - wektor danych lotu.
+* @param idx - indeks lotu.
+*/
         listItem(std::vector<std::string> str,int idx)
         {
             InitializeComponent();
@@ -286,7 +290,11 @@ namespace airways {
         }
 #pragma endregion
 
-    private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: 
+        /**
+* @brief Funkcja otwiera okno Edit1.
+*/
+        System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
         if (!isOpenEdit1) {
             isOpenEdit1 = true;
             Edit1^ edit1 = gcnew  Edit1(idx);
@@ -294,23 +302,28 @@ namespace airways {
             isOpenEdit1 = false;
         }
     }
-
-private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-    if (!isOpenEdit2) {
-        isOpenEdit2 = true;
-        Edit2^ edit2 = gcnew  Edit2(aircraftType, idx);
-        edit2->ShowDialog();
-        isOpenEdit2 = false;
+        /**
+* @brief Funkcja otwiera okno Edit2.
+*/
+    System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+        if (!isOpenEdit2) {
+            isOpenEdit2 = true;
+            Edit2^ edit2 = gcnew  Edit2(aircraftType, idx);
+            edit2->ShowDialog();
+            isOpenEdit2 = false;
+        }
     }
-}
-private: System::Void buttonPassengersList_Click(System::Object^ sender, System::EventArgs^ e) {
-    if (!isOpenPassengersList1) {
-        isOpenPassengersList1 = true;
-        PassengerList1^ passengerList = gcnew PassengerList1(idx);
-        passengerList->ShowDialog();
-        isOpenPassengersList1 = false;
+    /**
+* @brief Funkcja otwiera okno PassengerList1.
+*/
+    System::Void buttonPassengersList_Click(System::Object^ sender, System::EventArgs^ e) {
+        if (!isOpenPassengersList1) {
+            isOpenPassengersList1 = true;
+            PassengerList1^ passengerList = gcnew PassengerList1(idx);
+            passengerList->ShowDialog();
+            isOpenPassengersList1 = false;
+        }
     }
-}
 
 
 };

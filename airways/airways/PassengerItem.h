@@ -12,6 +12,12 @@ namespace airways {
     public ref class PassengerItem : public UserControl
     {
     public:
+        /**
+* @brief Konstruktor PassengerItem wyswietla dane pasazera.
+* @param str - wektor danych lotu.
+* @param idx - indeks lotu.
+* @param passIdx - indeks pasazera.
+*/
         PassengerItem(std::vector<std::string> str,int idx,int passIdx)
         {
             InitializeComponent();
@@ -323,7 +329,11 @@ namespace airways {
 
 
 
-    private: System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: 
+        /**
+* @brief Funkcja odpowiada za usuwanie pasazera z listy
+*/
+    System::Void buttonEdit_Click(System::Object^ sender, System::EventArgs^ e) {
 
         if (idx < flights->size()) {
             auto& passengers = (*flights)[idx].getPassengers();

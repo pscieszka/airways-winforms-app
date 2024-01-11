@@ -17,6 +17,7 @@ namespace airways {
 		Home1(void)
 		{
 			InitializeComponent();
+			//Labele bez t³a
 			System::Drawing::Point pos = label6->Parent->PointToScreen(label6->Location);
 			pos = background->PointToClient(pos);
 			label6->Parent = background;
@@ -298,7 +299,7 @@ namespace airways {
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->background);
 			this->Name = L"Home1";
-			this->Text = L"Home1";
+			this->Text = L"Airways";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->background))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();

@@ -21,11 +21,11 @@
 - [X] SmallBag.h
 - [X] HandLuggage.h
 - [X] CheckedLuggage.h
-- []  Passenger.h
-- []  Flight.h
-- []  FlightList.h
-- []  CalculateCostsClasses.h
-- []  Form1.h
+- [X]  Passenger.h
+- [X]  Flight.h
+- [X]  FlightList.h
+- [X]  CalculateCostsClasses.h
+- [X]  Form1.h
 - []  Map1.h
 - []  Map2.h
 - []  Home1.h

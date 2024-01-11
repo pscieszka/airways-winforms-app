@@ -24,7 +24,7 @@ namespace airways {
 	public:
 		Map1(void)
 		{
-			buttonArray = gcnew array<System::Windows::Forms::Button^>{nullptr, nullptr};
+			buttonArray = gcnew array<System::Windows::Forms::Button^>{nullptr, nullptr}; // inicjalizacja buttonArray
 
 			InitializeComponent();
 			activeForm = gcnew Form();
@@ -644,9 +644,23 @@ namespace airways {
 		}
 #pragma endregion
 	private:
+		/**
+ * @brief Funkcja liczy odleglosc miedzy 2 miastami w pikselach,
+ * nastepnie przemnaza wartosc przez stala, aby przyblizyc realna odleglosc w kilometrach.
+ */
 		System::Void calculateDistance(Button^ button1, Button^ button2);
+		/**
+ * @brief Funkcja tworzy okragly przycisk do wybierania miast.
+ */
 		System::Void circleButton(System::Windows::Forms::Control^ control);
+		/**
+* @brief Funkcja odpowiada za rysowanie zakrzywionej linii.
+*/
 		System::Void drawCurvedLine(Graphics^ g, Point startPoint, Point controlPoint1, Point controlPoint2, Point endPoint, Color lineColor, float lineWidth);
+		
+ 
+		//Funkcje odpowiadaja ze zmiane guzikow na kola.
+
 		System::Void Warsaw_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		System::Void Berlin_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		System::Void Paris_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
@@ -657,17 +671,24 @@ namespace airways {
 		System::Void Budapest_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		System::Void Ankara_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
 		System::Void Tallinn_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e);
+
+		/**
+* @brief Funckja obsluguje wybieranie dwoch miast, zapewnia ze jednoczesnie moga byc wybranie maksymalnie dwa,.
+*/
 		System::Void Map1::HandleButtonClick(Button^ button, Label^ label);
 
-
+		/**
+* @brief Funkcja odpowiada za rysowanie linii, ktora laczy 2 wybrane miasta.
+*/
 		System::Void pictureBox1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e, System::Windows::Forms::Button^ button1, System::Windows::Forms::Button^ button2);
-		
-	
+		/**
+* @brief Funkcja odpowiada za zmiane koloru tekstu po wybraniu miasta.
+*/
 
-
-
-	private:
 		System::Void airways::Map1::ChangeCityColor(System::Windows::Forms::Control^ cityButton, System::Windows::Forms::Label^ cityLabel);
+
+		//Funkcje wywoluja  HandleButtonClick, dla kazdego z miast.
+
 		System::Void Warsaw_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Berlin_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Prague_Click(System::Object^ sender, System::EventArgs^ e);
@@ -678,12 +699,11 @@ namespace airways {
 		System::Void Madrid_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Milan_Click(System::Object^ sender, System::EventArgs^ e);
 		System::Void Ankara_Click(System::Object^ sender, System::EventArgs^ e);
-
 		System::Void OpenChildForm(Form^ childForm, Object^ btnSender);
-
-	
-
-private: System::Void buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e);
+		/**
+* @brief Funkcja przekazuje wybranie miasta i otwiera nowy formularz (Map2.h).
+*/
+		System::Void buttonConfirm_Click(System::Object^ sender, System::EventArgs^ e);
 
 
 };
