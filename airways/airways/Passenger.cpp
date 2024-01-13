@@ -2,14 +2,33 @@
 
 
 
-Passenger::Passenger(std::string name, std::string surname,std::string ticketType, Baggage* baggage,int ticketPrice,bool flag) : name(name), surname(surname), ticketType(ticketType), baggage(baggage), ticketPrice(ticketPrice)
+Passenger::Passenger(std::string name, std::string surname,std::string ticketType, Baggage* baggage,int ticketPrice,bool flagTicketPrice) 
+	: name(name), surname(surname), ticketType(ticketType), baggage(baggage), ticketPrice(ticketPrice), flagTicketPrice(flagTicketPrice)
 {
-	if (flag) {
-		calculateTicketPrice();
-		setBaggagesId();
-	}
 
-	bagType = baggage->getType();
+	
+
+}
+
+Passenger::Passenger(const Passenger& other)
+	: baggagesId(other.baggagesId),
+	name(other.name),
+	surname(other.surname),
+	ticketType(other.ticketType),
+	ticketPrice(other.ticketPrice),
+	bagType(other.bagType),
+	flagTicketPrice(true) {
+
+	if (other.baggage) {
+		baggage = other.baggage->clone();
+		bagType = baggage->getType();
+		calculateTicketPrice();
+
+
+	}
+	else {
+		baggage = nullptr;
+	}
 }
 
 
@@ -44,7 +63,7 @@ std::vector<std::string> Passenger::getData()
 	vec.push_back("temp");
 	vec.push_back(ticketType);
 	vec.push_back(std::to_string(ticketPrice)+" EUR");
-	vec.push_back(baggage->getType());
+	vec.push_back(bagType);
 	vec.push_back(baggage->tag);
 
 	return vec;
@@ -63,8 +82,63 @@ std::vector<std::string> Passenger::getDataRaw()
 	return vec;
 }
 
+void Passenger::setBaggage(double weight, std::vector<int> sizes)
+{
+	baggage = new HandLuggage(weight, sizes);
+	calculateTicketPrice();
+	setBaggagesId();
+	bagType = baggage->getType();
+}
+
+void Passenger::setBaggage(double weight, std::vector<int> sizes, bool backpack)
+{
+	baggage = new SmallBag(weight, sizes, backpack);
+	calculateTicketPrice();
+	setBaggagesId();
+	bagType = baggage->getType();
+}
+
+void Passenger::setBaggage(double weight, std::vector<int> sizes, double distance)
+{
+	baggage = new CheckedLuggage(weight, sizes, distance);
+	calculateTicketPrice();
+	setBaggagesId();
+	bagType = baggage->getType();
+}
+
+Passenger& Passenger::operator=(const Passenger& other)
+{
+	if (this != &other) {
+		delete baggage;
+
+		// Skopiuj dane
+		baggagesId = other.baggagesId;
+		name = other.name;
+		surname = other.surname;
+		ticketType = other.ticketType;
+		ticketPrice = other.ticketPrice;
+		bagType = other.bagType;
+		flagTicketPrice = true;
+
+		if (other.baggage) {
+			baggage = other.baggage->clone();
+			bagType = baggage->getType();
+			calculateTicketPrice();
+
+		}
+		else {
+			baggage = nullptr;
+		}
+	}
+	return *this;
+}
+
 Passenger::~Passenger()
 {
+	if (baggage != nullptr) {
+		delete baggage;
+		baggage = nullptr;
+	}
 }
 
 void Passenger::setBaggagesId()
@@ -87,16 +161,18 @@ void Passenger::setBaggagesId()
 }
 void Passenger::calculateTicketPrice()
 {
-	
-	ticketPrice += baggage->getPrice();
-	if (ticketType[0] == 'E') {
-		ticketPrice += 5;
-	}
-	else if(ticketType[0] == 'B') {
-		ticketPrice += 35;
-	}
-	else {
-		ticketPrice += 80;
+	if(!flagTicketPrice){
+		ticketPrice += baggage->getPrice();
+		if (ticketType[0] == 'E') {
+			ticketPrice += 5;
+		}
+		else if(ticketType[0] == 'B') {
+			ticketPrice += 35;
+		}
+		else {
+			ticketPrice += 80;
+		}
+		flagTicketPrice = 1;
 	}
 
 }

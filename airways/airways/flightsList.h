@@ -32,7 +32,7 @@ public:
   * @brief Dodaje lot do listy.
   * @param f - Lot do dodania.
   */
-    void add(Flight f) {
+    void add(Flight& f) {
         flights.push_back(f);
     }
 
@@ -55,9 +55,11 @@ public:
     /**
  * @brief Czysci liste lotow.
  * Funkcja jest uzywana podczas wczytywania danych z pliku.
+ * Indeksuje bagaze od nowa.
  */
     void clear() {
         flights.clear();
+        Baggage::clearObjs();
 
     }
     /**
@@ -65,13 +67,6 @@ public:
  * Zwalnia pamiec zaalokowana dla bagazu pasazerow we wszystkich lotach.
  */
     ~flightsList() {
-        for (int i = 0; i < flights.size(); i++) {
-            std::vector<Passenger> passengers = flights[i].getPassengers();
-            for (auto& passenger : passengers) {
-                delete passenger.baggage;
-                passenger.baggage = nullptr;
-            }
-        }
        
     }
     

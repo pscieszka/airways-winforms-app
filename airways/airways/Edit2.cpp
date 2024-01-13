@@ -191,22 +191,23 @@ double airways::Edit2::parseToDouble(String^ str)
 System::Void airways::Edit2::buttonAdd_Click(System::Object^ sender, System::EventArgs^ e)
 {
     if(validTextBoxes()){
-        Baggage* bag = nullptr;
+        Passenger pass(
+            msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text), ticketType, nullptr, (*flights)[idx].getPrice(), false);
+       
         if (checkBoxHand->Checked) {
-            bag = new HandLuggage(weight,
+            pass.setBaggage(weight,
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) });
 
         }
         else if (checkBoxSmall->Checked) {
-            bag = new SmallBag(weight,
+            pass.setBaggage(weight,
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) },this->checkBoxYes->Checked);
         }
         else {
-            bag = new CheckedLuggage(weight,
+            pass.setBaggage(weight,
                 { Int32::Parse(this->textBoxSizeX->Text), Int32::Parse(this->textBoxSizeY->Text), Int32::Parse(this->textBoxSizeZ->Text) }, std::stod((*flights)[idx].getData()[3]));
         }
-        Passenger pass(
-            msclr::interop::marshal_as<std::string>(this->textBoxName->Text), msclr::interop::marshal_as<std::string>(this->textBoxSurname->Text),ticketType ,bag,(*flights)[idx].getPrice(),true);
+
 
         (*flights)[idx].addPassenger(pass);
         this->Close();

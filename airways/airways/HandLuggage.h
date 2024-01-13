@@ -13,6 +13,9 @@ public:
  */
 	HandLuggage(double weight, const std::vector<int>& size);
 	HandLuggage();
+	HandLuggage* clone() const override {
+		return new HandLuggage(*this);
+	}
 	std::string display() const override;
 	/**
    * @brief Funkcja zwracaja typ bagazu.

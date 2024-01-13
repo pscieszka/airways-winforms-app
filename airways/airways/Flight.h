@@ -45,7 +45,7 @@ public:
 * @brief Dodaje nowego pasezera do wektora.
 * 
 */
-	void addPassenger(const Passenger pass);
+	void addPassenger(const Passenger& pass);
 	/**
 * @brief Zwraca wektor pasazerow.
 */

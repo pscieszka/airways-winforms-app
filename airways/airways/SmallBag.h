@@ -1,3 +1,4 @@
+#pragma once
 #include "Baggage.h"
 /**
  * @brief Klasa przechowuje obiekt malego bagazu.
@@ -6,6 +7,7 @@ class SmallBag : public Baggage
 {
 	bool backpack;
 public:
+
 	/**
 	 * @brief Konstruktor klasy SmallBag.
 	 * @param weight - Waga torby.
@@ -14,7 +16,9 @@ public:
 	 */
 	SmallBag(double weight, const std::vector<int>& size, bool backpack);
 	SmallBag();
-
+	SmallBag* clone() const override {
+		return new SmallBag(*this);
+	}
 	std::string display() const override;
 	/**
 	   * @brief Funkcja zwracaja typ bagazu.

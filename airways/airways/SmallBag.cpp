@@ -2,6 +2,7 @@
 
 SmallBag::SmallBag(double weight, const std::vector<int>& size, bool backpack) : Baggage(weight, size), backpack(backpack)
 {
+	
 	setTag();
 	validCheck();
 }

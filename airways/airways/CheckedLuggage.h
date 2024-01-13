@@ -10,6 +10,7 @@ class CheckedLuggage : public Baggage
     double dist;
 
 public:
+
     /**
      * @brief Konstruktor klasy CheckedLuggage
      * @param weight - Waga torby.
@@ -22,6 +23,9 @@ public:
      * @brief Domyœlny konstruktor klasy CheckedLuggage.
      */
     CheckedLuggage();
+    virtual CheckedLuggage* clone() const override {
+        return new CheckedLuggage(*this);
+    }
 
     std::string display() const override;
 

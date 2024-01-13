@@ -16,6 +16,11 @@ void Baggage::setSize(const std::vector<int>& newSize) {
 	size = newSize;
 }
 
+void Baggage::clearObjs()
+{
+	objsNumber = 0;
+}
+
 std::vector<double> Baggage::getData()
 {
 	std::vector<double> res;

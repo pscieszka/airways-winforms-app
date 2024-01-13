@@ -54,7 +54,7 @@ int Flight::getPrice()
 }
 
 
-void Flight::addPassenger(Passenger pass)
+void Flight::addPassenger(const Passenger& pass)
 {
     passengers.push_back(pass);
 }

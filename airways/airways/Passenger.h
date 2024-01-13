@@ -1,4 +1,7 @@
 #include "Baggage.h"
+#include "SmallBag.h"
+#include "CheckedLuggage.h"
+#include "HandLuggage.h"
 #include "string"
 /**
  * @brief Klasa reprezentujaca pasazera
@@ -24,7 +27,8 @@ public:
  * @param baggage - wskaznik na bagaz.
  * @param ticketPrice - cena biletu, pobierana z obiektu baggage.
  */
-	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice,bool flag);
+	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice,bool flagTicketPrice);
+	Passenger(const Passenger& other);
 	Passenger();
 /**
  * @brief Funkcja dodajaca kwote flightPrice do ceny biletu.
@@ -45,6 +49,12 @@ public:
 */
 	Baggage* getBaggage() const { return baggage; }
 
+	void setBaggage(double weight, std::vector<int>sizes);
+	void setBaggage(double weight, std::vector<int>sizes, bool backpack);
+	void setBaggage(double weight, std::vector<int>sizes, double distance);
+
+	Passenger& operator=(const Passenger& other);
+
 	~Passenger();
 private:
 /**
@@ -56,7 +66,8 @@ private:
 */
 	void setBaggagesId();
 
-public:
+private:
 	Baggage* baggage;
+	bool flagTicketPrice=0;
 };
 
