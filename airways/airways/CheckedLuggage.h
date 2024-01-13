@@ -23,7 +23,7 @@ public:
      * @brief Domyœlny konstruktor klasy CheckedLuggage.
      */
     CheckedLuggage();
-    virtual CheckedLuggage* clone() const override {
+     CheckedLuggage* clone() const override {
         return new CheckedLuggage(*this);
     }
 

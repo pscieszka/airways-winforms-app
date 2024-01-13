@@ -16,7 +16,7 @@ protected:
 
 public:
     std::string tag;
-    virtual Baggage* clone() const = 0;
+   
     /**
      * @brief Konstruktor klasy, czesc wspolna wszystkich typow bagazu.
      * Konstruktor takze odpowiada za zliczanie wszystkich instancji tej klasy,
@@ -26,7 +26,7 @@ public:
      */
     Baggage(double weight, const std::vector<int>& size);
     Baggage();
-
+    virtual Baggage* clone() const = 0;
     virtual void setWeight(double newWeight);
     virtual void setSize(const std::vector<int>& newSize);
 
