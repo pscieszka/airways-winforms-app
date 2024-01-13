@@ -65,11 +65,6 @@ std::vector<Passenger>& Flight::getPassengers()
 
 }
 
-Flight::~Flight()
-{
-
-}
-
 std::string Flight::addTime(int timeInt, std::string timeStr)
 {
     std::string ret;

@@ -41,8 +41,6 @@ public:
      */
     int getPrice() const override;
 
-    ~CheckedLuggage();
-
 private:
     void validCheck() override;
 

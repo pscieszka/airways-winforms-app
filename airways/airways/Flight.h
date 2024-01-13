@@ -50,7 +50,7 @@ public:
 * @brief Zwraca wektor pasazerow.
 */
 	std::vector<Passenger>& getPassengers();
-	~Flight();
+
 private:
 	/**
 * @brief Funkcja do dodawnia czasu miedzy 2 roznymi formatmi.

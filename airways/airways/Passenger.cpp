@@ -5,9 +5,6 @@
 Passenger::Passenger(std::string name, std::string surname,std::string ticketType, Baggage* baggage,int ticketPrice,bool flagTicketPrice) 
 	: name(name), surname(surname), ticketType(ticketType), baggage(baggage), ticketPrice(ticketPrice), flagTicketPrice(flagTicketPrice)
 {
-
-	
-
 }
 
 Passenger::Passenger(const Passenger& other)
@@ -23,8 +20,6 @@ Passenger::Passenger(const Passenger& other)
 		baggage = other.baggage->clone();
 		bagType = baggage->getType();
 		calculateTicketPrice();
-
-
 	}
 	else {
 		baggage = nullptr;
@@ -111,7 +106,6 @@ Passenger& Passenger::operator=(const Passenger& other)
 	if (this != &other) {
 		delete baggage;
 
-		// Skopiuj dane
 		baggagesId = other.baggagesId;
 		name = other.name;
 		surname = other.surname;

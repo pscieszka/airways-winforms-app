@@ -14,38 +14,28 @@ SmallBag::SmallBag() : Baggage(), backpack(false)
 
 std::string SmallBag::display() const
 {
-	std::cout << "Small bag" << std::endl;
-	std::cout << "Weight:" << weight << std::endl;
-	std::cout << "Size:";
+	std::string result;
+
+	result += "Small bag\n";
+	result += "Weight: " + std::to_string(weight) + "\n";
+	result += "Size: ";
 	for (int i = 0; i < 3; i++) {
-		std::cout << size[i] << " ";
+		result += std::to_string(size[i]) + " ";
 	}
-	std::cout << std::endl;
-	std::cout << "Tag:" << tag << std::endl;
-	std::cout << "Valid:" << isValid << std::endl;
-	return "change it to string return to do";
+	result += "\n";
+	result += "Tag: " + tag + "\n";
+	result += "Valid: " + std::to_string(isValid) + "\n";
+	return result;
 }
 
 std::string SmallBag::getType() const
 {
-	if (backpack) {
-		return "Small Bag";
-	}
-	else {
-		return "Small Bag";
-	}
+	return "Small Bag";
 }
 
 int SmallBag::getPrice() const
 {
 	return 0;
-}
-
-
-SmallBag::~SmallBag()
-
-{
-	std::cout << "dest smallbag";
 }
 
 void SmallBag::validCheck()

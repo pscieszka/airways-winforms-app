@@ -28,6 +28,9 @@ public:
  * @param ticketPrice - cena biletu, pobierana z obiektu baggage.
  */
 	Passenger(std::string name, std::string surname, std::string ticketType, Baggage* baggage,int ticketPrice,bool flagTicketPrice);
+	/**
+* @brief Konstruktor kopiujacy
+*/
 	Passenger(const Passenger& other);
 	Passenger();
 /**
@@ -45,16 +48,28 @@ public:
  */
 	std::vector<std::string> getDataRaw();
 /**
-* @brief Dostep do obiektu baggagze. (Rowniez mozna uzyc Passenger.baggage)
+* @brief Dostep do obiektu baggagze. 
 */
 	Baggage* getBaggage() const { return baggage; }
-
+	/**
+* @brief Ustawienie bagazu jako HandLuggage.
+*/
 	void setBaggage(double weight, std::vector<int>sizes);
+	/**
+* @brief Ustawienie bagazu jako SmallBag.
+*/
 	void setBaggage(double weight, std::vector<int>sizes, bool backpack);
+	/**
+* @brief Ustawienie bagazu jako CheckedLuggage.
+*/
 	void setBaggage(double weight, std::vector<int>sizes, double distance);
-
+	/**
+* @brief Przeciazenie operatora = sluzy do poprawnego tworzenia kopii obietku.
+*/
 	Passenger& operator=(const Passenger& other);
-
+	/**
+* @brief Des
+*/
 	~Passenger();
 private:
 /**

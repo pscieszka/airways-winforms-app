@@ -31,7 +31,6 @@ public:
    * @return Cena bagazu jako int.
    */
 	int getPrice() const override;
-	~SmallBag();
 
 private:
 

@@ -28,7 +28,6 @@ public:
    * @return Cena bagazu jako int.
    */
 	int getPrice() const override;
-	~HandLuggage();
 
 private:
 	void validCheck() override;
