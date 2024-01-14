@@ -1,6 +1,21 @@
-# airways-winforms-app
+# Uruchamianie
 
-# To do
+Aby dało się uruchomić program w trybie debuggowania w visual studio trzeba zainstalować(w vs instalatorze):
+
+- Desktop development with C++
+- .NET Framework 4.8 SDK
+- .NET Framework 4.8 Targeting Pack
+- Opcjonalnie extension cpp / clr
+
+Zapakowany jest też plik .exe, który jest już skompilowany.
+
+# Nazewnictwo
+
+- Cyfra na końcu nazwy oznacza, że jest to klasa .NET, wartość cyfry oznacza zagnieżdżenie formsów
+- Brak cyfry oznacza, że jest to klasa w czystym C++.
+
+
+# Wymagania
 
 - [X] wskaźniki i alokacja pamięci  -> obiekt globalny flights do obslugi danych, obiekt bagazu pasazera
 - [X] klasy (minimum 3) 
