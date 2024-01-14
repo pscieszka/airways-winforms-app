@@ -91,19 +91,25 @@ bool airways::Edit1::validTextBoxes()
     if (String::IsNullOrWhiteSpace(textBoxGate->Text))
     {
         infoLabelGate->Text = "";
-        isValid = true;
+        return isValid;
     }
     if (textBoxGate->Text == "N/A") {
-        isValid = true;
+        infoLabelGate->Text = "";
+        return isValid;
     }
     else
     {
         try
         {
             String^ gateText = textBoxGate->Text;
-
+            // SprawdŸ, czy trzeci znak (jeœli istnieje) to cyfra od 0 do 9
+            if (gateText->Length != 3)
+            {
+                infoLabelGate->Text = "Invalid gate number format. Invalid length..";
+                isValid = false;
+            }
             // SprawdŸ, czy pierwszy znak to du¿a litera od A do Z
-            if (!(gateText[0] >= 'A' && gateText[0] <= 'Z'))
+            else if (!(gateText[0] >= 'A' && gateText[0] <= 'Z'))
             {
                 infoLabelGate->Text = "The first character must be a capital letter (A-Z).";
                 isValid = false;
@@ -114,12 +120,7 @@ bool airways::Edit1::validTextBoxes()
                 infoLabelGate->Text = "The second character must be a digit (1-9).";
                 isValid = false;
             }
-            // SprawdŸ, czy trzeci znak (jeœli istnieje) to cyfra od 0 do 9
-            else if (gateText->Length > 3)
-            {
-                infoLabelGate->Text = "Invalid gate number format. The number is too long.";
-                isValid = false;
-            }
+
             else
             {
                 infoLabelGate->Text = "";
@@ -145,7 +146,7 @@ System::Void airways::Edit1::buttonChangeData_Click(System::Object^ sender, Syst
        
         (*flights)[idx].edit(
             Int32::Parse(this->textBoxMinutes->Text)+ Int32::Parse(this->textBoxHours->Text)*60,
-            msclr::interop::marshal_as<std::string>(this->textBoxDD->Text) + "." + msclr::interop::marshal_as<std::string>(this->textBoxMM->Text), 
+            std::to_string(Int32::Parse(this->textBoxDD->Text)) + "." + std::to_string(Int32::Parse(this->textBoxMM->Text)),
             msclr::interop::marshal_as<std::string>(this->textBoxGate->Text));
         this->Close();
     }

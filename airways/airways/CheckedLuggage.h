@@ -23,10 +23,8 @@ public:
      * @brief Domyœlny konstruktor klasy CheckedLuggage.
      */
     CheckedLuggage();
-     CheckedLuggage* clone() const override {
-        return new CheckedLuggage(*this);
-    }
-
+    CheckedLuggage* clone() const override;
+        
     std::string display() const override;
 
     /**

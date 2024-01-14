@@ -12,6 +12,11 @@ SmallBag::SmallBag() : Baggage(), backpack(false)
 	setTag();
 }
 
+SmallBag* SmallBag::clone() const
+{
+	return new SmallBag(*this);
+}
+
 std::string SmallBag::display() const
 {
 	std::string result;

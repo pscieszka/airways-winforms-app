@@ -14,6 +14,11 @@ CheckedLuggage::CheckedLuggage() : Baggage(), dist(0), price(-1)
 	setTag();
 }
 
+CheckedLuggage* CheckedLuggage::clone() const
+{
+	return new CheckedLuggage(*this);
+}
+
 std::string CheckedLuggage::display() const
 {
 	std::string result;

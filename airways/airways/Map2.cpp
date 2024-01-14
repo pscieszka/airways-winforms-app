@@ -97,6 +97,7 @@ bool airways::Map2::validTextBoxes()
                 infoLabelDD->Text = "Month must be between 1 and 12.";
                 isValid = false;
             }
+
             else
             {
                 if (month == 4 || month == 6 || month == 9 || month == 11) {
@@ -114,6 +115,7 @@ bool airways::Map2::validTextBoxes()
                     infoLabelDD->Text = "The entered day must be between 1 and " + gcnew String(std::to_string(monthDays).c_str()) + ".";
                     isValid = false;
                 }
+    
             }
         }
         catch (FormatException^)
@@ -126,8 +128,9 @@ bool airways::Map2::validTextBoxes()
             infoLabelDD->Text = "The entered day exceeds the range of integers.";
             isValid = false;
         }
-        infoLabelDD->Text = "";
+        
     }
+    
 
     //godzina
     if (String::IsNullOrWhiteSpace(textBoxHours->Text) || String::IsNullOrWhiteSpace(textBoxMinutes->Text))
@@ -147,6 +150,9 @@ bool airways::Map2::validTextBoxes()
                 infoLabelHH->Text = "The entered time is not valid.";
                 isValid = false;
             }
+            else {
+                infoLabelHH->Text = "";
+            }
         }
         catch (FormatException^)
         {
@@ -158,12 +164,10 @@ bool airways::Map2::validTextBoxes()
             infoLabelHH->Text = "The entered time exceeds the range of integers.";
             isValid = false;
         }
-        infoLabelHH->Text = "";
     }
     if (String::IsNullOrWhiteSpace(textBoxGate->Text))
     {
         infoLabelGate->Text = "";
-        isValid = true;
     }
     else
     {
@@ -226,7 +230,7 @@ System::Void airways::Map2::buttonConfirm_Click(System::Object^ sender, System::
 {
     if (validTextBoxes()) {
         int time = Int32::Parse(textBoxHours->Text) * 60 + Int32::Parse(textBoxMinutes->Text);
-        std::string date = msclr::interop::marshal_as<std::string>(textBoxDD->Text) + '.' + msclr::interop::marshal_as<std::string>(textBoxMM->Text);
+        std::string date = std::to_string(Int32::Parse(textBoxDD->Text)) + '.' + std::to_string(Int32::Parse(textBoxMM->Text));
 
         std::string gate;
         String::IsNullOrWhiteSpace(textBoxGate->Text) ? gate = "N/A" : gate = msclr::interop::marshal_as<std::string>(textBoxGate->Text);

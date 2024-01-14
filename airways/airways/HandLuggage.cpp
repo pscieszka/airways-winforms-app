@@ -11,6 +11,11 @@ HandLuggage::HandLuggage() : Baggage()
 	setTag();
 }
 
+HandLuggage* HandLuggage::clone() const
+{
+	return new HandLuggage(*this);
+}
+
 std::string HandLuggage::display() const
 {
 	std::string result;

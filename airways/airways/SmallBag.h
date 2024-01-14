@@ -16,9 +16,8 @@ public:
 	 */
 	SmallBag(double weight, const std::vector<int>& size, bool backpack);
 	SmallBag();
-	SmallBag* clone() const override {
-		return new SmallBag(*this);
-	}
+	SmallBag* clone() const override;
+		
 	std::string display() const override;
 	/**
 	   * @brief Funkcja zwracaja typ bagazu.
