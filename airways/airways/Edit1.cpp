@@ -91,6 +91,7 @@ bool airways::Edit1::validTextBoxes()
     if (String::IsNullOrWhiteSpace(textBoxGate->Text))
     {
         infoLabelGate->Text = "";
+        this->textBoxGate->Text = "N/A";
         return isValid;
     }
     if (textBoxGate->Text == "N/A") {
@@ -147,7 +148,7 @@ System::Void airways::Edit1::buttonChangeData_Click(System::Object^ sender, Syst
         (*flights)[idx].edit(
             Int32::Parse(this->textBoxMinutes->Text)+ Int32::Parse(this->textBoxHours->Text)*60,
             std::to_string(Int32::Parse(this->textBoxDD->Text)) + "." + std::to_string(Int32::Parse(this->textBoxMM->Text)),
-            msclr::interop::marshal_as<std::string>(this->textBoxGate->Text));
+            msclr::interop::marshal_as<std::string>(this->textBoxGate->Text)); 
         this->Close();
     }
 }

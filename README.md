@@ -15,31 +15,6 @@
 - [X] obsługa błędów — wyjątki -> kazdy input uzytkownia to blok try - catch
 - [X] parametry wywołania programu -> brak argumentow = wielkosc okna jest zablokowana, w przeciwnym wypadku nie jest
 
-# Doxygen progress
-
-- [X] Baggage.h
-- [X] SmallBag.h
-- [X] HandLuggage.h
-- [X] CheckedLuggage.h
-- [X] Passenger.h
-- [X] Flight.h
-- [X] FlightList.h
-- [X] CalculateCostsClasses.h
-- [X] Form1.h
-- [X] Map1.h
-- [X] Map2.h
-- [X] Home1.h
-- [X] List1.h
-- [X] Edit1.h
-- [X] Edit2.h
-- [X] PassengerList1.h
-- [X] SaveLoad1.h
-- [X] CalculateCosts1.h
-- [X] CityItem.h
-- [X] listItem.h
-- [X] PassengerItem.h
-
-
 
 
 

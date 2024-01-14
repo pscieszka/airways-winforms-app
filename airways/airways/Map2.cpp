@@ -117,6 +117,9 @@ bool airways::Map2::validTextBoxes()
                 }
     
             }
+            if (isValid) {
+                infoLabelDD->Text = "";
+            }
         }
         catch (FormatException^)
         {
@@ -198,7 +201,6 @@ bool airways::Map2::validTextBoxes()
             {
                 infoLabelGate->Text = "";
             }
-            infoLabelGate->Text = "";
            }
 
         }
